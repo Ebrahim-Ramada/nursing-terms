@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>مصطلحات التمريض الطبية</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--tx:#14202e;--mu:#5d6b7c;--bd:#dbe3ec;--pri:#0b7ea8;--pri2:#e3f3f9;--ok:#1b9a5b;--okbg:#e4f6ec;--bad:#d1384b;--badbg:#fdeaed;--warn:#b26a00;--warnbg:#fff4dd;--gold:#9a6700;--sh:0 2px 10px rgba(20,32,46,.07)}
+:root[data-theme=dark]{--bg:#0e1621;--card:#17222f;--tx:#e8eef5;--mu:#97a6b8;--bd:#2a3a4c;--pri:#4fc3e8;--pri2:#16354a;--ok:#4cc88a;--okbg:#14382a;--bad:#ff7a8a;--badbg:#3d1b22;--warn:#f0b04a;--warnbg:#3a2d12;--gold:#e6c35c;--sh:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1621;--card:#17222f;--tx:#e8eef5;--mu:#97a6b8;--bd:#2a3a4c;--pri:#4fc3e8;--pri2:#16354a;--ok:#4cc88a;--okbg:#14382a;--bad:#ff7a8a;--badbg:#3d1b22;--warn:#f0b04a;--warnbg:#3a2d12;--gold:#e6c35c;--sh:none}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI","Noto Sans Arabic","Noto Naskh Arabic",Tahoma,"Droid Arabic Naskh",system-ui,sans-serif;font-size:17px;line-height:1.65}
+#app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+#side{background:var(--card);border-inline-end:1px solid var(--bd);padding:14px 10px;position:sticky;top:0;height:100vh;overflow:auto}
+#side .brand{font-weight:800;font-size:1.05rem;padding:8px 10px 14px;color:var(--pri)}
+#side a{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:12px;color:var(--tx);text-decoration:none;margin-bottom:4px;font-weight:600}
+#side a.on{background:var(--pri2);color:var(--pri)}
+#main{padding:18px 22px 90px;max-width:900px;width:100%;margin:0 auto}
+#bottom{display:none}
+h1{font-size:1.5rem;margin:.2em 0 .5em}h2{font-size:1.25rem;margin:.2em 0 .5em}h3{font-size:1.05rem;margin:.2em 0 .5em}
+.muted{color:var(--mu)}.small{font-size:.85rem}.c{text-align:center}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:12px 0;box-shadow:var(--sh)}
+.card.hero{background:linear-gradient(135deg,var(--pri2),var(--card))}
+.card.warn{background:var(--warnbg);color:var(--warn);border-color:transparent}
+.card.err{background:var(--badbg);color:var(--bad)}
+.card.link{display:block;text-decoration:none;color:var(--tx);font-weight:700;text-align:center;padding:20px 10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;align-items:center}.row.c{justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;background:var(--pri);color:#fff;font:inherit;font-weight:700;padding:11px 18px;border-radius:12px;cursor:pointer;text-decoration:none;min-height:46px}
+.btn.big{padding:14px 26px;font-size:1.05rem}.btn.sm{padding:6px 12px;min-height:36px;font-size:.85rem}
+.btn.alt{background:var(--pri2);color:var(--pri)}.btn.bad{background:var(--bad)}.btn.ok{background:var(--ok)}.btn.ok2{background:#12805a}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn small{display:block;font-weight:500;font-size:.72rem;opacity:.85}
+select,input[type=search],input[type=text],input[type=number],input:not([type]),input[type=file]{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;min-height:44px;max-width:100%}
+input[type=search]{width:100%;margin-bottom:8px}input.num{width:90px}input[type=range]{width:100%;min-height:36px}
+label{display:block;margin:10px 0 4px;font-weight:600}label.chk{display:flex;gap:8px;align-items:center;font-weight:500}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}.form label{margin:6px 0 0}.form input,.form select{width:100%}
+.en{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:700}
+.pron{display:inline-block;background:var(--warnbg);color:var(--gold);padding:2px 12px;border-radius:999px;font-weight:700;margin:4px 0}.pron.sm{padding:0 8px;font-size:.85rem}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--pri2);color:var(--pri);font-size:.78rem;font-weight:700}
+.chip.new{background:var(--warnbg);color:var(--warn)}.chip.mastered,.chip.ok{background:var(--okbg);color:var(--ok)}.chip.learning{background:var(--badbg);color:var(--bad)}.chip.link{text-decoration:none}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0}
+.tile{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px;text-align:center}.tile b{display:block;font-size:1.5rem;color:var(--pri)}.tile small{display:block;color:var(--mu);font-size:.78rem}
+.tile.ok b{color:var(--ok)}.tile.bad b{color:var(--bad)}
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin:10px 0 14px}.plan b{font-size:1.9rem;display:block;color:var(--pri)}.plan small{color:var(--mu)}
+.bar{height:10px;background:var(--bd);border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--pri);border-radius:99px;transition:width .3s}.bar.sm{height:7px}
+.list{display:flex;flex-direction:column;gap:8px}
+.li{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:10px 14px;color:var(--tx);text-decoration:none}
+.li.static{border:0;border-bottom:1px solid var(--bd);border-radius:0;padding:8px 2px;background:none}.li.err{color:var(--bad)}
+.li-side{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.fc{text-align:center;padding:22px 16px}.fc-top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fc-term{font-size:2.3rem;margin:10px 0 2px;line-height:1.2}.fc-term .en{font-size:inherit}.fc-mean{font-size:1.8rem;font-weight:800;color:var(--pri);margin:6px 0}
+.fc p{margin:6px 0}.ex{background:var(--pri2);border-radius:12px;padding:10px;margin:10px 0}
+.warnt{color:var(--warn)}hr{border:0;border-top:1px dashed var(--bd);margin:14px 0}
+.ib{border:1px solid var(--bd);background:var(--card);border-radius:50%;width:44px;height:44px;font-size:1.15rem;cursor:pointer;margin:0 3px}.ib.playing{background:var(--pri2);transform:scale(1.1)}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.grades .btn{flex-direction:column;padding:10px 4px}
+.sess-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.opt{font:inherit;text-align:center;background:var(--card);color:var(--tx);border:2px solid var(--bd);border-radius:14px;padding:14px 8px;cursor:pointer;min-height:60px}.opt small{display:block;color:var(--gold);font-weight:700}
+.opt:hover:not(:disabled){border-color:var(--pri)}.opt.right{border-color:var(--ok);background:var(--okbg)}.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt-card{border:2px solid var(--bd);border-radius:14px;padding:12px;display:block;cursor:pointer;margin:0}.opt-card:has(input:checked){border-color:var(--pri);background:var(--pri2)}.opt-card small{display:block;color:var(--mu);font-weight:400}.opt-card input{margin-inline-end:6px}
+.spell{direction:ltr;text-align:center;font-size:1.4rem;width:100%;margin:12px 0}.spell.right{border-color:var(--ok);background:var(--okbg)}.spell.wrong{border-color:var(--bad);background:var(--badbg)}
+.fb{border-radius:12px;padding:12px;margin:10px 0;background:var(--pri2)}.fb.ok{background:var(--okbg);color:var(--ok)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb .muted{color:inherit;opacity:.85}
+.bad{color:var(--bad)}.okt{color:var(--ok)}
+.chart{display:flex;align-items:flex-end;gap:5px;height:130px;margin-top:8px}.chart .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}.chart i{width:100%;background:var(--pri);border-radius:5px 5px 0 0;min-height:2px}.chart small{font-size:.62rem;color:var(--mu)}
+.cp{display:grid;grid-template-columns:minmax(120px,1.2fr) 2fr 60px;gap:8px;align-items:center;margin:4px 0}.cp small{color:var(--mu);text-align:center}
+.back{display:inline-block;margin-bottom:6px;color:var(--pri);text-decoration:none;font-weight:700}
+details{margin:6px 0}summary{cursor:pointer;font-weight:700}
+#toast{position:fixed;inset-inline:12px;bottom:78px;max-width:520px;margin-inline:auto;background:#222;color:#fff;padding:12px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:50;text-align:center}
+#toast.show{opacity:1}#toast.ok{background:#157a4b}#toast.bad{background:#b3283b}
+@media(max-width:899px){
+ #app{display:block}#side{display:none}
+ #main{padding:14px 14px 96px}
+ #bottom{display:flex;position:fixed;bottom:0;inset-inline:0;background:var(--card);border-top:1px solid var(--bd);z-index:20;padding:4px 2px calc(4px + env(safe-area-inset-bottom))}
+ #bottom a{flex:1;display:flex;flex-direction:column;align-items:center;gap:0;text-decoration:none;color:var(--mu);font-size:.72rem;font-weight:700;padding:5px 0}#bottom a span{font-size:1.35rem;line-height:1.2}#bottom a.on{color:var(--pri)}
+ .fc-term{font-size:2rem}.grades .btn{font-size:.85rem}.form{grid-template-columns:1fr}
+}
+@media(max-width:480px){.opts{grid-template-columns:1fr}.grid2{grid-template-columns:1fr 1fr}.cp{grid-template-columns:1fr 1fr 48px}}
+
+.ex .ib{width:36px;height:36px;font-size:1rem;margin:0 2px}.ex .en{font-weight:600}
+
+</style>
+</head>
+<body>
+<div id="app"><aside id="side"></aside><main id="main"><div class="card c muted">جارٍ التحميل…</div></main><nav id="bottom"></nav></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:20px">يلزم تفعيل JavaScript لتشغيل التطبيق.</p></noscript>
+<script>
+/* data/terms-seed.js */
+window.SEED_VERSION="c16c2ff452";
+window.SEED_TERMS=[{"k":"patient","en":"Patient","pr":"بيشنت","ar":"مريض","sm":"الشخص الذي يتلقى العلاج أو الرعاية","ex":"The patient is resting.","exa":"المريض يرتاح.","c":"basics","l":1,"p":"noun","rt":"","rel":["nurse","doctor"],"df":""},{"k":"nurse","en":"Nurse","pr":"نيرس","ar":"ممرض / ممرضة","sm":"الشخص المسؤول عن رعاية المريض","ex":"The nurse checks the patient.","exa":"الممرضة تفحص المريض.","c":"basics","l":1,"p":"noun","rt":"","rel":["patient","doctor"],"df":""},{"k":"doctor","en":"Doctor","pr":"دوكتور","ar":"طبيب","sm":"الشخص الذي يشخص المرض ويصف العلاج","ex":"The doctor is in the room.","exa":"الطبيب في الغرفة.","c":"basics","l":1,"p":"noun","rt":"","rel":["nurse","physician"],"df":""},{"k":"physician","en":"Physician","pr":"فيزيشن","ar":"طبيب (رسمي)","sm":"كلمة رسمية بمعنى طبيب","ex":"The physician ordered a test.","exa":"الطبيب طلب فحصاً.","c":"basics","l":2,"p":"noun","rt":"","rel":["doctor","surgeon"],"df":""},{"k":"hospital","en":"Hospital","pr":"هوسبيتل","ar":"مستشفى","sm":"مكان علاج المرضى وإقامتهم","ex":"She works in a hospital.","exa":"هي تعمل في مستشفى.","c":"hospital","l":1,"p":"noun","rt":"","rel":["clinic","ward"],"df":""},{"k":"clinic","en":"Clinic","pr":"كلينيك","ar":"عيادة","sm":"مكان صغير لفحص المرضى دون إقامة","ex":"He visited the clinic.","exa":"زار العيادة.","c":"hospital","l":1,"p":"noun","rt":"","rel":["hospital"],"df":""},{"k":"ward","en":"Ward","pr":"وورد","ar":"عنبر / جناح","sm":"قسم في المستشفى فيه أسرّة المرضى","ex":"The ward is quiet.","exa":"العنبر هادئ.","c":"hospital","l":1,"p":"noun","rt":"","rel":["bed","nurse"],"df":""},{"k":"bed","en":"Bed","pr":"بيد","ar":"سرير","sm":"مكان نوم المريض","ex":"The bed is clean.","exa":"السرير نظيف.","c":"nursing","l":1,"p":"noun","rt":"","rel":["ward"],"df":""},{"k":"pain","en":"Pain","pr":"بين","ar":"ألم","sm":"إحساس مزعج يدل على مشكلة في الجسم","ex":"I have pain in my back.","exa":"أشعر بألم في ظهري.","c":"basics","l":1,"p":"noun","rt":"","rel":["ache","discomfort"],"df":""},{"k":"ache","en":"Ache","pr":"إيك","ar":"وجع","sm":"ألم مستمر غير حاد","ex":"He has a headache.","exa":"عنده صداع.","c":"basics","l":1,"p":"noun","rt":"","rel":["pain"],"df":""},{"k":"fever","en":"Fever","pr":"فيفر","ar":"حمى","sm":"ارتفاع درجة حرارة الجسم","ex":"The child has a fever.","exa":"الطفل عنده حمى.","c":"vitals","l":1,"p":"noun","rt":"","rel":["temperature"],"df":""},{"k":"symptom","en":"Symptom","pr":"سيمبتوم","ar":"عَرَض","sm":"ما يشعر به المريض ويشكو منه","ex":"Cough is a symptom.","exa":"السعال عَرَض.","c":"basics","l":2,"p":"noun","rt":"","rel":["sign"],"df":""},{"k":"sign","en":"Sign","pr":"ساين","ar":"علامة","sm":"ما يلاحظه الطبيب أو الممرض بالفحص","ex":"Swelling is a sign.","exa":"التورم علامة.","c":"basics","l":2,"p":"noun","rt":"","rel":["symptom"],"df":"Sign يلاحظه الفاحص، أما Symptom فيشعر به المريض"},{"k":"disease","en":"Disease","pr":"ديزيز","ar":"مرض","sm":"حالة تُخل بوظيفة الجسم","ex":"Diabetes is a chronic disease.","exa":"السكري مرض مزمن.","c":"basics","l":1,"p":"noun","rt":"","rel":["illness"],"df":""},{"k":"illness","en":"Illness","pr":"إلنس","ar":"مرض / اعتلال","sm":"حالة المرض كما يشعر بها الشخص","ex":"His illness lasted a week.","exa":"مرضه استمر أسبوعاً.","c":"basics","l":1,"p":"noun","rt":"","rel":["disease"],"df":""},{"k":"treatment","en":"Treatment","pr":"تريتمنت","ar":"علاج","sm":"الإجراءات المستخدمة لعلاج المرض","ex":"The treatment is working.","exa":"العلاج ناجح.","c":"basics","l":1,"p":"noun","rt":"","rel":["therapy","medication"],"df":""},{"k":"diagnosis","en":"Diagnosis","pr":"دايجنوسيس","ar":"تشخيص","sm":"معرفة نوع المرض","ex":"The diagnosis was clear.","exa":"كان التشخيص واضحاً.","c":"basics","l":2,"p":"noun","rt":"","rel":["prognosis"],"df":""},{"k":"prognosis","en":"Prognosis","pr":"برُجنوسيس","ar":"توقع سير المرض","sm":"ما يتوقعه الطبيب لمستقبل المرض","ex":"The prognosis is good.","exa":"التوقعات جيدة.","c":"basics","l":3,"p":"noun","rt":"","rel":["diagnosis"],"df":""},{"k":"acute","en":"Acute","pr":"أكيوت","ar":"حاد","sm":"يبدأ فجأة ويستمر مدة قصيرة","ex":"He has acute pain.","exa":"عنده ألم حاد.","c":"basics","l":2,"p":"adjective","rt":"","rel":["chronic"],"df":""},{"k":"chronic","en":"Chronic","pr":"كرونيك","ar":"مزمن","sm":"يستمر مدة طويلة","ex":"She has chronic asthma.","exa":"عندها ربو مزمن.","c":"basics","l":2,"p":"adjective","rt":"","rel":["acute"],"df":""},{"k":"head","en":"Head","pr":"هيد","ar":"رأس","sm":"الجزء العلوي من الجسم","ex":"My head hurts.","exa":"رأسي يؤلمني.","c":"body","l":1,"p":"noun","rt":"","rel":["skull","brain"],"df":""},{"k":"neck","en":"Neck","pr":"نيك","ar":"رقبة","sm":"يصل الرأس بالجسم","ex":"His neck is stiff.","exa":"رقبته متيبسة.","c":"body","l":1,"p":"noun","rt":"","rel":["throat"],"df":""},{"k":"chest","en":"Chest","pr":"تشست","ar":"صدر","sm":"منطقة القلب والرئتين","ex":"She has chest pain.","exa":"عندها ألم في الصدر.","c":"body","l":1,"p":"noun","rt":"","rel":["thorax"],"df":""},{"k":"abdomen","en":"Abdomen","pr":"أبدومن","ar":"بطن","sm":"المنطقة بين الصدر والحوض","ex":"The abdomen is soft.","exa":"البطن لين.","c":"body","l":2,"p":"noun","rt":"","rel":["stomach"],"df":""},{"k":"back","en":"Back","pr":"باك","ar":"ظهر","sm":"الجزء الخلفي من الجسم","ex":"He has back pain.","exa":"عنده ألم في الظهر.","c":"body","l":1,"p":"noun","rt":"","rel":["spine"],"df":""},{"k":"arm","en":"Arm","pr":"آرم","ar":"ذراع","sm":"من الكتف إلى المعصم","ex":"He broke his arm.","exa":"كسر ذراعه.","c":"body","l":1,"p":"noun","rt":"","rel":["elbow","hand"],"df":""},{"k":"hand","en":"Hand","pr":"هاند","ar":"يد","sm":"الجزء الذي فيه الأصابع","ex":"Wash your hands.","exa":"اغسل يديك.","c":"body","l":1,"p":"noun","rt":"","rel":["finger","wrist"],"df":""},{"k":"finger","en":"Finger","pr":"فينجر","ar":"إصبع","sm":"جزء من اليد","ex":"She cut her finger.","exa":"جرحت إصبعها.","c":"body","l":1,"p":"noun","rt":"","rel":["hand"],"df":""},{"k":"leg","en":"Leg","pr":"ليج","ar":"ساق","sm":"من الحوض إلى القدم","ex":"His leg is swollen.","exa":"ساقه متورمة.","c":"body","l":1,"p":"noun","rt":"","rel":["knee","foot"],"df":""},{"k":"foot","en":"Foot","pr":"فوت","ar":"قدم","sm":"الجزء الذي نقف عليه","ex":"The foot is cold.","exa":"القدم باردة.","c":"body","l":1,"p":"noun","rt":"","rel":["toe","ankle"],"df":""},{"k":"knee","en":"Knee","pr":"ني","ar":"ركبة","sm":"مفصل يربط الفخذ بالساق","ex":"Her knee hurts.","exa":"ركبتها تؤلمها.","c":"body","l":1,"p":"noun","rt":"","rel":["leg"],"df":""},{"k":"shoulder","en":"Shoulder","pr":"شولدر","ar":"كتف","sm":"مفصل يربط الذراع بالجسم","ex":"He injured his shoulder.","exa":"أصاب كتفه.","c":"body","l":1,"p":"noun","rt":"","rel":["arm"],"df":""},{"k":"elbow","en":"Elbow","pr":"إلبو","ar":"مرفق","sm":"مفصل في منتصف الذراع","ex":"Bend your elbow.","exa":"اثنِ مرفقك.","c":"body","l":1,"p":"noun","rt":"","rel":["arm"],"df":""},{"k":"wrist","en":"Wrist","pr":"ريست","ar":"معصم","sm":"مفصل بين اليد والساعد","ex":"The wrist is swollen.","exa":"المعصم متورم.","c":"body","l":1,"p":"noun","rt":"","rel":["hand"],"df":""},{"k":"ankle","en":"Ankle","pr":"أنكل","ar":"كاحل","sm":"مفصل بين الساق والقدم","ex":"She sprained her ankle.","exa":"التوى كاحلها.","c":"body","l":1,"p":"noun","rt":"","rel":["foot"],"df":""},{"k":"hip","en":"Hip","pr":"هيب","ar":"ورك","sm":"مفصل الحوض مع الفخذ","ex":"He has hip pain.","exa":"عنده ألم في الورك.","c":"body","l":1,"p":"noun","rt":"","rel":["pelvis"],"df":""},{"k":"face","en":"Face","pr":"فيس","ar":"وجه","sm":"مقدمة الرأس","ex":"His face is pale.","exa":"وجهه شاحب.","c":"body","l":1,"p":"noun","rt":"","rel":["head"],"df":""},{"k":"eye","en":"Eye","pr":"آي","ar":"عين","sm":"عضو الإبصار","ex":"My eye is red.","exa":"عيني حمراء.","c":"body","l":1,"p":"noun","rt":"","rel":["vision"],"df":""},{"k":"ear","en":"Ear","pr":"إير","ar":"أذن","sm":"عضو السمع","ex":"She has an ear infection.","exa":"عندها التهاب في الأذن.","c":"body","l":1,"p":"noun","rt":"","rel":["hearing"],"df":""},{"k":"nose","en":"Nose","pr":"نوز","ar":"أنف","sm":"عضو الشم والتنفس","ex":"His nose is bleeding.","exa":"أنفه ينزف.","c":"body","l":1,"p":"noun","rt":"","rel":["smell"],"df":""},{"k":"mouth","en":"Mouth","pr":"ماوث","ar":"فم","sm":"فتحة الأكل والكلام","ex":"Open your mouth.","exa":"افتح فمك.","c":"body","l":1,"p":"noun","rt":"","rel":["tongue"],"df":""},{"k":"tooth","en":"Tooth","pr":"توث","ar":"سن","sm":"يُستخدم للمضغ","ex":"He has a toothache.","exa":"عنده ألم في السن.","c":"body","l":1,"p":"noun","rt":"","rel":["teeth"],"df":"الجمع Teeth وليس Tooths"},{"k":"tongue","en":"Tongue","pr":"تانج","ar":"لسان","sm":"عضو التذوق والكلام","ex":"Show me your tongue.","exa":"أرني لسانك.","c":"body","l":1,"p":"noun","rt":"","rel":["mouth"],"df":""},{"k":"throat","en":"Throat","pr":"ثروت","ar":"حلق","sm":"الممر خلف الفم","ex":"I have a sore throat.","exa":"عندي التهاب في الحلق.","c":"body","l":1,"p":"noun","rt":"","rel":["neck"],"df":""},{"k":"skin","en":"Skin","pr":"سكين","ar":"جلد","sm":"الغطاء الخارجي للجسم","ex":"Her skin is dry.","exa":"جلدها جاف.","c":"skin","l":1,"p":"noun","rt":"","rel":["dermis"],"df":""},{"k":"hair","en":"Hair","pr":"هير","ar":"شعر","sm":"ينمو على الرأس والجسم","ex":"He is losing hair.","exa":"يفقد شعره.","c":"body","l":1,"p":"noun","rt":"","rel":["scalp"],"df":""},{"k":"bone","en":"Bone","pr":"بون","ar":"عظم","sm":"نسيج صلب يكوّن الهيكل","ex":"The bone is broken.","exa":"العظم مكسور.","c":"msk","l":1,"p":"noun","rt":"","rel":["fracture"],"df":""},{"k":"muscle","en":"Muscle","pr":"ماسل","ar":"عضلة","sm":"نسيج يسبب الحركة","ex":"The muscle is sore.","exa":"العضلة متألمة.","c":"msk","l":1,"p":"noun","rt":"","rel":["tendon"],"df":""},{"k":"blood","en":"Blood","pr":"بلد","ar":"دم","sm":"السائل الأحمر في الأوعية","ex":"He lost a lot of blood.","exa":"فقد دماً كثيراً.","c":"blood","l":1,"p":"noun","rt":"","rel":["plasma"],"df":""},{"k":"heart","en":"Heart","pr":"هارت","ar":"قلب","sm":"عضو يضخ الدم","ex":"The heart beats fast.","exa":"القلب ينبض بسرعة.","c":"cardio","l":1,"p":"noun","rt":"","rel":["cardiac"],"df":""},{"k":"lung","en":"Lung","pr":"لانج","ar":"رئة","sm":"عضو التنفس","ex":"The lung is infected.","exa":"الرئة مصابة بعدوى.","c":"resp","l":1,"p":"noun","rt":"pulmo-","rel":["pulmonary"],"df":""},{"k":"liver","en":"Liver","pr":"ليفر","ar":"كبد","sm":"أكبر غدة في الجسم","ex":"The liver cleans the blood.","exa":"الكبد ينقي الدم.","c":"gi","l":1,"p":"noun","rt":"hepato-","rel":["hepatitis"],"df":""},{"k":"kidney","en":"Kidney","pr":"كيدني","ar":"كلية","sm":"عضو ينقي الدم ويصنع البول","ex":"He has a kidney stone.","exa":"عنده حصوة في الكلية.","c":"renal","l":1,"p":"noun","rt":"nephro-","rel":["renal"],"df":""},{"k":"stomach","en":"Stomach","pr":"ستماك","ar":"معدة","sm":"عضو يهضم الطعام","ex":"My stomach hurts.","exa":"معدتي تؤلمني.","c":"gi","l":1,"p":"noun","rt":"gastro-","rel":["abdomen"],"df":""},{"k":"intestine","en":"Intestine","pr":"إنتستن","ar":"أمعاء","sm":"أنبوب طويل يهضم ويمتص الطعام","ex":"The intestine absorbs food.","exa":"الأمعاء تمتص الغذاء.","c":"gi","l":2,"p":"noun","rt":"","rel":["colon"],"df":""},{"k":"brain","en":"Brain","pr":"برين","ar":"دماغ","sm":"مركز التحكم في الجسم","ex":"The brain controls the body.","exa":"الدماغ يتحكم في الجسم.","c":"neuro","l":1,"p":"noun","rt":"cerebro-","rel":["nerve"],"df":""},{"k":"spine","en":"Spine","pr":"سباين","ar":"عمود فقري","sm":"سلسلة الفقرات في الظهر","ex":"He has a spine injury.","exa":"عنده إصابة في العمود الفقري.","c":"msk","l":2,"p":"noun","rt":"","rel":["vertebra"],"df":""},{"k":"nerve","en":"Nerve","pr":"نيرف","ar":"عصب","sm":"ينقل الإشارات بين الدماغ والجسم","ex":"The nerve is damaged.","exa":"العصب متضرر.","c":"neuro","l":2,"p":"noun","rt":"neuro-","rel":["brain"],"df":""},{"k":"vein","en":"Vein","pr":"فين","ar":"وريد","sm":"وعاء يعيد الدم إلى القلب","ex":"The nurse finds a vein.","exa":"الممرضة تجد وريداً.","c":"cardio","l":1,"p":"noun","rt":"","rel":["artery"],"df":"Vein يعيد الدم للقلب، Artery يخرجه منه"},{"k":"artery","en":"Artery","pr":"آرتري","ar":"شريان","sm":"وعاء يخرج الدم من القلب","ex":"The artery is blocked.","exa":"الشريان مسدود.","c":"cardio","l":2,"p":"noun","rt":"","rel":["vein"],"df":""},{"k":"bladder","en":"Bladder","pr":"بلادر","ar":"مثانة","sm":"كيس يخزن البول","ex":"The bladder is full.","exa":"المثانة ممتلئة.","c":"renal","l":2,"p":"noun","rt":"cysto-","rel":["urine"],"df":""},{"k":"uterus","en":"Uterus","pr":"يوتريس","ar":"رحم","sm":"عضو يحمل الجنين","ex":"The uterus grows in pregnancy.","exa":"الرحم يكبر في الحمل.","c":"ob","l":2,"p":"noun","rt":"","rel":["ovary"],"df":""},{"k":"ovary","en":"Ovary","pr":"أوفري","ar":"مبيض","sm":"ينتج البويضات","ex":"She has an ovarian cyst.","exa":"عندها كيس على المبيض.","c":"ob","l":2,"p":"noun","rt":"","rel":["uterus"],"df":""},{"k":"pancreas","en":"Pancreas","pr":"بانكرياس","ar":"بنكرياس","sm":"غدة تنتج الأنسولين","ex":"The pancreas makes insulin.","exa":"البنكرياس يصنع الأنسولين.","c":"endo","l":2,"p":"noun","rt":"","rel":["insulin"],"df":""},{"k":"thyroid","en":"Thyroid","pr":"ثايرويد","ar":"الغدة الدرقية","sm":"غدة في الرقبة تنظم الأيض","ex":"The thyroid is underactive.","exa":"الغدة الدرقية خاملة.","c":"endo","l":2,"p":"noun","rt":"","rel":["hormone"],"df":""},{"k":"gallbladder","en":"Gallbladder","pr":"جولبلادر","ar":"مرارة","sm":"كيس يخزن الصفراء","ex":"He had his gallbladder removed.","exa":"أُزيلت مرارته.","c":"gi","l":2,"p":"noun","rt":"","rel":["liver"],"df":""},{"k":"spleen","en":"Spleen","pr":"سبلين","ar":"طحال","sm":"عضو يرشح الدم ويدعم المناعة","ex":"The spleen is enlarged.","exa":"الطحال متضخم.","c":"blood","l":3,"p":"noun","rt":"","rel":["blood"],"df":""},{"k":"esophagus","en":"Esophagus","pr":"إيسوفاجس","ar":"مريء","sm":"أنبوب ينقل الطعام للمعدة","ex":"Food passes down the esophagus.","exa":"الطعام ينزل في المريء.","c":"gi","l":3,"p":"noun","rt":"","rel":["stomach"],"df":""},{"k":"trachea","en":"Trachea","pr":"تريكيا","ar":"قصبة هوائية","sm":"أنبوب ينقل الهواء للرئتين","ex":"The trachea carries air.","exa":"القصبة الهوائية تنقل الهواء.","c":"resp","l":3,"p":"noun","rt":"","rel":["lung"],"df":""},{"k":"diaphragm","en":"Diaphragm","pr":"دايافرام","ar":"حجاب حاجز","sm":"عضلة التنفس تحت الرئتين","ex":"The diaphragm helps breathing.","exa":"الحجاب الحاجز يساعد التنفس.","c":"resp","l":3,"p":"noun","rt":"","rel":["lung"],"df":""},{"k":"pulse","en":"Pulse","pr":"بلس","ar":"نبض","sm":"عدد ضربات القلب في الدقيقة","ex":"Check the pulse.","exa":"افحص النبض.","c":"vitals","l":1,"p":"noun","rt":"","rel":["heart rate"],"df":""},{"k":"temperature","en":"Temperature","pr":"تمبريتشر","ar":"درجة الحرارة","sm":"قياس حرارة الجسم","ex":"His temperature is normal.","exa":"حرارته طبيعية.","c":"vitals","l":1,"p":"noun","rt":"","rel":["fever"],"df":""},{"k":"blood pressure","en":"Blood pressure","pr":"بلد برشر","ar":"ضغط الدم","sm":"قوة الدم على جدران الأوعية","ex":"Her blood pressure is high.","exa":"ضغط دمها مرتفع.","c":"vitals","l":1,"p":"noun","rt":"","rel":["hypertension"],"df":""},{"k":"respiration","en":"Respiration","pr":"ريسبيريشن","ar":"تنفس","sm":"عملية دخول الهواء وخروجه","ex":"Respiration is normal.","exa":"التنفس طبيعي.","c":"vitals","l":2,"p":"noun","rt":"","rel":["breathing"],"df":""},{"k":"oxygen","en":"Oxygen","pr":"أوكسجن","ar":"أكسجين","sm":"غاز يحتاجه الجسم للحياة","ex":"Give the patient oxygen.","exa":"أعطِ المريض أكسجين.","c":"vitals","l":1,"p":"noun","rt":"","rel":["breathing"],"df":""},{"k":"weight","en":"Weight","pr":"ويت","ar":"وزن","sm":"ثقل الجسم","ex":"Record the weight.","exa":"سجّل الوزن.","c":"vitals","l":1,"p":"noun","rt":"","rel":["height"],"df":""},{"k":"height","en":"Height","pr":"هايت","ar":"طول","sm":"ارتفاع الجسم","ex":"Measure the height.","exa":"قس الطول.","c":"vitals","l":1,"p":"noun","rt":"","rel":["weight"],"df":""},{"k":"cough","en":"Cough","pr":"كوف","ar":"سعال","sm":"خروج الهواء بقوة من الصدر","ex":"He has a dry cough.","exa":"عنده سعال جاف.","c":"resp","l":1,"p":"noun","rt":"","rel":["sputum"],"df":""},{"k":"headache","en":"Headache","pr":"هيدايك","ar":"صداع","sm":"ألم في الرأس","ex":"I have a headache.","exa":"عندي صداع.","c":"neuro","l":1,"p":"noun","rt":"","rel":["migraine"],"df":""},{"k":"nausea","en":"Nausea","pr":"نوزيا","ar":"غثيان","sm":"شعور بالرغبة في التقيؤ","ex":"She feels nausea.","exa":"تشعر بغثيان.","c":"gi","l":2,"p":"noun","rt":"","rel":["vomiting"],"df":""},{"k":"vomiting","en":"Vomiting","pr":"فومتنج","ar":"قيء","sm":"خروج محتوى المعدة من الفم","ex":"Vomiting continued all night.","exa":"استمر القيء طوال الليل.","c":"gi","l":2,"p":"noun","rt":"","rel":["nausea"],"df":""},{"k":"diarrhea","en":"Diarrhea","pr":"دايريا","ar":"إسهال","sm":"براز سائل متكرر","ex":"Diarrhea causes dehydration.","exa":"الإسهال يسبب الجفاف.","c":"gi","l":2,"p":"noun","rt":"","rel":["constipation"],"df":""},{"k":"constipation","en":"Constipation","pr":"كونستيبيشن","ar":"إمساك","sm":"صعوبة في التبرز","ex":"He has constipation.","exa":"عنده إمساك.","c":"gi","l":2,"p":"noun","rt":"","rel":["diarrhea"],"df":""},{"k":"dizziness","en":"Dizziness","pr":"دزينس","ar":"دوخة","sm":"شعور بعدم الاتزان","ex":"She reports dizziness.","exa":"تذكر أنها تشعر بدوخة.","c":"neuro","l":2,"p":"noun","rt":"","rel":["vertigo"],"df":""},{"k":"fatigue","en":"Fatigue","pr":"فاتيج","ar":"إرهاق","sm":"تعب شديد مستمر","ex":"Fatigue is common in anemia.","exa":"الإرهاق شائع في فقر الدم.","c":"basics","l":2,"p":"noun","rt":"","rel":["weakness"],"df":""},{"k":"swelling","en":"Swelling","pr":"سويلنج","ar":"تورم","sm":"انتفاخ جزء من الجسم","ex":"There is swelling in the leg.","exa":"يوجد تورم في الساق.","c":"basics","l":1,"p":"noun","rt":"","rel":["edema"],"df":""},{"k":"edema","en":"Edema","pr":"إديما","ar":"وذمة","sm":"تجمع سوائل في الأنسجة","ex":"He has leg edema.","exa":"عنده وذمة في الساق.","c":"cardio","l":3,"p":"noun","rt":"","rel":["swelling"],"df":""},{"k":"rash","en":"Rash","pr":"راش","ar":"طفح جلدي","sm":"تغير أحمر في الجلد","ex":"A rash appeared on his arm.","exa":"ظهر طفح على ذراعه.","c":"skin","l":2,"p":"noun","rt":"","rel":["allergy"],"df":""},{"k":"itching","en":"Itching","pr":"إتشنج","ar":"حكة","sm":"إحساس يدفع للحك","ex":"The itching is severe.","exa":"الحكة شديدة.","c":"skin","l":2,"p":"noun","rt":"","rel":["rash"],"df":""},{"k":"bleeding","en":"Bleeding","pr":"بليدنج","ar":"نزيف","sm":"خروج الدم من الأوعية","ex":"Stop the bleeding.","exa":"أوقف النزيف.","c":"emergency","l":2,"p":"noun","rt":"","rel":["hemorrhage"],"df":""},{"k":"wound","en":"Wound","pr":"ووند","ar":"جرح","sm":"قطع أو تمزق في الجلد","ex":"Clean the wound.","exa":"نظّف الجرح.","c":"nursing","l":1,"p":"noun","rt":"","rel":["dressing"],"df":""},{"k":"burn","en":"Burn","pr":"بيرن","ar":"حرق","sm":"تلف الجلد بالحرارة","ex":"He has a burn on his hand.","exa":"عنده حرق في يده.","c":"emergency","l":1,"p":"noun","rt":"","rel":["wound"],"df":""},{"k":"fracture","en":"Fracture","pr":"فراكتشر","ar":"كسر","sm":"انكسار في العظم","ex":"The X-ray shows a fracture.","exa":"الأشعة تظهر كسراً.","c":"msk","l":2,"p":"noun","rt":"","rel":["bone"],"df":""},{"k":"infection","en":"Infection","pr":"إنفكشن","ar":"عدوى","sm":"دخول جراثيم تسبب المرض","ex":"The wound has an infection.","exa":"الجرح فيه عدوى.","c":"infection","l":2,"p":"noun","rt":"","rel":["bacteria"],"df":""},{"k":"allergy","en":"Allergy","pr":"ألرجي","ar":"حساسية","sm":"رد فعل مفرط من الجسم لمادة","ex":"She has a food allergy.","exa":"عندها حساسية طعام.","c":"blood","l":2,"p":"noun","rt":"","rel":["rash"],"df":""},{"k":"inflammation","en":"Inflammation","pr":"إنفلميشن","ar":"التهاب","sm":"احمرار وحرارة وتورم وألم","ex":"Inflammation reduces with treatment.","exa":"الالتهاب يقل بالعلاج.","c":"basics","l":3,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"shortness of breath","en":"Shortness of breath","pr":"شورتنس أوف بريث","ar":"ضيق نفس","sm":"صعوبة في التنفس","ex":"He has shortness of breath.","exa":"عنده ضيق في النفس.","c":"resp","l":2,"p":"noun","rt":"","rel":["dyspnea"],"df":""},{"k":"dyspnea","en":"Dyspnea","pr":"ديسبنيا","ar":"ضيق تنفس (مصطلح)","sm":"المصطلح الطبي لصعوبة التنفس","ex":"Dyspnea occurs on exertion.","exa":"يحدث ضيق التنفس مع المجهود.","c":"resp","l":3,"p":"noun","rt":"dys- + -pnea","rel":["shortness of breath"],"df":""},{"k":"hypertension","en":"Hypertension","pr":"هايبرتنشن","ar":"ارتفاع ضغط الدم","sm":"ضغط الدم أعلى من الطبيعي","ex":"Hypertension needs regular monitoring.","exa":"ارتفاع الضغط يحتاج متابعة منتظمة.","c":"cardio","l":2,"p":"noun","rt":"hyper- + tension","rel":["hypotension"],"df":""},{"k":"hypotension","en":"Hypotension","pr":"هايبوتنشن","ar":"انخفاض ضغط الدم","sm":"ضغط الدم أقل من الطبيعي","ex":"Hypotension can cause fainting.","exa":"انخفاض الضغط قد يسبب إغماء.","c":"cardio","l":2,"p":"noun","rt":"hypo- + tension","rel":["hypertension"],"df":""},{"k":"tachycardia","en":"Tachycardia","pr":"تاكيكاردييا","ar":"تسارع القلب","sm":"القلب ينبض أسرع من الطبيعي","ex":"Fever can cause tachycardia.","exa":"الحمى قد تسبب تسارع القلب.","c":"cardio","l":3,"p":"noun","rt":"tachy- + cardia","rel":["bradycardia"],"df":""},{"k":"bradycardia","en":"Bradycardia","pr":"براديكاردييا","ar":"بطء القلب","sm":"القلب ينبض أبطأ من الطبيعي","ex":"Bradycardia means a slow pulse.","exa":"بطء القلب يعني نبضاً بطيئاً.","c":"cardio","l":3,"p":"noun","rt":"brady- + cardia","rel":["tachycardia"],"df":""},{"k":"arrhythmia","en":"Arrhythmia","pr":"أريثميا","ar":"اضطراب نظم القلب","sm":"ضربات القلب غير منتظمة","ex":"The ECG shows an arrhythmia.","exa":"تخطيط القلب يظهر اضطراباً في النظم.","c":"cardio","l":3,"p":"noun","rt":"a- + rhythm","rel":["tachycardia"],"df":""},{"k":"angina","en":"Angina","pr":"أنجاينا","ar":"ذبحة صدرية","sm":"ألم في الصدر بسبب نقص الدم عن القلب","ex":"Angina pain spreads to the arm.","exa":"ألم الذبحة ينتشر إلى الذراع.","c":"cardio","l":3,"p":"noun","rt":"","rel":["heart attack"],"df":""},{"k":"myocardial infarction","en":"Myocardial infarction","pr":"مايوكارديال إنفاركشن","ar":"احتشاء عضلة القلب","sm":"جلطة القلب: انسداد يمنع الدم عن جزء من القلب","ex":"He was admitted with myocardial infarction.","exa":"أُدخل بسبب احتشاء عضلة القلب.","c":"cardio","l":4,"p":"noun","rt":"myo- + cardi-","rel":["angina"],"df":""},{"k":"heart failure","en":"Heart failure","pr":"هارت فيليور","ar":"فشل القلب","sm":"القلب لا يضخ الدم بكفاءة كافية","ex":"Heart failure causes leg swelling.","exa":"فشل القلب يسبب تورم الساقين.","c":"cardio","l":3,"p":"noun","rt":"","rel":["edema"],"df":""},{"k":"stroke","en":"Stroke","pr":"ستروك","ar":"سكتة دماغية","sm":"توقف الدم عن جزء من الدماغ","ex":"A stroke can cause weakness.","exa":"السكتة قد تسبب ضعفاً.","c":"neuro","l":2,"p":"noun","rt":"","rel":["brain"],"df":""},{"k":"cardiac arrest","en":"Cardiac arrest","pr":"كارديك أريست","ar":"توقف القلب","sm":"توقف القلب فجأة عن النبض","ex":"Start CPR for cardiac arrest.","exa":"ابدأ الإنعاش لتوقف القلب.","c":"emergency","l":3,"p":"noun","rt":"cardi-","rel":["CPR"],"df":""},{"k":"palpitation","en":"Palpitation","pr":"بالبيتيشن","ar":"خفقان","sm":"إحساس بضربات القلب القوية","ex":"She feels palpitation at night.","exa":"تشعر بخفقان ليلاً.","c":"cardio","l":3,"p":"noun","rt":"","rel":["tachycardia"],"df":""},{"k":"chest pain","en":"Chest pain","pr":"تشست بين","ar":"ألم الصدر","sm":"ألم في منطقة الصدر","ex":"Chest pain needs urgent evaluation.","exa":"ألم الصدر يحتاج تقييماً عاجلاً.","c":"cardio","l":1,"p":"noun","rt":"","rel":["angina"],"df":""},{"k":"anemia","en":"Anemia","pr":"أنيميا","ar":"فقر الدم","sm":"نقص الهيموجلوبين في الدم","ex":"Anemia causes fatigue.","exa":"فقر الدم يسبب الإرهاق.","c":"blood","l":2,"p":"noun","rt":"an- + -emia","rel":["hemoglobin"],"df":""},{"k":"hemoglobin","en":"Hemoglobin","pr":"هيموجلوبن","ar":"هيموجلوبين","sm":"بروتين في الدم يحمل الأكسجين","ex":"Check the hemoglobin level.","exa":"افحص مستوى الهيموجلوبين.","c":"blood","l":3,"p":"noun","rt":"hemo-","rel":["anemia"],"df":""},{"k":"clot","en":"Clot","pr":"كلوت","ar":"جلطة","sm":"تجمع دموي متخثر","ex":"A clot blocked the vein.","exa":"جلطة سدّت الوريد.","c":"blood","l":2,"p":"noun","rt":"","rel":["thrombosis"],"df":""},{"k":"thrombosis","en":"Thrombosis","pr":"ثرومبوسيس","ar":"تجلط","sm":"تكوّن جلطة داخل وعاء دموي","ex":"Deep vein thrombosis causes leg pain.","exa":"التجلط في الوريد العميق يسبب ألماً بالساق.","c":"blood","l":4,"p":"noun","rt":"thromb-","rel":["clot"],"df":""},{"k":"asthma","en":"Asthma","pr":"أزما","ar":"ربو","sm":"ضيق في الشعب الهوائية يسبب صفيراً","ex":"Asthma attacks cause wheezing.","exa":"نوبات الربو تسبب صفيراً.","c":"resp","l":2,"p":"noun","rt":"","rel":["bronchitis"],"df":""},{"k":"pneumonia","en":"Pneumonia","pr":"نيومونيا","ar":"التهاب رئوي","sm":"عدوى تصيب الرئتين","ex":"Pneumonia causes fever and cough.","exa":"الالتهاب الرئوي يسبب حمى وسعالاً.","c":"resp","l":2,"p":"noun","rt":"pneumo-","rel":["bronchitis"],"df":""},{"k":"bronchitis","en":"Bronchitis","pr":"برونكايتس","ar":"التهاب الشعب الهوائية","sm":"التهاب في أنابيب التنفس","ex":"Bronchitis starts with a cough.","exa":"يبدأ التهاب الشعب بسعال.","c":"resp","l":3,"p":"noun","rt":"bronch- + -itis","rel":["pneumonia"],"df":""},{"k":"tuberculosis","en":"Tuberculosis","pr":"تيوبركيولوسيس","ar":"السل","sm":"مرض معدٍ تسببه بكتيريا يصيب الرئة غالباً","ex":"Tuberculosis spreads through the air.","exa":"السل ينتشر عبر الهواء.","c":"resp","l":3,"p":"noun","rt":"","rel":["pneumonia"],"df":""},{"k":"wheezing","en":"Wheezing","pr":"ويزنج","ar":"أزيز","sm":"صوت صفير عند التنفس","ex":"Wheezing is common in asthma.","exa":"الأزيز شائع في الربو.","c":"resp","l":3,"p":"noun","rt":"","rel":["asthma"],"df":""},{"k":"sputum","en":"Sputum","pr":"سبيوتم","ar":"بلغم","sm":"مخاط يخرج من الرئتين بالسعال","ex":"Collect a sputum sample.","exa":"اجمع عينة بلغم.","c":"resp","l":3,"p":"noun","rt":"","rel":["cough"],"df":""},{"k":"inhale","en":"Inhale","pr":"إنهيل","ar":"يستنشق","sm":"يُدخل الهواء إلى الرئتين","ex":"Inhale deeply.","exa":"استنشق بعمق.","c":"resp","l":1,"p":"verb","rt":"","rel":["exhale"],"df":""},{"k":"exhale","en":"Exhale","pr":"إكسهيل","ar":"يزفر","sm":"يُخرج الهواء من الرئتين","ex":"Exhale slowly.","exa":"ازفر ببطء.","c":"resp","l":1,"p":"verb","rt":"","rel":["inhale"],"df":""},{"k":"breathing","en":"Breathing","pr":"بريذنج","ar":"تنفس","sm":"دخول وخروج الهواء","ex":"His breathing is slow.","exa":"تنفسه بطيء.","c":"resp","l":1,"p":"noun","rt":"","rel":["respiration"],"df":""},{"k":"hypoxia","en":"Hypoxia","pr":"هايبوكسيا","ar":"نقص الأكسجين","sm":"نقص الأكسجين في أنسجة الجسم","ex":"Hypoxia makes lips look blue.","exa":"نقص الأكسجين يجعل الشفاه زرقاء.","c":"resp","l":4,"p":"noun","rt":"hypo- + ox-","rel":["oxygen"],"df":""},{"k":"cyanosis","en":"Cyanosis","pr":"سايانوسيس","ar":"زرقة","sm":"لون أزرق في الجلد بسبب نقص الأكسجين","ex":"Cyanosis is an emergency sign.","exa":"الزرقة علامة طوارئ.","c":"resp","l":4,"p":"noun","rt":"","rel":["hypoxia"],"df":""},{"k":"ventilator","en":"Ventilator","pr":"فنتيليتر","ar":"جهاز تنفس صناعي","sm":"جهاز يساعد المريض على التنفس","ex":"He is on a ventilator.","exa":"هو على جهاز تنفس صناعي.","c":"nursing","l":3,"p":"noun","rt":"","rel":["oxygen"],"df":""},{"k":"pleura","en":"Pleura","pr":"بلورا","ar":"غشاء الجنب","sm":"غشاء يغطي الرئة","ex":"Fluid collects around the pleura.","exa":"يتجمع سائل حول غشاء الجنب.","c":"resp","l":4,"p":"noun","rt":"pleur-","rel":["lung"],"df":""},{"k":"bronchus","en":"Bronchus","pr":"برونكس","ar":"قصبة (شعبة) رئيسية","sm":"فرع من القصبة الهوائية يدخل الرئة","ex":"Each lung has a main bronchus.","exa":"لكل رئة شعبة رئيسية.","c":"resp","l":4,"p":"noun","rt":"bronch-","rel":["trachea"],"df":""},{"k":"alveolus","en":"Alveolus","pr":"ألفيولس","ar":"حويصلة هوائية","sm":"كيس صغير في الرئة يتبادل الغازات","ex":"Gas exchange happens in the alveolus.","exa":"تبادل الغازات يحدث في الحويصلة الهوائية.","c":"resp","l":4,"p":"noun","rt":"","rel":["lung"],"df":""},{"k":"larynx","en":"Larynx","pr":"لارنكس","ar":"حنجرة","sm":"عضو الصوت أعلى القصبة","ex":"The larynx holds the vocal cords.","exa":"الحنجرة تحمل الأحبال الصوتية.","c":"resp","l":3,"p":"noun","rt":"laryng-","rel":["trachea"],"df":""},{"k":"pharynx","en":"Pharynx","pr":"فارنكس","ar":"بلعوم","sm":"ممر خلف الفم والأنف","ex":"The pharynx is red.","exa":"البلعوم أحمر.","c":"resp","l":3,"p":"noun","rt":"pharyng-","rel":["throat"],"df":""},{"k":"tonsil","en":"Tonsil","pr":"تونسل","ar":"لوزة","sm":"نسيج لمفاوي في الحلق","ex":"His tonsil is swollen.","exa":"لوزته متورمة.","c":"resp","l":2,"p":"noun","rt":"","rel":["throat"],"df":""},{"k":"sneeze","en":"Sneeze","pr":"سنيز","ar":"عطس","sm":"خروج الهواء فجأة من الأنف","ex":"Cover your mouth when you sneeze.","exa":"غطِّ فمك عند العطس.","c":"resp","l":1,"p":"verb","rt":"","rel":["cough"],"df":""},{"k":"runny nose","en":"Runny nose","pr":"رني نوز","ar":"سيلان الأنف","sm":"خروج مخاط من الأنف","ex":"The child has a runny nose.","exa":"الطفل عنده سيلان أنف.","c":"resp","l":1,"p":"noun","rt":"","rel":["cold"],"df":""},{"k":"cold","en":"Cold","pr":"كولد","ar":"نزلة برد","sm":"عدوى فيروسية بسيطة","ex":"I have a cold.","exa":"عندي نزلة برد.","c":"resp","l":1,"p":"noun","rt":"","rel":["flu"],"df":""},{"k":"flu","en":"Flu","pr":"فلو","ar":"إنفلونزا","sm":"عدوى فيروسية أشد من البرد","ex":"Flu causes high fever.","exa":"الإنفلونزا تسبب حمى عالية.","c":"resp","l":1,"p":"noun","rt":"","rel":["cold"],"df":""},{"k":"congestion","en":"Congestion","pr":"كونجشن","ar":"احتقان","sm":"انسداد أو امتلاء","ex":"He has nasal congestion.","exa":"عنده احتقان بالأنف.","c":"resp","l":3,"p":"noun","rt":"","rel":["cold"],"df":""},{"k":"lymph node","en":"Lymph node","pr":"ليمف نود","ar":"عقدة لمفاوية","sm":"عقدة صغيرة تساعد المناعة","ex":"The lymph node is swollen.","exa":"العقدة اللمفاوية متورمة.","c":"blood","l":3,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"plasma","en":"Plasma","pr":"بلازما","ar":"بلازما","sm":"الجزء السائل من الدم","ex":"Plasma carries nutrients.","exa":"البلازما تحمل الغذاء.","c":"blood","l":3,"p":"noun","rt":"","rel":["blood"],"df":""},{"k":"platelet","en":"Platelet","pr":"بليتليت","ar":"صفيحة دموية","sm":"خلية تساعد على تخثر الدم","ex":"Low platelets cause bleeding.","exa":"قلة الصفائح تسبب نزفاً.","c":"blood","l":3,"p":"noun","rt":"","rel":["clot"],"df":""},{"k":"red blood cell","en":"Red blood cell","pr":"ريد بلد سيل","ar":"كرية دم حمراء","sm":"خلية تحمل الأكسجين","ex":"Red blood cells carry oxygen.","exa":"كريات الدم الحمراء تحمل الأكسجين.","c":"blood","l":2,"p":"noun","rt":"","rel":["hemoglobin"],"df":""},{"k":"white blood cell","en":"White blood cell","pr":"وايت بلد سيل","ar":"كرية دم بيضاء","sm":"خلية تحارب العدوى","ex":"White blood cells fight infection.","exa":"كريات الدم البيضاء تحارب العدوى.","c":"blood","l":2,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"blood type","en":"Blood type","pr":"بلد تايب","ar":"فصيلة الدم","sm":"نوع الدم مثل A وB وO","ex":"What is your blood type?","exa":"ما فصيلة دمك؟","c":"blood","l":1,"p":"noun","rt":"","rel":["transfusion"],"df":""},{"k":"transfusion","en":"Transfusion","pr":"ترانسفيوجن","ar":"نقل دم","sm":"إعطاء دم لمريض","ex":"He needs a blood transfusion.","exa":"يحتاج إلى نقل دم.","c":"blood","l":3,"p":"noun","rt":"","rel":["blood type"],"df":""},{"k":"pulse oximeter","en":"Pulse oximeter","pr":"بلس أوكسيميتر","ar":"مقياس تأكسج النبض","sm":"جهاز صغير يقيس أكسجين الدم من الإصبع","ex":"Use a pulse oximeter on the finger.","exa":"استخدم مقياس الأكسجين على الإصبع.","c":"vitals","l":3,"p":"noun","rt":"","rel":["oxygen"],"df":""},{"k":"stethoscope","en":"Stethoscope","pr":"ستيثوسكوب","ar":"سماعة طبية","sm":"أداة للاستماع لأصوات القلب والرئة","ex":"The nurse uses a stethoscope.","exa":"الممرضة تستخدم السماعة.","c":"nursing","l":2,"p":"noun","rt":"","rel":["lung","heart"],"df":""},{"k":"digestion","en":"Digestion","pr":"دايجستشن","ar":"هضم","sm":"تكسير الطعام ليستفيد منه الجسم","ex":"Digestion starts in the mouth.","exa":"الهضم يبدأ في الفم.","c":"gi","l":2,"p":"noun","rt":"","rel":["stomach"],"df":""},{"k":"appetite","en":"Appetite","pr":"أبتايت","ar":"شهية","sm":"الرغبة في تناول الطعام","ex":"He has a poor appetite.","exa":"شهيته ضعيفة.","c":"gi","l":1,"p":"noun","rt":"","rel":["nausea"],"df":""},{"k":"heartburn","en":"Heartburn","pr":"هارتبيرن","ar":"حرقة المعدة","sm":"إحساس بالحرقان في الصدر بعد الأكل","ex":"She has heartburn after meals.","exa":"عندها حرقة بعد الوجبات.","c":"gi","l":2,"p":"noun","rt":"","rel":["ulcer"],"df":""},{"k":"ulcer","en":"Ulcer","pr":"ألسر","ar":"قرحة","sm":"جرح في بطانة المعدة أو الجلد","ex":"A stomach ulcer causes pain.","exa":"قرحة المعدة تسبب ألماً.","c":"gi","l":2,"p":"noun","rt":"","rel":["heartburn"],"df":""},{"k":"gastritis","en":"Gastritis","pr":"جاستريتس","ar":"التهاب المعدة","sm":"التهاب بطانة المعدة","ex":"Gastritis causes stomach pain.","exa":"التهاب المعدة يسبب ألماً.","c":"gi","l":3,"p":"noun","rt":"gastr- + -itis","rel":["ulcer"],"df":""},{"k":"hepatitis","en":"Hepatitis","pr":"هيباتايتس","ar":"التهاب الكبد","sm":"التهاب في الكبد غالباً بسبب فيروس","ex":"Hepatitis B is a viral infection.","exa":"التهاب الكبد ب عدوى فيروسية.","c":"gi","l":3,"p":"noun","rt":"hepat- + -itis","rel":["liver"],"df":""},{"k":"jaundice","en":"Jaundice","pr":"جوندس","ar":"يرقان","sm":"اصفرار الجلد والعينين","ex":"Jaundice appears yellow.","exa":"اليرقان يظهر باللون الأصفر.","c":"gi","l":3,"p":"noun","rt":"","rel":["liver"],"df":""},{"k":"appendicitis","en":"Appendicitis","pr":"أبنديسايتس","ar":"التهاب الزائدة الدودية","sm":"التهاب يحتاج غالباً لجراحة","ex":"Appendicitis causes right lower pain.","exa":"التهاب الزائدة يسبب ألماً أسفل اليمين.","c":"gi","l":3,"p":"noun","rt":"appendic- + -itis","rel":["appendix"],"df":""},{"k":"appendix","en":"Appendix","pr":"أبنديكس","ar":"زائدة دودية","sm":"عضو صغير متصل بالأمعاء","ex":"The appendix was removed.","exa":"أُزيلت الزائدة الدودية.","c":"gi","l":3,"p":"noun","rt":"","rel":["appendicitis"],"df":""},{"k":"colon","en":"Colon","pr":"كولن","ar":"القولون","sm":"الأمعاء الغليظة","ex":"The colon absorbs water.","exa":"القولون يمتص الماء.","c":"gi","l":3,"p":"noun","rt":"colo-","rel":["intestine"],"df":""},{"k":"rectum","en":"Rectum","pr":"ركتم","ar":"المستقيم","sm":"آخر جزء من الأمعاء","ex":"Check the rectum gently.","exa":"افحص المستقيم برفق.","c":"gi","l":3,"p":"noun","rt":"recto-","rel":["colon"],"df":""},{"k":"stool","en":"Stool","pr":"ستول","ar":"براز","sm":"فضلات الأمعاء","ex":"Record the stool color.","exa":"سجّل لون البراز.","c":"nursing","l":1,"p":"noun","rt":"","rel":["feces"],"df":""},{"k":"urine","en":"Urine","pr":"يورين","ar":"بول","sm":"سائل تخرجه الكلى","ex":"Measure the urine amount.","exa":"قس كمية البول.","c":"renal","l":1,"p":"noun","rt":"","rel":["kidney"],"df":""},{"k":"hernia","en":"Hernia","pr":"هيرنيا","ar":"فتق","sm":"بروز عضو من مكانه الطبيعي","ex":"He needs hernia surgery.","exa":"يحتاج جراحة فتق.","c":"surgery","l":3,"p":"noun","rt":"","rel":["abdomen"],"df":""},{"k":"gallstone","en":"Gallstone","pr":"جولستون","ar":"حصوة مرارة","sm":"حجر صغير يتكون في المرارة","ex":"A gallstone caused the pain.","exa":"حصوة المرارة سببت الألم.","c":"gi","l":3,"p":"noun","rt":"","rel":["gallbladder"],"df":""},{"k":"dehydration","en":"Dehydration","pr":"دي هايدريشن","ar":"جفاف","sm":"نقص السوائل في الجسم","ex":"Diarrhea leads to dehydration.","exa":"الإسهال يؤدي إلى الجفاف.","c":"gi","l":2,"p":"noun","rt":"de- + hydr-","rel":["diarrhea"],"df":""},{"k":"swallow","en":"Swallow","pr":"سووالو","ar":"يبلع","sm":"يمرر الطعام من الفم للمريء","ex":"Can you swallow?","exa":"هل تستطيع البلع؟","c":"gi","l":1,"p":"verb","rt":"","rel":["dysphagia"],"df":""},{"k":"dysphagia","en":"Dysphagia","pr":"ديسفيجيا","ar":"صعوبة البلع","sm":"مشكلة في ابتلاع الطعام","ex":"Stroke can cause dysphagia.","exa":"السكتة قد تسبب صعوبة بلع.","c":"gi","l":4,"p":"noun","rt":"dys- + -phagia","rel":["swallow"],"df":""},{"k":"seizure","en":"Seizure","pr":"سيجر","ar":"نوبة تشنج","sm":"نشاط كهربائي مفاجئ في الدماغ","ex":"He had a seizure.","exa":"حدثت له نوبة تشنج.","c":"neuro","l":3,"p":"noun","rt":"","rel":["epilepsy"],"df":""},{"k":"epilepsy","en":"Epilepsy","pr":"إبيلبسي","ar":"صرع","sm":"مرض يسبب نوبات تشنج متكررة","ex":"Epilepsy needs daily medication.","exa":"الصرع يحتاج دواءً يومياً.","c":"neuro","l":3,"p":"noun","rt":"","rel":["seizure"],"df":""},{"k":"paralysis","en":"Paralysis","pr":"باراليسس","ar":"شلل","sm":"فقدان القدرة على الحركة","ex":"Paralysis affected his left arm.","exa":"الشلل أصاب ذراعه اليسرى.","c":"neuro","l":3,"p":"noun","rt":"","rel":["stroke"],"df":""},{"k":"numbness","en":"Numbness","pr":"نمنس","ar":"خدر","sm":"فقدان الإحساس","ex":"She feels numbness in her hand.","exa":"تشعر بخدر في يدها.","c":"neuro","l":2,"p":"noun","rt":"","rel":["tingling"],"df":""},{"k":"tingling","en":"Tingling","pr":"تينجلنج","ar":"تنميل","sm":"إحساس مثل الوخز","ex":"He has tingling in his feet.","exa":"عنده تنميل في قدميه.","c":"neuro","l":2,"p":"noun","rt":"","rel":["numbness"],"df":""},{"k":"unconscious","en":"Unconscious","pr":"أنكونشس","ar":"فاقد الوعي","sm":"لا يستجيب لما حوله","ex":"The patient is unconscious.","exa":"المريض فاقد الوعي.","c":"emergency","l":2,"p":"adjective","rt":"","rel":["conscious"],"df":""},{"k":"conscious","en":"Conscious","pr":"كونشس","ar":"واعٍ","sm":"مدرك لما حوله","ex":"Is he conscious?","exa":"هل هو واعٍ؟","c":"emergency","l":2,"p":"adjective","rt":"","rel":["unconscious"],"df":""},{"k":"coma","en":"Coma","pr":"كوما","ar":"غيبوبة","sm":"فقدان وعي عميق ولفترة طويلة","ex":"He is in a coma.","exa":"هو في غيبوبة.","c":"neuro","l":3,"p":"noun","rt":"","rel":["unconscious"],"df":""},{"k":"memory","en":"Memory","pr":"ميموري","ar":"ذاكرة","sm":"القدرة على التذكر","ex":"His memory is poor.","exa":"ذاكرته ضعيفة.","c":"neuro","l":1,"p":"noun","rt":"","rel":["dementia"],"df":""},{"k":"dementia","en":"Dementia","pr":"ديمنشا","ar":"خرف","sm":"تدهور الذاكرة والتفكير","ex":"Dementia affects older adults.","exa":"الخرف يصيب كبار السن.","c":"neuro","l":3,"p":"noun","rt":"","rel":["memory"],"df":""},{"k":"meningitis","en":"Meningitis","pr":"مينينجايتس","ar":"التهاب السحايا","sm":"التهاب الأغشية حول الدماغ","ex":"Meningitis causes neck stiffness.","exa":"التهاب السحايا يسبب تيبس الرقبة.","c":"neuro","l":4,"p":"noun","rt":"mening- + -itis","rel":["brain"],"df":""},{"k":"migraine","en":"Migraine","pr":"مايجرين","ar":"صداع نصفي","sm":"صداع شديد غالباً في جانب واحد","ex":"A migraine can last hours.","exa":"الصداع النصفي قد يستمر ساعات.","c":"neuro","l":3,"p":"noun","rt":"","rel":["headache"],"df":""},{"k":"reflex","en":"Reflex","pr":"ريفليكس","ar":"منعكس","sm":"حركة لا إرادية سريعة","ex":"Test the knee reflex.","exa":"اختبر منعكس الركبة.","c":"neuro","l":3,"p":"noun","rt":"","rel":["nerve"],"df":""},{"k":"diabetes","en":"Diabetes","pr":"دايابيتيز","ar":"السكري","sm":"ارتفاع سكر الدم المزمن","ex":"Diabetes needs diet control.","exa":"السكري يحتاج ضبط الغذاء.","c":"endo","l":2,"p":"noun","rt":"","rel":["insulin"],"df":""},{"k":"insulin","en":"Insulin","pr":"إنسيولين","ar":"أنسولين","sm":"هرمون ينظم سكر الدم","ex":"He takes insulin twice a day.","exa":"يأخذ الأنسولين مرتين يومياً.","c":"endo","l":2,"p":"noun","rt":"","rel":["diabetes"],"df":""},{"k":"glucose","en":"Glucose","pr":"جلوكوز","ar":"جلوكوز (سكر الدم)","sm":"السكر الذي يمد الجسم بالطاقة","ex":"Check the glucose level.","exa":"افحص مستوى الجلوكوز.","c":"endo","l":2,"p":"noun","rt":"","rel":["diabetes"],"df":""},{"k":"hormone","en":"Hormone","pr":"هورمون","ar":"هرمون","sm":"مادة كيميائية تنظم وظائف الجسم","ex":"Insulin is a hormone.","exa":"الأنسولين هرمون.","c":"endo","l":2,"p":"noun","rt":"","rel":["gland"],"df":""},{"k":"gland","en":"Gland","pr":"جلاند","ar":"غدة","sm":"عضو ينتج مواد للجسم","ex":"The thyroid is a gland.","exa":"الدرقية غدة.","c":"endo","l":2,"p":"noun","rt":"","rel":["hormone"],"df":""},{"k":"hyperglycemia","en":"Hyperglycemia","pr":"هايبرجلايسيميا","ar":"ارتفاع سكر الدم","sm":"سكر الدم أعلى من الطبيعي","ex":"Hyperglycemia causes thirst.","exa":"ارتفاع السكر يسبب عطشاً.","c":"endo","l":4,"p":"noun","rt":"hyper- + glyc- + -emia","rel":["hypoglycemia"],"df":""},{"k":"hypoglycemia","en":"Hypoglycemia","pr":"هايبوجلايسيميا","ar":"انخفاض سكر الدم","sm":"سكر الدم أقل من الطبيعي","ex":"Hypoglycemia causes sweating.","exa":"انخفاض السكر يسبب تعرقاً.","c":"endo","l":4,"p":"noun","rt":"hypo- + glyc- + -emia","rel":["hyperglycemia"],"df":""},{"k":"thirst","en":"Thirst","pr":"ثيرست","ar":"عطش","sm":"الرغبة في الشرب","ex":"Excess thirst may signal diabetes.","exa":"العطش الزائد قد يدل على السكري.","c":"endo","l":1,"p":"noun","rt":"","rel":["diabetes"],"df":""},{"k":"obesity","en":"Obesity","pr":"أوبيسيتي","ar":"سمنة","sm":"زيادة كبيرة في الوزن","ex":"Obesity raises heart risk.","exa":"السمنة ترفع خطر القلب.","c":"endo","l":2,"p":"noun","rt":"","rel":["weight"],"df":""},{"k":"metabolism","en":"Metabolism","pr":"ميتابوليزم","ar":"أيض","sm":"عمليات تحويل الطعام لطاقة","ex":"Metabolism changes with age.","exa":"الأيض يتغير مع العمر.","c":"endo","l":3,"p":"noun","rt":"","rel":["thyroid"],"df":""},{"k":"dialysis","en":"Dialysis","pr":"دايالسس","ar":"غسيل الكلى","sm":"تنقية الدم بجهاز بدل الكلى","ex":"He goes to dialysis three times a week.","exa":"يذهب للغسيل ثلاث مرات أسبوعياً.","c":"renal","l":3,"p":"noun","rt":"","rel":["kidney"],"df":""},{"k":"urinary tract infection","en":"Urinary tract infection","pr":"يورينري تراكت إنفكشن","ar":"التهاب المسالك البولية","sm":"عدوى في المثانة أو المجاري البولية","ex":"A urinary tract infection causes burning.","exa":"التهاب المسالك يسبب حرقاناً.","c":"renal","l":3,"p":"noun","rt":"","rel":["bladder"],"df":""},{"k":"kidney stone","en":"Kidney stone","pr":"كيدني ستون","ar":"حصوة كلى","sm":"حجر صغير يتكون في الكلية","ex":"A kidney stone causes severe pain.","exa":"حصوة الكلى تسبب ألماً شديداً.","c":"renal","l":2,"p":"noun","rt":"","rel":["kidney"],"df":""},{"k":"catheter","en":"Catheter","pr":"كاثيتر","ar":"قسطرة","sm":"أنبوب رفيع يدخل الجسم","ex":"Insert a urinary catheter.","exa":"ادخل قسطرة بولية.","c":"nursing","l":3,"p":"noun","rt":"","rel":["bladder"],"df":""},{"k":"incontinence","en":"Incontinence","pr":"إنكونتننس","ar":"سلس البول","sm":"عدم التحكم في التبول","ex":"Incontinence needs skin care.","exa":"سلس البول يحتاج عناية بالجلد.","c":"renal","l":4,"p":"noun","rt":"","rel":["bladder"],"df":""},{"k":"urination","en":"Urination","pr":"يورينيشن","ar":"تبول","sm":"عملية خروج البول","ex":"Urination is painful.","exa":"التبول مؤلم.","c":"renal","l":2,"p":"noun","rt":"","rel":["urine"],"df":""},{"k":"renal failure","en":"Renal failure","pr":"رينال فيليور","ar":"فشل كلوي","sm":"الكلى لا تعمل بكفاءة","ex":"Renal failure may require dialysis.","exa":"الفشل الكلوي قد يحتاج غسيلاً.","c":"renal","l":4,"p":"noun","rt":"ren-","rel":["dialysis"],"df":""},{"k":"fluid balance","en":"Fluid balance","pr":"فلويد بالانس","ar":"توازن السوائل","sm":"ما يدخل الجسم مقابل ما يخرج","ex":"Record fluid balance daily.","exa":"سجّل توازن السوائل يومياً.","c":"nursing","l":3,"p":"noun","rt":"","rel":["intake","output"],"df":""},{"k":"intake","en":"Intake","pr":"إنتيك","ar":"الداخل (السوائل المتناولة)","sm":"كمية ما يشربه ويأكله المريض","ex":"Record the patient's intake.","exa":"سجّل ما تناوله المريض.","c":"nursing","l":2,"p":"noun","rt":"","rel":["output"],"df":""},{"k":"output","en":"Output","pr":"أوتبوت","ar":"الخارج (البول وغيره)","sm":"كمية ما يفرزه الجسم","ex":"Output includes urine and stool.","exa":"الخارج يشمل البول والبراز.","c":"nursing","l":2,"p":"noun","rt":"","rel":["intake"],"df":""},{"k":"medication","en":"Medication","pr":"ميديكيشن","ar":"دواء","sm":"مادة تُعطى لعلاج المرض أو الوقاية منه","ex":"Give the medication on time.","exa":"أعطِ الدواء في موعده.","c":"drugs","l":1,"p":"noun","rt":"","rel":["drug","dose"],"df":""},{"k":"drug","en":"Drug","pr":"دراج","ar":"عقار / دواء","sm":"مادة لها تأثير على الجسم","ex":"This drug reduces pain.","exa":"هذا العقار يخفف الألم.","c":"drugs","l":1,"p":"noun","rt":"","rel":["medication"],"df":""},{"k":"dose","en":"Dose","pr":"دوس","ar":"جرعة","sm":"كمية الدواء في المرة الواحدة","ex":"Check the dose twice.","exa":"راجع الجرعة مرتين.","c":"drugs","l":1,"p":"noun","rt":"","rel":["medication"],"df":""},{"k":"tablet","en":"Tablet","pr":"تابلت","ar":"قرص","sm":"دواء صلب يُبلع","ex":"Take one tablet daily.","exa":"خذ قرصاً واحداً يومياً.","c":"drugs","l":1,"p":"noun","rt":"","rel":["capsule"],"df":""},{"k":"capsule","en":"Capsule","pr":"كابسيول","ar":"كبسولة","sm":"غلاف يحتوي على الدواء","ex":"Swallow the capsule whole.","exa":"ابلع الكبسولة كاملة.","c":"drugs","l":1,"p":"noun","rt":"","rel":["tablet"],"df":""},{"k":"syrup","en":"Syrup","pr":"سيرب","ar":"شراب","sm":"دواء سائل","ex":"The child takes cough syrup.","exa":"الطفل يأخذ شراب سعال.","c":"drugs","l":1,"p":"noun","rt":"","rel":["tablet"],"df":""},{"k":"injection","en":"Injection","pr":"إنجكشن","ar":"حقنة","sm":"إعطاء الدواء بإبرة","ex":"Prepare the injection.","exa":"جهّز الحقنة.","c":"drugs","l":2,"p":"noun","rt":"","rel":["syringe"],"df":""},{"k":"syringe","en":"Syringe","pr":"سيرنج","ar":"محقنة","sm":"أداة لسحب الدواء وحقنه","ex":"Use a sterile syringe.","exa":"استخدم محقنة معقمة.","c":"nursing","l":2,"p":"noun","rt":"","rel":["needle"],"df":""},{"k":"needle","en":"Needle","pr":"نيدل","ar":"إبرة","sm":"رأس حاد يخترق الجلد","ex":"Dispose of the needle safely.","exa":"تخلص من الإبرة بأمان.","c":"nursing","l":1,"p":"noun","rt":"","rel":["syringe"],"df":""},{"k":"intravenous","en":"Intravenous","pr":"إنترافينس","ar":"داخل الوريد","sm":"إعطاء الدواء في الوريد","ex":"Intravenous fluids were started.","exa":"بدأت السوائل الوريدية.","c":"drugs","l":3,"p":"adjective","rt":"intra- + ven-","rel":["IV"],"df":""},{"k":"intramuscular","en":"Intramuscular","pr":"إنترامسكيولر","ar":"داخل العضل","sm":"إعطاء الدواء في العضلة","ex":"Give the injection intramuscular.","exa":"أعطِ الحقنة في العضل.","c":"drugs","l":3,"p":"adjective","rt":"intra- + muscul-","rel":["IM"],"df":""},{"k":"subcutaneous","en":"Subcutaneous","pr":"سابكيوتينيس","ar":"تحت الجلد","sm":"إعطاء الدواء تحت الجلد","ex":"Insulin is given subcutaneous.","exa":"الأنسولين يُعطى تحت الجلد.","c":"drugs","l":4,"p":"adjective","rt":"sub- + cutane-","rel":["insulin"],"df":""},{"k":"oral","en":"Oral","pr":"أورال","ar":"عن طريق الفم","sm":"يؤخذ بالبلع","ex":"Take the oral medication.","exa":"خذ الدواء الفموي.","c":"drugs","l":1,"p":"adjective","rt":"","rel":["route"],"df":""},{"k":"topical","en":"Topical","pr":"توبيكال","ar":"موضعي","sm":"يوضع على الجلد","ex":"Apply the topical cream.","exa":"ضع الكريم الموضعي.","c":"drugs","l":2,"p":"adjective","rt":"","rel":["cream"],"df":""},{"k":"route","en":"Route","pr":"روت","ar":"طريق الإعطاء","sm":"الطريقة التي يدخل بها الدواء","ex":"Check the route of administration.","exa":"راجع طريق إعطاء الدواء.","c":"drugs","l":2,"p":"noun","rt":"","rel":["oral","intravenous"],"df":""},{"k":"antibiotic","en":"Antibiotic","pr":"أنتيبايوتيك","ar":"مضاد حيوي","sm":"دواء يقتل البكتيريا أو يوقف نموها","ex":"Antibiotics treat bacterial infections.","exa":"المضادات الحيوية تعالج العدوى البكتيرية.","c":"drugs","l":2,"p":"noun","rt":"anti- + bio-","rel":["infection"],"df":""},{"k":"painkiller","en":"Painkiller","pr":"بينكيلر","ar":"مسكن ألم","sm":"دواء يخفف الألم","ex":"He took a painkiller.","exa":"أخذ مسكناً.","c":"drugs","l":1,"p":"noun","rt":"","rel":["analgesic"],"df":""},{"k":"analgesic","en":"Analgesic","pr":"أنالجيزيك","ar":"مسكن (مصطلح)","sm":"المصطلح الطبي لمسكن الألم","ex":"An analgesic was ordered.","exa":"طُلب مسكن.","c":"drugs","l":3,"p":"noun","rt":"an- + -algesic","rel":["painkiller"],"df":""},{"k":"antipyretic","en":"Antipyretic","pr":"أنتيبايريتك","ar":"خافض حرارة","sm":"دواء يخفض الحمى","ex":"Give an antipyretic for fever.","exa":"أعطِ خافض حرارة للحمى.","c":"drugs","l":4,"p":"noun","rt":"anti- + pyret-","rel":["fever"],"df":""},{"k":"anticoagulant","en":"Anticoagulant","pr":"أنتيكواجيولنت","ar":"مضاد تخثر","sm":"دواء يمنع تكوّن الجلطات","ex":"An anticoagulant prevents clots.","exa":"مضاد التخثر يمنع الجلطات.","c":"drugs","l":4,"p":"noun","rt":"anti- + coagul-","rel":["clot"],"df":""},{"k":"vaccine","en":"Vaccine","pr":"فاكسين","ar":"لقاح","sm":"مادة تحمي من مرض معين","ex":"The child received a vaccine.","exa":"تلقى الطفل لقاحاً.","c":"drugs","l":2,"p":"noun","rt":"","rel":["immunity"],"df":""},{"k":"side effect","en":"Side effect","pr":"سايد إيفكت","ar":"أثر جانبي","sm":"تأثير غير مرغوب للدواء","ex":"Nausea is a common side effect.","exa":"الغثيان أثر جانبي شائع.","c":"drugs","l":2,"p":"noun","rt":"","rel":["medication"],"df":""},{"k":"allergic reaction","en":"Allergic reaction","pr":"ألرجيك ريأكشن","ar":"تفاعل تحسسي","sm":"استجابة مفرطة من الجسم لدواء أو مادة","ex":"Stop the drug if an allergic reaction occurs.","exa":"أوقف الدواء عند حدوث تفاعل تحسسي.","c":"drugs","l":3,"p":"noun","rt":"","rel":["allergy"],"df":""},{"k":"prescription","en":"Prescription","pr":"بريسكريبشن","ar":"وصفة طبية","sm":"ورقة الطبيب التي تحدد الدواء","ex":"Take the prescription to the pharmacy.","exa":"خذ الوصفة إلى الصيدلية.","c":"drugs","l":2,"p":"noun","rt":"","rel":["pharmacy"],"df":""},{"k":"pharmacy","en":"Pharmacy","pr":"فارماسي","ar":"صيدلية","sm":"مكان صرف الأدوية","ex":"The pharmacy is open.","exa":"الصيدلية مفتوحة.","c":"hospital","l":1,"p":"noun","rt":"","rel":["prescription"],"df":""},{"k":"expiry date","en":"Expiry date","pr":"إكسباياري ديت","ar":"تاريخ الانتهاء","sm":"آخر موعد لاستخدام الدواء","ex":"Check the expiry date.","exa":"افحص تاريخ الانتهاء.","c":"drugs","l":2,"p":"noun","rt":"","rel":["medication"],"df":""},{"k":"blood test","en":"Blood test","pr":"بلد تست","ar":"فحص دم","sm":"تحليل عينة دم","ex":"A blood test is ordered.","exa":"طُلب فحص دم.","c":"lab","l":1,"p":"noun","rt":"","rel":["sample"],"df":""},{"k":"urine test","en":"Urine test","pr":"يورين تست","ar":"فحص بول","sm":"تحليل عينة بول","ex":"Collect a urine test sample.","exa":"اجمع عينة فحص البول.","c":"lab","l":1,"p":"noun","rt":"","rel":["urine"],"df":""},{"k":"sample","en":"Sample","pr":"سامبل","ar":"عينة","sm":"جزء صغير للفحص","ex":"Label the sample.","exa":"ضع بطاقة على العينة.","c":"lab","l":1,"p":"noun","rt":"","rel":["specimen"],"df":""},{"k":"specimen","en":"Specimen","pr":"سبيسيمن","ar":"عينة (مختبر)","sm":"عينة مأخوذة للتحليل","ex":"Send the specimen to the lab.","exa":"أرسل العينة إلى المختبر.","c":"lab","l":3,"p":"noun","rt":"","rel":["sample"],"df":""},{"k":"laboratory","en":"Laboratory","pr":"لابوراتوري","ar":"مختبر","sm":"مكان تحليل العينات","ex":"The laboratory is on the first floor.","exa":"المختبر في الطابق الأول.","c":"hospital","l":2,"p":"noun","rt":"","rel":["sample"],"df":""},{"k":"result","en":"Result","pr":"ريزلت","ar":"نتيجة","sm":"ما يظهره الفحص","ex":"The result is normal.","exa":"النتيجة طبيعية.","c":"lab","l":1,"p":"noun","rt":"","rel":["test"],"df":""},{"k":"normal","en":"Normal","pr":"نورمل","ar":"طبيعي","sm":"ضمن الحدود المتوقعة","ex":"The value is normal.","exa":"القيمة طبيعية.","c":"lab","l":1,"p":"adjective","rt":"","rel":["abnormal"],"df":""},{"k":"abnormal","en":"Abnormal","pr":"أبنورمل","ar":"غير طبيعي","sm":"خارج الحدود المتوقعة","ex":"The result is abnormal.","exa":"النتيجة غير طبيعية.","c":"lab","l":2,"p":"adjective","rt":"ab- + normal","rel":["normal"],"df":""},{"k":"x-ray","en":"X-ray","pr":"إكس راي","ar":"أشعة سينية","sm":"صورة بالأشعة للعظام والصدر","ex":"He needs a chest X-ray.","exa":"يحتاج أشعة على الصدر.","c":"lab","l":1,"p":"noun","rt":"","rel":["CT scan"],"df":""},{"k":"ct scan","en":"CT scan","pr":"سي تي سكان","ar":"أشعة مقطعية","sm":"صور مقطعية مفصلة للجسم","ex":"The CT scan shows the brain.","exa":"الأشعة المقطعية تظهر الدماغ.","c":"lab","l":2,"p":"noun","rt":"","rel":["MRI"],"df":""},{"k":"mri","en":"MRI","pr":"إم آر آي","ar":"رنين مغناطيسي","sm":"تصوير دقيق بمجال مغناطيسي","ex":"MRI gives clear images.","exa":"الرنين يعطي صوراً واضحة.","c":"lab","l":2,"p":"abbreviation","rt":"","rel":["CT scan"],"df":""},{"k":"ultrasound","en":"Ultrasound","pr":"ألتراساوند","ar":"موجات فوق صوتية","sm":"تصوير بالموجات الصوتية","ex":"Ultrasound checks the baby.","exa":"السونار يفحص الجنين.","c":"lab","l":2,"p":"noun","rt":"","rel":["X-ray"],"df":""},{"k":"ecg","en":"ECG","pr":"إي سي جي","ar":"تخطيط القلب","sm":"رسم كهربائي لنشاط القلب","ex":"An ECG was done.","exa":"أُجري تخطيط قلب.","c":"lab","l":2,"p":"abbreviation","rt":"","rel":["heart"],"df":""},{"k":"eeg","en":"EEG","pr":"إي إي جي","ar":"تخطيط الدماغ","sm":"رسم كهربائي لنشاط الدماغ","ex":"An EEG helps diagnose seizures.","exa":"تخطيط الدماغ يساعد في تشخيص التشنجات.","c":"lab","l":3,"p":"abbreviation","rt":"","rel":["seizure"],"df":""},{"k":"biopsy","en":"Biopsy","pr":"بايوبسي","ar":"خزعة","sm":"أخذ قطعة صغيرة من النسيج للفحص","ex":"A biopsy confirmed the diagnosis.","exa":"الخزعة أكدت التشخيص.","c":"lab","l":3,"p":"noun","rt":"","rel":["specimen"],"df":""},{"k":"endoscopy","en":"Endoscopy","pr":"إندوسكوبي","ar":"منظار","sm":"فحص داخلي بكاميرا رفيعة","ex":"Endoscopy checks the stomach.","exa":"المنظار يفحص المعدة.","c":"lab","l":3,"p":"noun","rt":"endo- + -scopy","rel":["biopsy"],"df":""},{"k":"culture","en":"Culture","pr":"كلتشر","ar":"مزرعة","sm":"تنمية جراثيم من عينة لمعرفة نوعها","ex":"A wound culture was taken.","exa":"أُخذت مزرعة من الجرح.","c":"lab","l":3,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"cholesterol","en":"Cholesterol","pr":"كوليسترول","ar":"كوليسترول","sm":"دهن في الدم قد يضر الشرايين","ex":"High cholesterol raises heart risk.","exa":"الكوليسترول العالي يرفع خطر القلب.","c":"lab","l":2,"p":"noun","rt":"","rel":["heart"],"df":""},{"k":"fasting","en":"Fasting","pr":"فاستنج","ar":"صيام قبل الفحص","sm":"عدم الأكل قبل التحليل","ex":"Fasting is required for this test.","exa":"الصيام مطلوب لهذا الفحص.","c":"lab","l":2,"p":"noun","rt":"","rel":["glucose"],"df":""},{"k":"positive","en":"Positive","pr":"بوزتيف","ar":"إيجابي","sm":"الفحص أظهر وجود الشيء المفحوص","ex":"The test is positive.","exa":"الفحص إيجابي.","c":"lab","l":1,"p":"adjective","rt":"","rel":["negative"],"df":""},{"k":"negative","en":"Negative","pr":"نيجتيف","ar":"سلبي","sm":"الفحص لم يُظهر الشيء المفحوص","ex":"The result is negative.","exa":"النتيجة سلبية.","c":"lab","l":1,"p":"adjective","rt":"","rel":["positive"],"df":""},{"k":"screening","en":"Screening","pr":"سكرينج","ar":"فحص مسحي","sm":"فحص مبكر قبل ظهور الأعراض","ex":"Breast screening saves lives.","exa":"الفحص المبكر للثدي ينقذ الأرواح.","c":"lab","l":3,"p":"noun","rt":"","rel":["diagnosis"],"df":""},{"k":"blood glucose","en":"Blood glucose","pr":"بلد جلوكوز","ar":"سكر الدم","sm":"مستوى السكر في الدم","ex":"Measure the blood glucose.","exa":"قس سكر الدم.","c":"lab","l":2,"p":"noun","rt":"","rel":["diabetes"],"df":""},{"k":"complete blood count","en":"Complete blood count","pr":"كومبليت بلد كاونت","ar":"صورة دم كاملة","sm":"تحليل عام لخلايا الدم","ex":"A complete blood count was ordered.","exa":"طُلبت صورة دم كاملة.","c":"lab","l":3,"p":"noun","rt":"","rel":["blood test"],"df":""},{"k":"glucometer","en":"Glucometer","pr":"جلوكوميتر","ar":"جهاز قياس السكر","sm":"جهاز صغير لقياس سكر الدم","ex":"Use the glucometer before meals.","exa":"استخدم الجهاز قبل الوجبات.","c":"nursing","l":2,"p":"noun","rt":"","rel":["glucose"],"df":""},{"k":"admission","en":"Admission","pr":"أدميشن","ar":"دخول المستشفى","sm":"تسجيل المريض وإقامته في المستشفى","ex":"Admission was at noon.","exa":"كان الدخول ظهراً.","c":"hospital","l":2,"p":"noun","rt":"","rel":["discharge"],"df":""},{"k":"discharge","en":"Discharge","pr":"ديسشارج","ar":"خروج من المستشفى","sm":"السماح للمريض بالمغادرة بعد العلاج","ex":"Discharge is planned tomorrow.","exa":"الخروج مخطط له غداً.","c":"hospital","l":2,"p":"noun","rt":"","rel":["admission"],"df":""},{"k":"emergency room","en":"Emergency room","pr":"إيمرجنسي روم","ar":"غرفة الطوارئ","sm":"قسم للحالات العاجلة","ex":"He was taken to the emergency room.","exa":"نُقل إلى غرفة الطوارئ.","c":"hospital","l":1,"p":"noun","rt":"","rel":["ambulance"],"df":""},{"k":"ambulance","en":"Ambulance","pr":"أمبيولنس","ar":"سيارة إسعاف","sm":"مركبة لنقل المرضى بسرعة","ex":"Call an ambulance now.","exa":"اتصل بالإسعاف الآن.","c":"emergency","l":1,"p":"noun","rt":"","rel":["emergency room"],"df":""},{"k":"intensive care unit","en":"Intensive care unit","pr":"إنتنسيف كير يونت","ar":"وحدة العناية المركزة","sm":"قسم للحالات الحرجة","ex":"He is in the intensive care unit.","exa":"هو في العناية المركزة.","c":"hospital","l":2,"p":"noun","rt":"","rel":["ventilator"],"df":""},{"k":"operating room","en":"Operating room","pr":"أوبريتنج روم","ar":"غرفة العمليات","sm":"مكان إجراء الجراحة","ex":"The operating room is sterile.","exa":"غرفة العمليات معقمة.","c":"hospital","l":2,"p":"noun","rt":"","rel":["surgery"],"df":""},{"k":"outpatient","en":"Outpatient","pr":"أوتبيشنت","ar":"مريض خارجي","sm":"مريض يُعالج دون إقامة","ex":"The outpatient clinic opens at nine.","exa":"العيادة الخارجية تفتح التاسعة.","c":"hospital","l":2,"p":"noun","rt":"","rel":["inpatient"],"df":""},{"k":"inpatient","en":"Inpatient","pr":"إنبيشنت","ar":"مريض داخلي","sm":"مريض يقيم في المستشفى","ex":"An inpatient needs daily care.","exa":"المريض الداخلي يحتاج رعاية يومية.","c":"hospital","l":2,"p":"noun","rt":"","rel":["outpatient"],"df":""},{"k":"appointment","en":"Appointment","pr":"أبوينتمنت","ar":"موعد","sm":"وقت محدد لمقابلة الطبيب","ex":"I have an appointment today.","exa":"عندي موعد اليوم.","c":"hospital","l":1,"p":"noun","rt":"","rel":["clinic"],"df":""},{"k":"waiting room","en":"Waiting room","pr":"ويتنج روم","ar":"غرفة الانتظار","sm":"مكان جلوس المرضى قبل الفحص","ex":"Wait in the waiting room.","exa":"انتظر في غرفة الانتظار.","c":"hospital","l":1,"p":"noun","rt":"","rel":["clinic"],"df":""},{"k":"stretcher","en":"Stretcher","pr":"ستريتشر","ar":"نقالة","sm":"سرير متحرك لنقل المريض","ex":"Bring the stretcher.","exa":"أحضر النقالة.","c":"nursing","l":2,"p":"noun","rt":"","rel":["wheelchair"],"df":""},{"k":"wheelchair","en":"Wheelchair","pr":"ويلتشير","ar":"كرسي متحرك","sm":"كرسي بعجلات للمريض","ex":"Help him into the wheelchair.","exa":"ساعده على الجلوس بالكرسي المتحرك.","c":"nursing","l":1,"p":"noun","rt":"","rel":["stretcher"],"df":""},{"k":"care plan","en":"Care plan","pr":"كير بلان","ar":"خطة رعاية","sm":"خطوات مكتوبة لرعاية المريض","ex":"Update the care plan daily.","exa":"حدّث خطة الرعاية يومياً.","c":"nursing","l":3,"p":"noun","rt":"","rel":["nursing"],"df":""},{"k":"assessment","en":"Assessment","pr":"أسيسمنت","ar":"تقييم","sm":"جمع معلومات عن حالة المريض","ex":"Start with a full assessment.","exa":"ابدأ بتقييم كامل.","c":"nursing","l":3,"p":"noun","rt":"","rel":["care plan"],"df":""},{"k":"nursing","en":"Nursing","pr":"نيرسنج","ar":"التمريض","sm":"مهنة رعاية المرضى","ex":"She studies nursing.","exa":"تدرس التمريض.","c":"nursing","l":1,"p":"noun","rt":"","rel":["nurse"],"df":""},{"k":"shift","en":"Shift","pr":"شيفت","ar":"وردية","sm":"فترة عمل محددة","ex":"The night shift starts at eight.","exa":"الوردية الليلية تبدأ الثامنة.","c":"nursing","l":1,"p":"noun","rt":"","rel":["handover"],"df":""},{"k":"handover","en":"Handover","pr":"هاندأوفر","ar":"تسليم المناوبة","sm":"نقل معلومات المرضى للوردية التالية","ex":"Give a clear handover.","exa":"قدّم تسليماً واضحاً.","c":"nursing","l":3,"p":"noun","rt":"","rel":["shift"],"df":""},{"k":"chart","en":"Chart","pr":"تشارت","ar":"سجل المريض","sm":"ورقة تسجيل بيانات المريض","ex":"Write it in the chart.","exa":"اكتبه في السجل.","c":"nursing","l":2,"p":"noun","rt":"","rel":["record"],"df":""},{"k":"record","en":"Record","pr":"ريكورد","ar":"يسجل","sm":"يكتب المعلومات","ex":"Record the vital signs.","exa":"سجّل العلامات الحيوية.","c":"nursing","l":1,"p":"verb","rt":"","rel":["chart"],"df":""},{"k":"monitor","en":"Monitor","pr":"مونيتر","ar":"يراقب / جهاز مراقبة","sm":"متابعة حالة المريض باستمرار","ex":"Monitor his heart rate.","exa":"راقب معدل قلبه.","c":"nursing","l":2,"p":"verb","rt":"","rel":["vitals"],"df":""},{"k":"turn","en":"Turn","pr":"تيرن","ar":"يقلّب","sm":"تغيير وضع المريض في السرير","ex":"Turn the patient every two hours.","exa":"اقلب المريض كل ساعتين.","c":"nursing","l":1,"p":"verb","rt":"","rel":["pressure ulcer"],"df":""},{"k":"pressure ulcer","en":"Pressure ulcer","pr":"برشر ألسر","ar":"قرحة فراش","sm":"جرح ناتج عن ضغط مستمر على الجلد","ex":"Turning prevents a pressure ulcer.","exa":"التقليب يمنع قرحة الفراش.","c":"nursing","l":3,"p":"noun","rt":"","rel":["turn"],"df":""},{"k":"dressing","en":"Dressing","pr":"دريسنج","ar":"ضماد","sm":"غطاء معقم للجرح","ex":"Change the dressing daily.","exa":"غيّر الضماد يومياً.","c":"nursing","l":2,"p":"noun","rt":"","rel":["wound"],"df":""},{"k":"bandage","en":"Bandage","pr":"باندج","ar":"رباط","sm":"شريط لف يثبّت الضماد","ex":"Apply a bandage gently.","exa":"ضع الرباط برفق.","c":"nursing","l":1,"p":"noun","rt":"","rel":["dressing"],"df":""},{"k":"gloves","en":"Gloves","pr":"جلفز","ar":"قفازات","sm":"تحمي اليد من العدوى","ex":"Wear gloves before touching blood.","exa":"ارتدِ القفازات قبل لمس الدم.","c":"infection","l":1,"p":"noun","rt":"","rel":["mask"],"df":""},{"k":"mask","en":"Mask","pr":"ماسك","ar":"كمامة","sm":"تغطي الأنف والفم","ex":"Wear a mask in the ward.","exa":"ارتدِ الكمامة في العنبر.","c":"infection","l":1,"p":"noun","rt":"","rel":["gloves"],"df":""},{"k":"gown","en":"Gown","pr":"جاون","ar":"رداء واقٍ","sm":"ثوب يحمي الملابس من التلوث","ex":"Put on a gown.","exa":"ارتدِ الرداء الواقي.","c":"infection","l":2,"p":"noun","rt":"","rel":["gloves"],"df":""},{"k":"hand hygiene","en":"Hand hygiene","pr":"هاند هايجين","ar":"نظافة اليدين","sm":"غسل اليدين أو تعقيمهما","ex":"Hand hygiene prevents infection.","exa":"نظافة اليدين تمنع العدوى.","c":"infection","l":2,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"sterile","en":"Sterile","pr":"ستيرل","ar":"معقم","sm":"خالٍ من الجراثيم","ex":"Use a sterile needle.","exa":"استخدم إبرة معقمة.","c":"infection","l":2,"p":"adjective","rt":"","rel":["disinfect"],"df":""},{"k":"disinfect","en":"Disinfect","pr":"ديسإنفكت","ar":"يطهّر","sm":"يقتل الجراثيم على الأسطح","ex":"Disinfect the table.","exa":"طهّر الطاولة.","c":"infection","l":2,"p":"verb","rt":"","rel":["sterile"],"df":""},{"k":"sterilization","en":"Sterilization","pr":"ستيرلايزيشن","ar":"تعقيم","sm":"القضاء على كل الجراثيم","ex":"Sterilization uses heat or steam.","exa":"التعقيم يستخدم الحرارة أو البخار.","c":"infection","l":3,"p":"noun","rt":"","rel":["sterile"],"df":""},{"k":"germ","en":"Germ","pr":"جيرم","ar":"جرثومة","sm":"كائن دقيق قد يسبب المرض","ex":"Germs spread by touch.","exa":"الجراثيم تنتقل باللمس.","c":"infection","l":1,"p":"noun","rt":"","rel":["bacteria"],"df":""},{"k":"bacteria","en":"Bacteria","pr":"باكتيريا","ar":"بكتيريا","sm":"جراثيم دقيقة قد تسبب عدوى","ex":"Bacteria cause many infections.","exa":"البكتيريا تسبب عدوى كثيرة.","c":"infection","l":2,"p":"noun","rt":"","rel":["virus"],"df":""},{"k":"virus","en":"Virus","pr":"فايرس","ar":"فيروس","sm":"كائن دقيق لا يعالجه المضاد الحيوي","ex":"A virus causes the flu.","exa":"الفيروس يسبب الإنفلونزا.","c":"infection","l":2,"p":"noun","rt":"","rel":["bacteria"],"df":""},{"k":"isolation","en":"Isolation","pr":"أيسوليشن","ar":"عزل","sm":"فصل المريض المعدي عن غيره","ex":"The patient is in isolation.","exa":"المريض في العزل.","c":"infection","l":3,"p":"noun","rt":"","rel":["infection"],"df":""},{"k":"contamination","en":"Contamination","pr":"كونتامينيشن","ar":"تلوث","sm":"انتقال جراثيم إلى مكان نظيف","ex":"Avoid contamination of the wound.","exa":"تجنب تلوث الجرح.","c":"infection","l":3,"p":"noun","rt":"","rel":["sterile"],"df":""},{"k":"waste","en":"Waste","pr":"ويست","ar":"نفايات","sm":"مخلفات طبية أو غيرها","ex":"Place medical waste in the red bag.","exa":"ضع النفايات الطبية في الكيس الأحمر.","c":"infection","l":1,"p":"noun","rt":"","rel":["sharps"],"df":""},{"k":"first aid","en":"First aid","pr":"فيرست إيد","ar":"إسعافات أولية","sm":"مساعدة فورية قبل وصول الطبيب","ex":"Learn first aid.","exa":"تعلّم الإسعافات الأولية.","c":"emergency","l":1,"p":"noun","rt":"","rel":["emergency"],"df":""},{"k":"cpr","en":"CPR","pr":"سي بي آر","ar":"إنعاش قلبي رئوي","sm":"ضغطات على الصدر وتنفس لإنقاذ المريض","ex":"Start CPR immediately.","exa":"ابدأ الإنعاش فوراً.","c":"emergency","l":3,"p":"abbreviation","rt":"","rel":["cardiac arrest"],"df":""},{"k":"choking","en":"Choking","pr":"تشوكنج","ar":"اختناق","sm":"انسداد مجرى الهواء","ex":"He is choking on food.","exa":"هو يختنق بالطعام.","c":"emergency","l":2,"p":"noun","rt":"","rel":["airway"],"df":""},{"k":"airway","en":"Airway","pr":"إيروي","ar":"مجرى الهواء","sm":"الطريق الذي يدخل منه الهواء","ex":"Keep the airway open.","exa":"أبقِ مجرى الهواء مفتوحاً.","c":"emergency","l":3,"p":"noun","rt":"","rel":["breathing"],"df":""},{"k":"shock","en":"Shock","pr":"شوك","ar":"صدمة","sm":"هبوط خطير في تروية الدم للجسم","ex":"The patient is in shock.","exa":"المريض في حالة صدمة.","c":"emergency","l":3,"p":"noun","rt":"","rel":["bleeding"],"df":""},{"k":"faint","en":"Faint","pr":"فينت","ar":"يُغمى عليه","sm":"فقدان وعي قصير","ex":"She felt faint.","exa":"شعرت أنها ستُغمى عليها.","c":"emergency","l":2,"p":"verb","rt":"","rel":["dizziness"],"df":""},{"k":"sprain","en":"Sprain","pr":"سبرين","ar":"التواء","sm":"إصابة رباط المفصل","ex":"He has an ankle sprain.","exa":"عنده التواء في الكاحل.","c":"emergency","l":2,"p":"noun","rt":"","rel":["fracture"],"df":""},{"k":"poisoning","en":"Poisoning","pr":"بويزننج","ar":"تسمم","sm":"دخول مادة ضارة إلى الجسم","ex":"Call for help in poisoning.","exa":"اطلب المساعدة في التسمم.","c":"emergency","l":3,"p":"noun","rt":"","rel":["emergency"],"df":""},{"k":"triage","en":"Triage","pr":"تريآج","ar":"فرز المرضى","sm":"ترتيب المرضى حسب درجة الخطورة","ex":"Triage decides who is seen first.","exa":"الفرز يحدد من يُفحص أولاً.","c":"emergency","l":4,"p":"noun","rt":"","rel":["emergency room"],"df":""},{"k":"fall","en":"Fall","pr":"فول","ar":"سقوط","sm":"وقوع المريض على الأرض","ex":"Prevent falls in the ward.","exa":"امنع السقوط في العنبر.","c":"nursing","l":1,"p":"noun","rt":"","rel":["fracture"],"df":""},{"k":"consent","en":"Consent","pr":"كونسنت","ar":"موافقة","sm":"إذن المريض قبل الإجراء","ex":"Get consent before surgery.","exa":"خذ الموافقة قبل الجراحة.","c":"nursing","l":2,"p":"noun","rt":"","rel":["surgery"],"df":""},{"k":"privacy","en":"Privacy","pr":"برايفسي","ar":"خصوصية","sm":"حق المريض في سرية معلوماته","ex":"Respect the patient's privacy.","exa":"احترم خصوصية المريض.","c":"nursing","l":2,"p":"noun","rt":"","rel":["consent"],"df":""},{"k":"comfort","en":"Comfort","pr":"كمفرت","ar":"راحة","sm":"شعور المريض بالارتياح","ex":"Provide comfort to the patient.","exa":"وفّر الراحة للمريض.","c":"nursing","l":1,"p":"noun","rt":"","rel":["pain"],"df":""},{"k":"surgery","en":"Surgery","pr":"سيرجري","ar":"جراحة","sm":"علاج بالعمل اليدوي داخل الجسم","ex":"The surgery lasted two hours.","exa":"استمرت الجراحة ساعتين.","c":"surgery","l":2,"p":"noun","rt":"","rel":["surgeon"],"df":""},{"k":"surgeon","en":"Surgeon","pr":"سيرجن","ar":"جرّاح","sm":"طبيب يجري العمليات","ex":"The surgeon is ready.","exa":"الجراح جاهز.","c":"surgery","l":2,"p":"noun","rt":"","rel":["surgery"],"df":""},{"k":"anesthesia","en":"Anesthesia","pr":"أنستيزيا","ar":"تخدير","sm":"إزالة الإحساس أثناء الجراحة","ex":"Anesthesia prevents pain.","exa":"التخدير يمنع الألم.","c":"surgery","l":3,"p":"noun","rt":"an- + -esthesia","rel":["surgery"],"df":""},{"k":"incision","en":"Incision","pr":"إنسيجن","ar":"شق جراحي","sm":"قطع يعمله الجراح في الجلد","ex":"Keep the incision clean.","exa":"حافظ على نظافة الشق الجراحي.","c":"surgery","l":3,"p":"noun","rt":"","rel":["wound"],"df":""},{"k":"stitches","en":"Stitches","pr":"ستتشز","ar":"غرز","sm":"خيوط تقفل الجرح","ex":"Remove the stitches after ten days.","exa":"أزل الغرز بعد عشرة أيام.","c":"surgery","l":2,"p":"noun","rt":"","rel":["incision"],"df":""},{"k":"scalpel","en":"Scalpel","pr":"سكالبل","ar":"مشرط","sm":"سكين جراحي صغير","ex":"Hand me the scalpel.","exa":"ناولني المشرط.","c":"surgery","l":3,"p":"noun","rt":"","rel":["incision"],"df":""},{"k":"forceps","en":"Forceps","pr":"فورسبس","ar":"ملقط","sm":"أداة لمسك الأنسجة","ex":"Pass the forceps.","exa":"ناولني الملقط.","c":"surgery","l":3,"p":"noun","rt":"","rel":["scalpel"],"df":""},{"k":"appendectomy","en":"Appendectomy","pr":"أبنديكتومي","ar":"استئصال الزائدة","sm":"عملية إزالة الزائدة الدودية","ex":"He had an appendectomy.","exa":"أجرى استئصال زائدة.","c":"surgery","l":4,"p":"noun","rt":"appendic- + -ectomy","rel":["appendicitis"],"df":""},{"k":"mastectomy","en":"Mastectomy","pr":"ماستكتومي","ar":"استئصال الثدي","sm":"عملية إزالة الثدي","ex":"A mastectomy treats breast cancer.","exa":"استئصال الثدي يعالج سرطان الثدي.","c":"surgery","l":4,"p":"noun","rt":"mast- + -ectomy","rel":["cancer"],"df":""},{"k":"cancer","en":"Cancer","pr":"كانسر","ar":"سرطان","sm":"نمو غير طبيعي للخلايا","ex":"Cancer needs early detection.","exa":"السرطان يحتاج كشفاً مبكراً.","c":"basics","l":2,"p":"noun","rt":"","rel":["tumor"],"df":""},{"k":"tumor","en":"Tumor","pr":"تيومر","ar":"ورم","sm":"كتلة من الخلايا الزائدة","ex":"The tumor is benign.","exa":"الورم حميد.","c":"basics","l":3,"p":"noun","rt":"","rel":["cancer"],"df":""},{"k":"benign","en":"Benign","pr":"بينايِن","ar":"حميد","sm":"غير سرطاني ولا ينتشر","ex":"The lump is benign.","exa":"الكتلة حميدة.","c":"basics","l":3,"p":"adjective","rt":"","rel":["malignant"],"df":""},{"k":"malignant","en":"Malignant","pr":"مالجننت","ar":"خبيث","sm":"سرطاني وقابل للانتشار","ex":"The tumor is malignant.","exa":"الورم خبيث.","c":"basics","l":3,"p":"adjective","rt":"","rel":["benign"],"df":""},{"k":"recovery","en":"Recovery","pr":"ريكفري","ar":"تعافٍ","sm":"العودة للصحة بعد المرض أو الجراحة","ex":"Recovery takes weeks.","exa":"التعافي يحتاج أسابيع.","c":"surgery","l":2,"p":"noun","rt":"","rel":["surgery"],"df":""},{"k":"pregnancy","en":"Pregnancy","pr":"بريجننسي","ar":"حمل","sm":"حالة وجود جنين في الرحم","ex":"Pregnancy lasts nine months.","exa":"الحمل يستمر تسعة أشهر.","c":"ob","l":1,"p":"noun","rt":"","rel":["fetus"],"df":""},{"k":"fetus","en":"Fetus","pr":"فيتس","ar":"جنين","sm":"الطفل داخل الرحم","ex":"The fetus is growing well.","exa":"الجنين ينمو جيداً.","c":"ob","l":2,"p":"noun","rt":"","rel":["pregnancy"],"df":""},{"k":"labor","en":"Labor","pr":"ليبر","ar":"مخاض","sm":"عملية الولادة","ex":"She is in labor.","exa":"هي في المخاض.","c":"ob","l":2,"p":"noun","rt":"","rel":["delivery"],"df":""},{"k":"delivery","en":"Delivery","pr":"ديليفري","ar":"ولادة","sm":"خروج الطفل من الرحم","ex":"The delivery went well.","exa":"الولادة سارت جيداً.","c":"ob","l":2,"p":"noun","rt":"","rel":["labor"],"df":""},{"k":"cesarean section","en":"Cesarean section","pr":"سيزيريان سكشن","ar":"ولادة قيصرية","sm":"ولادة عبر شق جراحي بالبطن","ex":"She had a cesarean section.","exa":"أجرت ولادة قيصرية.","c":"ob","l":3,"p":"noun","rt":"","rel":["delivery"],"df":""},{"k":"breastfeeding","en":"Breastfeeding","pr":"بريستفيدنج","ar":"رضاعة طبيعية","sm":"إرضاع الطفل من ثدي الأم","ex":"Breastfeeding protects the baby.","exa":"الرضاعة الطبيعية تحمي الطفل.","c":"ob","l":2,"p":"noun","rt":"","rel":["newborn"],"df":""},{"k":"newborn","en":"Newborn","pr":"نيوبورن","ar":"حديث الولادة","sm":"طفل عمره أيام أو أسابيع","ex":"The newborn is sleeping.","exa":"الوليد نائم.","c":"peds","l":1,"p":"noun","rt":"","rel":["infant"],"df":""},{"k":"infant","en":"Infant","pr":"إنفنت","ar":"رضيع","sm":"طفل أقل من سنة","ex":"The infant needs frequent feeding.","exa":"الرضيع يحتاج رضعات متكررة.","c":"peds","l":1,"p":"noun","rt":"","rel":["newborn"],"df":""},{"k":"child","en":"Child","pr":"تشايلد","ar":"طفل","sm":"إنسان في مرحلة الطفولة","ex":"The child has a fever.","exa":"الطفل عنده حمى.","c":"peds","l":1,"p":"noun","rt":"","rel":["infant"],"df":""},{"k":"pediatrics","en":"Pediatrics","pr":"بيديآتريكس","ar":"طب الأطفال","sm":"فرع الطب الخاص بالأطفال","ex":"He works in pediatrics.","exa":"يعمل في طب الأطفال.","c":"peds","l":2,"p":"noun","rt":"","rel":["child"],"df":""},{"k":"immunization","en":"Immunization","pr":"إميونايزيشن","ar":"تحصين","sm":"إعطاء لقاحات للوقاية","ex":"Immunization is free for children.","exa":"التحصين مجاني للأطفال.","c":"peds","l":3,"p":"noun","rt":"","rel":["vaccine"],"df":""},{"k":"growth","en":"Growth","pr":"جروث","ar":"نمو","sm":"زيادة الطول والوزن","ex":"Check the child's growth.","exa":"افحص نمو الطفل.","c":"peds","l":1,"p":"noun","rt":"","rel":["weight"],"df":""},{"k":"diaper","en":"Diaper","pr":"دايبر","ar":"حفاض","sm":"لباس للرضع","ex":"Change the diaper.","exa":"غيّر الحفاض.","c":"peds","l":1,"p":"noun","rt":"","rel":["infant"],"df":""},{"k":"jaundice neonatal","en":"Jaundice neonatal","pr":"جوندس نيونيتال","ar":"يرقان الوليد","sm":"اصفرار جلد الطفل حديث الولادة","ex":"Neonatal jaundice usually improves.","exa":"يرقان الوليد يتحسن غالباً.","c":"peds","l":4,"p":"noun","rt":"","rel":["jaundice"],"df":""},{"k":"depression","en":"Depression","pr":"ديبريشن","ar":"اكتئاب","sm":"حزن عميق ومستمر","ex":"Depression affects sleep.","exa":"الاكتئاب يؤثر على النوم.","c":"mental","l":2,"p":"noun","rt":"","rel":["anxiety"],"df":""},{"k":"anxiety","en":"Anxiety","pr":"أنزايتي","ar":"قلق","sm":"خوف وتوتر زائدان","ex":"She suffers from anxiety.","exa":"تعاني من القلق.","c":"mental","l":2,"p":"noun","rt":"","rel":["depression"],"df":""},{"k":"stress","en":"Stress","pr":"ستريس","ar":"ضغط نفسي","sm":"توتر نتيجة ضغوط الحياة","ex":"Stress affects health.","exa":"الضغط النفسي يؤثر على الصحة.","c":"mental","l":1,"p":"noun","rt":"","rel":["anxiety"],"df":""},{"k":"insomnia","en":"Insomnia","pr":"إنسومنيا","ar":"أرق","sm":"صعوبة النوم","ex":"Insomnia leaves him tired.","exa":"الأرق يتركه متعباً.","c":"mental","l":3,"p":"noun","rt":"","rel":["sleep"],"df":""},{"k":"sleep","en":"Sleep","pr":"سليب","ar":"نوم","sm":"راحة الجسم والعقل","ex":"Good sleep helps healing.","exa":"النوم الجيد يساعد الشفاء.","c":"mental","l":1,"p":"noun","rt":"","rel":["insomnia"],"df":""},{"k":"mood","en":"Mood","pr":"مود","ar":"مزاج","sm":"الحالة النفسية العامة","ex":"His mood is low.","exa":"مزاجه منخفض.","c":"mental","l":1,"p":"noun","rt":"","rel":["depression"],"df":""},{"k":"panic attack","en":"Panic attack","pr":"بانيك أتاك","ar":"نوبة هلع","sm":"خوف شديد مفاجئ مع أعراض جسدية","ex":"She had a panic attack.","exa":"أصابتها نوبة هلع.","c":"mental","l":3,"p":"noun","rt":"","rel":["anxiety"],"df":""},{"k":"hallucination","en":"Hallucination","pr":"هالوسينيشن","ar":"هلوسة","sm":"رؤية أو سماع أشياء غير موجودة","ex":"Hallucination is a symptom.","exa":"الهلوسة عَرَض.","c":"mental","l":4,"p":"noun","rt":"","rel":["psychosis"],"df":""},{"k":"counseling","en":"Counseling","pr":"كاونسلنج","ar":"إرشاد نفسي","sm":"جلسات حديث للمساعدة النفسية","ex":"Counseling helps recovery.","exa":"الإرشاد النفسي يساعد التعافي.","c":"mental","l":2,"p":"noun","rt":"","rel":["therapy"],"df":""},{"k":"therapy","en":"Therapy","pr":"ثيرابي","ar":"علاج","sm":"برنامج علاجي","ex":"Physical therapy improves movement.","exa":"العلاج الطبيعي يحسن الحركة.","c":"basics","l":2,"p":"noun","rt":"","rel":["treatment"],"df":""},{"k":"joint","en":"Joint","pr":"جوينت","ar":"مفصل","sm":"مكان التقاء عظمتين","ex":"The joint is stiff.","exa":"المفصل متيبس.","c":"msk","l":1,"p":"noun","rt":"","rel":["bone"],"df":""},{"k":"arthritis","en":"Arthritis","pr":"أرثرايتس","ar":"التهاب المفاصل","sm":"التهاب يسبب ألماً وتيبساً","ex":"Arthritis causes joint pain.","exa":"التهاب المفاصل يسبب ألماً.","c":"msk","l":3,"p":"noun","rt":"arthr- + -itis","rel":["joint"],"df":""},{"k":"osteoporosis","en":"Osteoporosis","pr":"أوستيوبوروسس","ar":"هشاشة العظام","sm":"ضعف العظام وسهولة كسرها","ex":"Osteoporosis increases fracture risk.","exa":"هشاشة العظام ترفع خطر الكسر.","c":"msk","l":4,"p":"noun","rt":"osteo-","rel":["bone"],"df":""},{"k":"tendon","en":"Tendon","pr":"تندن","ar":"وتر","sm":"نسيج يربط العضلة بالعظم","ex":"The tendon is torn.","exa":"الوتر ممزق.","c":"msk","l":3,"p":"noun","rt":"","rel":["muscle"],"df":""},{"k":"ligament","en":"Ligament","pr":"ليجمنت","ar":"رباط","sm":"نسيج يربط عظماً بعظم","ex":"A ligament injury is painful.","exa":"إصابة الرباط مؤلمة.","c":"msk","l":3,"p":"noun","rt":"","rel":["joint"],"df":""},{"k":"cast","en":"Cast","pr":"كاست","ar":"جبيرة جبس","sm":"غطاء صلب لتثبيت العظم المكسور","ex":"He wears a cast.","exa":"يضع جبيرة.","c":"msk","l":2,"p":"noun","rt":"","rel":["fracture"],"df":""},{"k":"crutches","en":"Crutches","pr":"كراتشز","ar":"عكازات","sm":"أداة للمشي أثناء الإصابة","ex":"Use crutches to walk.","exa":"استخدم العكازات للمشي.","c":"nursing","l":2,"p":"noun","rt":"","rel":["fracture"],"df":""},{"k":"physiotherapy","en":"Physiotherapy","pr":"فيزيوثيرابي","ar":"علاج طبيعي","sm":"تمارين وعلاج لتحسين الحركة","ex":"Physiotherapy starts after surgery.","exa":"العلاج الطبيعي يبدأ بعد الجراحة.","c":"msk","l":3,"p":"noun","rt":"","rel":["therapy"],"df":""},{"k":"spinal cord","en":"Spinal cord","pr":"سباينل كورد","ar":"نخاع شوكي","sm":"حبل عصبي داخل العمود الفقري","ex":"The spinal cord carries signals.","exa":"النخاع الشوكي ينقل الإشارات.","c":"neuro","l":3,"p":"noun","rt":"","rel":["spine"],"df":""},{"k":"scoliosis","en":"Scoliosis","pr":"سكوليوسس","ar":"جنف","sm":"انحناء جانبي في العمود الفقري","ex":"Scoliosis is seen in teenagers.","exa":"الجنف يظهر عند المراهقين.","c":"msk","l":4,"p":"noun","rt":"","rel":["spine"],"df":""},{"k":"sprain ankle","en":"Sprain ankle","pr":"سبرين أنكل","ar":"التواء الكاحل","sm":"إصابة أربطة الكاحل","ex":"An ankle sprain needs rest.","exa":"التواء الكاحل يحتاج راحة.","c":"msk","l":2,"p":"noun","rt":"","rel":["sprain"],"df":""},{"k":"muscle spasm","en":"Muscle spasm","pr":"ماسل سبازم","ar":"تشنج عضلي","sm":"انقباض مفاجئ مؤلم في العضلة","ex":"He has a muscle spasm.","exa":"عنده تشنج عضلي.","c":"msk","l":3,"p":"noun","rt":"","rel":["muscle"],"df":""},{"k":"rehabilitation","en":"Rehabilitation","pr":"ريهابيليتيشن","ar":"تأهيل","sm":"برنامج لاستعادة الوظائف بعد المرض","ex":"Rehabilitation takes time.","exa":"التأهيل يحتاج وقتاً.","c":"msk","l":3,"p":"noun","rt":"","rel":["physiotherapy"],"df":""},{"k":"bp","en":"BP","pr":"بي بي","ar":"ضغط الدم","sm":"اختصار Blood Pressure","ex":"Record the BP twice.","exa":"سجّل الضغط مرتين.","c":"abbrev","l":1,"p":"abbreviation","rt":"","rel":["blood pressure"],"df":""},{"k":"hr","en":"HR","pr":"إتش آر","ar":"معدل القلب","sm":"اختصار Heart Rate","ex":"HR is 80 per minute.","exa":"معدل القلب 80 في الدقيقة.","c":"abbrev","l":1,"p":"abbreviation","rt":"","rel":["pulse"],"df":""},{"k":"rr","en":"RR","pr":"آر آر","ar":"معدل التنفس","sm":"اختصار Respiratory Rate","ex":"RR is 16 per minute.","exa":"معدل التنفس 16 في الدقيقة.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["respiration"],"df":""},{"k":"spo2","en":"SpO2","pr":"إس بي أو تو","ar":"تشبع الأكسجين","sm":"نسبة الأكسجين في الدم","ex":"SpO2 is 98 percent.","exa":"التشبع 98 بالمئة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["pulse oximeter"],"df":""},{"k":"iv","en":"IV","pr":"آي في","ar":"وريدي","sm":"اختصار Intravenous","ex":"Start an IV line.","exa":"ابدأ خطاً وريدياً.","c":"abbrev","l":1,"p":"abbreviation","rt":"","rel":["intravenous"],"df":""},{"k":"im","en":"IM","pr":"آي إم","ar":"عضلي","sm":"اختصار Intramuscular","ex":"Give it IM.","exa":"أعطه عضلياً.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["intramuscular"],"df":""},{"k":"po","en":"PO","pr":"بي أو","ar":"عن طريق الفم","sm":"اختصار per os أي بالفم","ex":"Medication PO twice daily.","exa":"الدواء بالفم مرتين يومياً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["oral"],"df":""},{"k":"prn","en":"PRN","pr":"بي آر إن","ar":"عند الحاجة","sm":"يُعطى الدواء إذا احتاج المريض","ex":"Pain medication PRN.","exa":"مسكن عند الحاجة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["medication"],"df":""},{"k":"npo","en":"NPO","pr":"إن بي أو","ar":"لا شيء بالفم","sm":"ممنوع الأكل والشرب","ex":"Keep the patient NPO.","exa":"اجعل المريض صائماً تماماً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["fasting"],"df":""},{"k":"stat","en":"STAT","pr":"ستات","ar":"فوراً","sm":"نفّذ الأمر حالاً","ex":"Order a blood test STAT.","exa":"اطلب فحص الدم فوراً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["emergency"],"df":""},{"k":"bid","en":"BID","pr":"بي آي دي","ar":"مرتين يومياً","sm":"اختصار لجدولة الدواء","ex":"Take it BID.","exa":"خذه مرتين يومياً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["dose"],"df":""},{"k":"tid","en":"TID","pr":"تي آي دي","ar":"ثلاث مرات يومياً","sm":"اختصار لجدولة الدواء","ex":"Take it TID.","exa":"خذه ثلاث مرات يومياً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["dose"],"df":""},{"k":"qid","en":"QID","pr":"كيو آي دي","ar":"أربع مرات يومياً","sm":"اختصار لجدولة الدواء","ex":"Antibiotic QID.","exa":"مضاد حيوي أربع مرات يومياً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["dose"],"df":""},{"k":"od","en":"OD","pr":"أو دي","ar":"مرة يومياً","sm":"اختصار لجدولة الدواء، وقد يعني أيضاً العين اليمنى","ex":"Take one tablet OD.","exa":"خذ قرصاً مرة يومياً.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["dose"],"df":"OD قد تعني مرة يومياً أو العين اليمنى حسب السياق"},{"k":"icu","en":"ICU","pr":"آي سي يو","ar":"عناية مركزة","sm":"اختصار Intensive Care Unit","ex":"He is in the ICU.","exa":"هو في العناية المركزة.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["intensive care unit"],"df":""},{"k":"er","en":"ER","pr":"إي آر","ar":"طوارئ","sm":"اختصار Emergency Room","ex":"Go to the ER.","exa":"اذهب إلى الطوارئ.","c":"abbrev","l":1,"p":"abbreviation","rt":"","rel":["emergency room"],"df":""},{"k":"or","en":"OR","pr":"أو آر","ar":"غرفة العمليات","sm":"اختصار Operating Room","ex":"The OR is ready.","exa":"غرفة العمليات جاهزة.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["operating room"],"df":""},{"k":"opd","en":"OPD","pr":"أو بي دي","ar":"عيادة خارجية","sm":"اختصار Outpatient Department","ex":"The OPD opens at eight.","exa":"العيادة الخارجية تفتح الثامنة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["outpatient"],"df":""},{"k":"dnr","en":"DNR","pr":"دي إن آر","ar":"لا إنعاش","sm":"أمر بعدم إجراء إنعاش قلبي","ex":"The chart says DNR.","exa":"السجل مكتوب فيه لا إنعاش.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["CPR"],"df":""},{"k":"bmi","en":"BMI","pr":"بي إم آي","ar":"مؤشر كتلة الجسم","sm":"مقياس يربط الوزن بالطول","ex":"His BMI is high.","exa":"مؤشر كتلته مرتفع.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["weight"],"df":""},{"k":"hiv","en":"HIV","pr":"إتش آي في","ar":"فيروس نقص المناعة","sm":"فيروس يضعف المناعة","ex":"HIV attacks immunity.","exa":"الفيروس يهاجم المناعة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["virus"],"df":""},{"k":"aids","en":"AIDS","pr":"إيدز","ar":"الإيدز","sm":"متلازمة نقص المناعة المكتسب","ex":"AIDS is the advanced stage.","exa":"الإيدز هو المرحلة المتقدمة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["HIV"],"df":""},{"k":"uti","en":"UTI","pr":"يو تي آي","ar":"التهاب مسالك بولية","sm":"اختصار Urinary Tract Infection","ex":"She has a UTI.","exa":"عندها التهاب مسالك بولية.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["urinary tract infection"],"df":""},{"k":"copd","en":"COPD","pr":"سي أو بي دي","ar":"انسداد رئوي مزمن","sm":"مرض رئوي مزمن يصعّب التنفس","ex":"COPD is linked to smoking.","exa":"الانسداد الرئوي مرتبط بالتدخين.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["asthma"],"df":""},{"k":"cva","en":"CVA","pr":"سي في إي","ar":"حادث وعائي دماغي","sm":"اسم آخر للسكتة الدماغية","ex":"CVA is another name for stroke.","exa":"CVA اسم آخر للسكتة.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["stroke"],"df":""},{"k":"mi","en":"MI","pr":"إم آي","ar":"احتشاء عضلة القلب","sm":"اختصار Myocardial Infarction","ex":"MI is a heart attack.","exa":"MI هو أزمة قلبية.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["myocardial infarction"],"df":"MI عادة تعني احتشاء القلب لكنها قد تعني قصور الصمام في سياقات أخرى"},{"k":"dm","en":"DM","pr":"دي إم","ar":"داء السكري","sm":"اختصار Diabetes Mellitus","ex":"He has DM.","exa":"عنده سكري.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["diabetes"],"df":""},{"k":"htn","en":"HTN","pr":"إتش تي إن","ar":"ارتفاع ضغط الدم","sm":"اختصار Hypertension","ex":"HTN needs treatment.","exa":"ارتفاع الضغط يحتاج علاجاً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["hypertension"],"df":""},{"k":"cbc","en":"CBC","pr":"سي بي سي","ar":"صورة دم كاملة","sm":"اختصار Complete Blood Count","ex":"Order a CBC.","exa":"اطلب صورة دم كاملة.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["complete blood count"],"df":""},{"k":"wbc","en":"WBC","pr":"دبليو بي سي","ar":"كريات الدم البيضاء","sm":"اختصار White Blood Cells","ex":"WBC is raised in infection.","exa":"كريات الدم البيضاء ترتفع في العدوى.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["white blood cell"],"df":""},{"k":"rbc","en":"RBC","pr":"آر بي سي","ar":"كريات الدم الحمراء","sm":"اختصار Red Blood Cells","ex":"RBC carries oxygen.","exa":"الكريات الحمراء تحمل الأكسجين.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["red blood cell"],"df":""},{"k":"hb","en":"Hb","pr":"إتش بي","ar":"هيموجلوبين","sm":"اختصار Hemoglobin","ex":"Check Hb before surgery.","exa":"افحص الهيموجلوبين قبل الجراحة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["hemoglobin"],"df":""},{"k":"ct","en":"CT","pr":"سي تي","ar":"أشعة مقطعية","sm":"اختصار Computed Tomography","ex":"Order a CT of the head.","exa":"اطلب أشعة مقطعية للرأس.","c":"abbrev","l":2,"p":"abbreviation","rt":"","rel":["CT scan"],"df":""},{"k":"gi","en":"GI","pr":"جي آي","ar":"الجهاز الهضمي","sm":"اختصار Gastrointestinal","ex":"GI symptoms include nausea.","exa":"أعراض الهضم تشمل الغثيان.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["digestion"],"df":""},{"k":"ot","en":"OT","pr":"أو تي","ar":"علاج وظيفي","sm":"Occupational Therapy، وقد تعني غرفة العمليات في بعض الأماكن","ex":"OT helps daily activities.","exa":"العلاج الوظيفي يساعد الأنشطة اليومية.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["therapy"],"df":"OT قد تعني العلاج الوظيفي أو غرفة العمليات حسب البلد"},{"k":"pt","en":"PT","pr":"بي تي","ar":"علاج طبيعي","sm":"اختصار Physical Therapy","ex":"PT improves movement.","exa":"العلاج الطبيعي يحسن الحركة.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["physiotherapy"],"df":""},{"k":"ivf","en":"IVF","pr":"آي في إف","ar":"إخصاب خارج الجسم","sm":"تقنية مساعدة على الإنجاب","ex":"IVF helps infertility.","exa":"الإخصاب خارج الجسم يساعد في العقم.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["pregnancy"],"df":""},{"k":"lmp","en":"LMP","pr":"إل إم بي","ar":"آخر دورة شهرية","sm":"تاريخ بداية آخر دورة شهرية","ex":"Record the LMP.","exa":"سجّل تاريخ آخر دورة.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["pregnancy"],"df":""},{"k":"edd","en":"EDD","pr":"إي دي دي","ar":"موعد الولادة المتوقع","sm":"التاريخ المتوقع للولادة","ex":"EDD is in June.","exa":"موعد الولادة المتوقع في يونيو.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["pregnancy"],"df":""},{"k":"adl","en":"ADL","pr":"إيه دي إل","ar":"أنشطة الحياة اليومية","sm":"الأكل واللبس والاستحمام وغيرها","ex":"Assess ADL independence.","exa":"قيّم استقلالية الأنشطة اليومية.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["nursing"],"df":""},{"k":"i&o","en":"I&O","pr":"آي آند أو","ar":"الداخل والخارج","sm":"ما يتناوله المريض وما يفرزه","ex":"Keep an I&O chart.","exa":"احتفظ بسجل الداخل والخارج.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["intake","output"],"df":""},{"k":"nsaid","en":"NSAID","pr":"إن سيد","ar":"مضاد التهاب غير ستيرويدي","sm":"مسكن يقلل الألم والالتهاب مثل الإيبوبروفين","ex":"An NSAID reduces inflammation.","exa":"هذا الدواء يقلل الالتهاب.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["painkiller"],"df":""},{"k":"ors","en":"ORS","pr":"أو آر إس","ar":"محلول إماهة فموي","sm":"محلول يعوض السوائل عند الإسهال","ex":"Give ORS for diarrhea.","exa":"أعطِ محلول الإماهة للإسهال.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["dehydration"],"df":""},{"k":"aed","en":"AED","pr":"إيه إي دي","ar":"جهاز صدمات القلب الآلي","sm":"جهاز يعيد انتظام القلب بالصدمة","ex":"Use the AED quickly.","exa":"استخدم الجهاز بسرعة.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["cardiac arrest"],"df":""},{"k":"ppe","en":"PPE","pr":"بي بي إي","ar":"معدات الوقاية الشخصية","sm":"القفازات والكمامة والرداء","ex":"Wear PPE in isolation.","exa":"ارتدِ معدات الوقاية في العزل.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["gloves"],"df":""},{"k":"mrsa","en":"MRSA","pr":"إم آر إس إيه","ar":"بكتيريا عنيدة","sm":"عدوى بكتيرية مقاومة لمضادات حيوية كثيرة","ex":"MRSA requires isolation.","exa":"هذه العدوى تحتاج عزلاً.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["infection"],"df":""},{"k":"iud","en":"IUD","pr":"آي يو دي","ar":"لولب رحمي","sm":"وسيلة منع حمل توضع في الرحم","ex":"An IUD prevents pregnancy.","exa":"اللولب يمنع الحمل.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["pregnancy"],"df":""},{"k":"fbs","en":"FBS","pr":"إف بي إس","ar":"سكر صائم","sm":"سكر الدم بعد صيام","ex":"Check FBS in the morning.","exa":"افحص السكر الصائم صباحاً.","c":"abbrev","l":3,"p":"abbreviation","rt":"","rel":["blood glucose"],"df":""},{"k":"esr","en":"ESR","pr":"إي إس آر","ar":"سرعة الترسيب","sm":"اختبار يدل على وجود التهاب","ex":"ESR is high in inflammation.","exa":"السرعة ترتفع في الالتهاب.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["inflammation"],"df":""},{"k":"lft","en":"LFT","pr":"إل إف تي","ar":"وظائف الكبد","sm":"مجموعة تحاليل لفحص الكبد","ex":"Order LFT for the liver.","exa":"اطلب وظائف الكبد.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["liver"],"df":""},{"k":"rft","en":"RFT","pr":"آر إف تي","ar":"وظائف الكلى","sm":"مجموعة تحاليل لفحص الكلى","ex":"Order RFT for the kidney.","exa":"اطلب وظائف الكلى.","c":"abbrev","l":4,"p":"abbreviation","rt":"","rel":["kidney"],"df":""},{"k":"hyper-","en":"hyper-","pr":"هايبر","ar":"فوق / زيادة","sm":"سابقة تعني أكثر من الطبيعي","ex":"Hyper means above normal.","exa":"هايبر تعني فوق الطبيعي.","c":"affix","l":2,"p":"prefix","rt":"hyper-","rel":["hypo-"],"df":""},{"k":"hypo-","en":"hypo-","pr":"هايبو","ar":"تحت / نقص","sm":"سابقة تعني أقل من الطبيعي","ex":"Hypo means below normal.","exa":"هايبو تعني أقل من الطبيعي.","c":"affix","l":2,"p":"prefix","rt":"hypo-","rel":["hyper-"],"df":""},{"k":"tachy-","en":"tachy-","pr":"تاكي","ar":"سريع","sm":"سابقة تعني سرعة","ex":"Tachy means fast.","exa":"تاكي تعني سريع.","c":"affix","l":3,"p":"prefix","rt":"tachy-","rel":["brady-"],"df":""},{"k":"brady-","en":"brady-","pr":"برادي","ar":"بطيء","sm":"سابقة تعني بطء","ex":"Brady means slow.","exa":"برادي تعني بطيء.","c":"affix","l":3,"p":"prefix","rt":"brady-","rel":["tachy-"],"df":""},{"k":"dys-","en":"dys-","pr":"ديس","ar":"صعوبة / اضطراب","sm":"سابقة تعني خللاً أو صعوبة","ex":"Dys means difficult.","exa":"ديس تعني صعوبة.","c":"affix","l":3,"p":"prefix","rt":"dys-","rel":["dyspnea"],"df":""},{"k":"a-","en":"a-","pr":"إيه","ar":"بدون / عدم","sm":"سابقة تعني غياب الشيء","ex":"A means without.","exa":"إيه تعني بدون.","c":"affix","l":3,"p":"prefix","rt":"a-","rel":["an-"],"df":""},{"k":"an-","en":"an-","pr":"إن","ar":"بدون / عدم","sm":"مثل a- لكنها قبل حرف متحرك","ex":"An means without.","exa":"إن تعني بدون.","c":"affix","l":3,"p":"prefix","rt":"an-","rel":["a-"],"df":""},{"k":"anti-","en":"anti-","pr":"أنتي","ar":"ضد","sm":"سابقة تعني مقاومة الشيء","ex":"Anti means against.","exa":"أنتي تعني ضد.","c":"affix","l":2,"p":"prefix","rt":"anti-","rel":["antibiotic"],"df":""},{"k":"pre-","en":"pre-","pr":"بري","ar":"قبل","sm":"سابقة تعني قبل","ex":"Pre means before.","exa":"بري تعني قبل.","c":"affix","l":2,"p":"prefix","rt":"pre-","rel":["post-"],"df":""},{"k":"post-","en":"post-","pr":"بوست","ar":"بعد","sm":"سابقة تعني بعد","ex":"Post means after.","exa":"بوست تعني بعد.","c":"affix","l":2,"p":"prefix","rt":"post-","rel":["pre-"],"df":""},{"k":"intra-","en":"intra-","pr":"إنترا","ar":"داخل","sm":"سابقة تعني في الداخل","ex":"Intra means inside.","exa":"إنترا تعني داخل.","c":"affix","l":3,"p":"prefix","rt":"intra-","rel":["extra-"],"df":""},{"k":"extra-","en":"extra-","pr":"إكسترا","ar":"خارج","sm":"سابقة تعني في الخارج","ex":"Extra means outside.","exa":"إكسترا تعني خارج.","c":"affix","l":3,"p":"prefix","rt":"extra-","rel":["intra-"],"df":""},{"k":"sub-","en":"sub-","pr":"ساب","ar":"تحت","sm":"سابقة تعني أسفل","ex":"Sub means under.","exa":"ساب تعني تحت.","c":"affix","l":3,"p":"prefix","rt":"sub-","rel":["supra-"],"df":""},{"k":"supra-","en":"supra-","pr":"سوبرا","ar":"فوق","sm":"سابقة تعني أعلى من","ex":"Supra means above.","exa":"سوبرا تعني فوق.","c":"affix","l":4,"p":"prefix","rt":"supra-","rel":["sub-"],"df":""},{"k":"inter-","en":"inter-","pr":"إنتر","ar":"بين","sm":"سابقة تعني بين شيئين","ex":"Inter means between.","exa":"إنتر تعني بين.","c":"affix","l":3,"p":"prefix","rt":"inter-","rel":["intra-"],"df":""},{"k":"peri-","en":"peri-","pr":"بيري","ar":"حول","sm":"سابقة تعني محيط","ex":"Peri means around.","exa":"بيري تعني حول.","c":"affix","l":3,"p":"prefix","rt":"peri-","rel":["pericardium"],"df":""},{"k":"endo-","en":"endo-","pr":"إندو","ar":"داخلي","sm":"سابقة تعني داخل الشيء","ex":"Endo means within.","exa":"إندو تعني داخل.","c":"affix","l":3,"p":"prefix","rt":"endo-","rel":["endoscopy"],"df":""},{"k":"poly-","en":"poly-","pr":"بولي","ar":"كثير","sm":"سابقة تعني متعدد","ex":"Poly means many.","exa":"بولي تعني كثير.","c":"affix","l":3,"p":"prefix","rt":"poly-","rel":["oligo-"],"df":""},{"k":"oligo-","en":"oligo-","pr":"أوليجو","ar":"قليل","sm":"سابقة تعني قلة","ex":"Oligo means few.","exa":"أوليجو تعني قليل.","c":"affix","l":4,"p":"prefix","rt":"oligo-","rel":["poly-"],"df":""},{"k":"mono-","en":"mono-","pr":"مونو","ar":"واحد","sm":"سابقة تعني واحداً","ex":"Mono means one.","exa":"مونو تعني واحد.","c":"affix","l":2,"p":"prefix","rt":"mono-","rel":["poly-"],"df":""},{"k":"bi-","en":"bi-","pr":"باي","ar":"اثنان","sm":"سابقة تعني ثنائي","ex":"Bi means two.","exa":"باي تعني اثنين.","c":"affix","l":2,"p":"prefix","rt":"bi-","rel":["mono-"],"df":""},{"k":"macro-","en":"macro-","pr":"ماكرو","ar":"كبير","sm":"سابقة تعني ضخماً","ex":"Macro means large.","exa":"ماكرو تعني كبير.","c":"affix","l":3,"p":"prefix","rt":"macro-","rel":["micro-"],"df":""},{"k":"micro-","en":"micro-","pr":"مايكرو","ar":"صغير","sm":"سابقة تعني دقيقاً","ex":"Micro means small.","exa":"مايكرو تعني صغير.","c":"affix","l":3,"p":"prefix","rt":"micro-","rel":["macro-"],"df":""},{"k":"-itis","en":"-itis","pr":"آيتس","ar":"التهاب","sm":"لاحقة تعني التهاباً","ex":"Itis means inflammation.","exa":"آيتس تعني التهاب.","c":"affix","l":2,"p":"suffix","rt":"-itis","rel":["gastritis"],"df":""},{"k":"-ectomy","en":"-ectomy","pr":"إكتومي","ar":"استئصال","sm":"لاحقة تعني إزالة جراحية","ex":"Ectomy means removal.","exa":"إكتومي تعني استئصال.","c":"affix","l":3,"p":"suffix","rt":"-ectomy","rel":["appendectomy"],"df":""},{"k":"-otomy","en":"-otomy","pr":"أوتومي","ar":"شق جراحي","sm":"لاحقة تعني فتح الجسم بجراحة","ex":"Otomy means cutting into.","exa":"أوتومي تعني شق.","c":"affix","l":4,"p":"suffix","rt":"-otomy","rel":["-ectomy"],"df":""},{"k":"-ostomy","en":"-ostomy","pr":"أوستومي","ar":"فتحة جراحية","sm":"لاحقة تعني عمل فتحة دائمة","ex":"Ostomy means a surgical opening.","exa":"أوستومي تعني فتحة جراحية.","c":"affix","l":4,"p":"suffix","rt":"-ostomy","rel":["-otomy"],"df":""},{"k":"-plasty","en":"-plasty","pr":"بلاستي","ar":"ترميم","sm":"لاحقة تعني إعادة بناء","ex":"Plasty means repair.","exa":"بلاستي تعني ترميم.","c":"affix","l":4,"p":"suffix","rt":"-plasty","rel":["-ectomy"],"df":""},{"k":"-scopy","en":"-scopy","pr":"سكوبي","ar":"فحص بمنظار","sm":"لاحقة تعني النظر للداخل","ex":"Scopy means viewing.","exa":"سكوبي تعني منظار.","c":"affix","l":3,"p":"suffix","rt":"-scopy","rel":["endoscopy"],"df":""},{"k":"-gram","en":"-gram","pr":"جرام","ar":"صورة مسجلة","sm":"لاحقة تعني تسجيلاً أو صورة","ex":"Gram means a recording.","exa":"جرام تعني تسجيل.","c":"affix","l":3,"p":"suffix","rt":"-gram","rel":["ECG"],"df":""},{"k":"-graphy","en":"-graphy","pr":"جرافي","ar":"عملية تصوير","sm":"لاحقة تعني فعل التصوير","ex":"Graphy means the process of recording.","exa":"جرافي تعني فعل التسجيل.","c":"affix","l":4,"p":"suffix","rt":"-graphy","rel":["-gram"],"df":""},{"k":"-algia","en":"-algia","pr":"ألجيا","ar":"ألم","sm":"لاحقة تعني ألماً","ex":"Algia means pain.","exa":"ألجيا تعني ألم.","c":"affix","l":3,"p":"suffix","rt":"-algia","rel":["analgesic"],"df":""},{"k":"-emia","en":"-emia","pr":"إيميا","ar":"في الدم","sm":"لاحقة تعني حالة دموية","ex":"Emia means blood condition.","exa":"إيميا تعني حالة في الدم.","c":"affix","l":3,"p":"suffix","rt":"-emia","rel":["anemia"],"df":""},{"k":"-oma","en":"-oma","pr":"أوما","ar":"ورم","sm":"لاحقة تعني كتلة أو ورماً","ex":"Oma means tumor.","exa":"أوما تعني ورم.","c":"affix","l":3,"p":"suffix","rt":"-oma","rel":["tumor"],"df":""},{"k":"-osis","en":"-osis","pr":"أوسس","ar":"حالة غير طبيعية","sm":"لاحقة تعني حالة مرضية","ex":"Osis means condition.","exa":"أوسس تعني حالة.","c":"affix","l":3,"p":"suffix","rt":"-osis","rel":["thrombosis"],"df":""},{"k":"-pathy","en":"-pathy","pr":"باثي","ar":"اعتلال","sm":"لاحقة تعني مرضاً","ex":"Pathy means disease.","exa":"باثي تعني اعتلال.","c":"affix","l":3,"p":"suffix","rt":"-pathy","rel":["neuropathy"],"df":""},{"k":"-penia","en":"-penia","pr":"بينيا","ar":"نقص","sm":"لاحقة تعني قلة الخلايا","ex":"Penia means deficiency.","exa":"بينيا تعني نقص.","c":"affix","l":4,"p":"suffix","rt":"-penia","rel":["anemia"],"df":""},{"k":"-rrhea","en":"-rrhea","pr":"ريا","ar":"تدفق","sm":"لاحقة تعني سيلاناً","ex":"Rrhea means flow.","exa":"ريا تعني تدفق.","c":"affix","l":4,"p":"suffix","rt":"-rrhea","rel":["diarrhea"],"df":""},{"k":"-megaly","en":"-megaly","pr":"ميجالي","ar":"تضخم","sm":"لاحقة تعني كبر العضو","ex":"Megaly means enlargement.","exa":"ميجالي تعني تضخم.","c":"affix","l":4,"p":"suffix","rt":"-megaly","rel":["spleen"],"df":""},{"k":"-logy","en":"-logy","pr":"لوجي","ar":"علم","sm":"لاحقة تعني دراسة علمية","ex":"Logy means study of.","exa":"لوجي تعني علم.","c":"affix","l":2,"p":"suffix","rt":"-logy","rel":["cardiology"],"df":""},{"k":"cardi-","en":"cardi-","pr":"كاردي","ar":"قلب","sm":"جذر يخص القلب","ex":"Cardi refers to the heart.","exa":"كاردي تخص القلب.","c":"affix","l":2,"p":"root","rt":"cardi-","rel":["cardiology"],"df":""},{"k":"gastr-","en":"gastr-","pr":"جاستر","ar":"معدة","sm":"جذر يخص المعدة","ex":"Gastr refers to the stomach.","exa":"جاستر تخص المعدة.","c":"affix","l":3,"p":"root","rt":"gastr-","rel":["gastritis"],"df":""},{"k":"hepat-","en":"hepat-","pr":"هيبات","ar":"كبد","sm":"جذر يخص الكبد","ex":"Hepat refers to the liver.","exa":"هيبات تخص الكبد.","c":"affix","l":3,"p":"root","rt":"hepat-","rel":["hepatitis"],"df":""},{"k":"nephr-","en":"nephr-","pr":"نيفر","ar":"كلية","sm":"جذر يخص الكلية","ex":"Nephr refers to the kidney.","exa":"نيفر تخص الكلية.","c":"affix","l":3,"p":"root","rt":"nephr-","rel":["nephritis"],"df":""},{"k":"neur-","en":"neur-","pr":"نيور","ar":"عصب","sm":"جذر يخص الأعصاب","ex":"Neur refers to nerves.","exa":"نيور تخص الأعصاب.","c":"affix","l":3,"p":"root","rt":"neur-","rel":["neurology"],"df":""},{"k":"oste-","en":"oste-","pr":"أوستي","ar":"عظم","sm":"جذر يخص العظام","ex":"Oste refers to bone.","exa":"أوستي تخص العظام.","c":"affix","l":3,"p":"root","rt":"oste-","rel":["osteoporosis"],"df":""},{"k":"derm-","en":"derm-","pr":"ديرم","ar":"جلد","sm":"جذر يخص الجلد","ex":"Derm refers to skin.","exa":"ديرم تخص الجلد.","c":"affix","l":3,"p":"root","rt":"derm-","rel":["dermatitis"],"df":""},{"k":"hemo-","en":"hemo-","pr":"هيمو","ar":"دم","sm":"جذر يخص الدم","ex":"Hemo refers to blood.","exa":"هيمو تخص الدم.","c":"affix","l":3,"p":"root","rt":"hemo-","rel":["hemoglobin"],"df":""},{"k":"pulmo-","en":"pulmo-","pr":"بولمو","ar":"رئة","sm":"جذر يخص الرئة","ex":"Pulmo refers to the lung.","exa":"بولمو تخص الرئة.","c":"affix","l":3,"p":"root","rt":"pulmo-","rel":["pulmonary"],"df":""},{"k":"thermometer","en":"Thermometer","pr":"ثيرموميتر","ar":"ميزان حرارة","sm":"أداة لقياس حرارة الجسم","ex":"Place the thermometer under the arm.","exa":"ضع ميزان الحرارة تحت الإبط.","c":"nursing","l":1,"p":"noun","rt":"","rel":["temperature"],"df":""},{"k":"sphygmomanometer","en":"Sphygmomanometer","pr":"سفيجمومانوميتر","ar":"جهاز قياس الضغط","sm":"جهاز يقيس ضغط الدم","ex":"Use the sphygmomanometer on the arm.","exa":"استخدم جهاز الضغط على الذراع.","c":"nursing","l":4,"p":"noun","rt":"","rel":["blood pressure"],"df":""},{"k":"tourniquet","en":"Tourniquet","pr":"تورنيكيه","ar":"رباط ضاغط","sm":"رباط يضغط الذراع لإظهار الوريد","ex":"Apply the tourniquet before drawing blood.","exa":"ضع الرباط قبل سحب الدم.","c":"nursing","l":4,"p":"noun","rt":"","rel":["vein"],"df":""},{"k":"gauze","en":"Gauze","pr":"جوز","ar":"شاش","sm":"قماش طبي لتغطية الجرح","ex":"Cover the wound with gauze.","exa":"غطِّ الجرح بالشاش.","c":"nursing","l":1,"p":"noun","rt":"","rel":["dressing"],"df":""},{"k":"cotton","en":"Cotton","pr":"كوتن","ar":"قطن","sm":"مادة ناعمة لتنظيف الجرح","ex":"Use cotton to clean the skin.","exa":"استخدم القطن لتنظيف الجلد.","c":"nursing","l":1,"p":"noun","rt":"","rel":["gauze"],"df":""},{"k":"swab","en":"Swab","pr":"سواب","ar":"مسحة","sm":"عود قطني لأخذ عينة أو تنظيف","ex":"Take a throat swab.","exa":"خذ مسحة من الحلق.","c":"lab","l":2,"p":"noun","rt":"","rel":["sample"],"df":""},{"k":"tape","en":"Tape","pr":"تيب","ar":"لاصق طبي","sm":"شريط يثبت الضماد","ex":"Fix the dressing with tape.","exa":"ثبّت الضماد باللاصق.","c":"nursing","l":1,"p":"noun","rt":"","rel":["dressing"],"df":""},{"k":"scissors","en":"Scissors","pr":"سيزرز","ar":"مقص","sm":"أداة قص طبية","ex":"Cut the bandage with scissors.","exa":"قص الرباط بالمقص.","c":"nursing","l":1,"p":"noun","rt":"","rel":["bandage"],"df":""},{"k":"tray","en":"Tray","pr":"تراي","ar":"صينية","sm":"يوضع عليها الأدوات والأدوية","ex":"Prepare the tray.","exa":"جهّز الصينية.","c":"nursing","l":1,"p":"noun","rt":"","rel":["syringe"],"df":""},{"k":"trolley","en":"Trolley","pr":"ترولي","ar":"عربة","sm":"عربة نقل الأدوات والأدوية","ex":"Push the medicine trolley.","exa":"ادفع عربة الأدوية.","c":"nursing","l":1,"p":"noun","rt":"","rel":["tray"],"df":""},{"k":"bedpan","en":"Bedpan","pr":"بدبان","ar":"وعاء قضاء حاجة","sm":"وعاء للمريض الذي لا يتحرك","ex":"Give the patient a bedpan.","exa":"أعطِ المريض وعاء قضاء الحاجة.","c":"nursing","l":2,"p":"noun","rt":"","rel":["urinal"],"df":""},{"k":"urinal","en":"Urinal","pr":"يورينل","ar":"قارورة بول","sm":"قارورة لتبول المريض في السرير","ex":"Offer the urinal.","exa":"قدّم قارورة البول.","c":"nursing","l":2,"p":"noun","rt":"","rel":["bedpan"],"df":""},{"k":"drip","en":"Drip","pr":"دريب","ar":"محلول وريدي","sm":"قطرات سائل تُعطى في الوريد","ex":"He is on a drip.","exa":"هو على محلول وريدي.","c":"nursing","l":1,"p":"noun","rt":"","rel":["intravenous"],"df":""},{"k":"oxygen mask","en":"Oxygen mask","pr":"أوكسجن ماسك","ar":"قناع أكسجين","sm":"قناع يعطي الأكسجين للمريض","ex":"Put on the oxygen mask.","exa":"ضع قناع الأكسجين.","c":"nursing","l":2,"p":"noun","rt":"","rel":["oxygen"],"df":""},{"k":"sharps container","en":"Sharps container","pr":"شاربس كونتينر","ar":"صندوق الإبر","sm":"علبة آمنة للتخلص من الإبر","ex":"Throw the needle in the sharps container.","exa":"ارمِ الإبرة في صندوق الإبر.","c":"infection","l":3,"p":"noun","rt":"","rel":["needle"],"df":""},{"k":"pillow","en":"Pillow","pr":"بيلو","ar":"وسادة","sm":"يضعها المريض تحت رأسه","ex":"Adjust the pillow.","exa":"اضبط الوسادة.","c":"nursing","l":1,"p":"noun","rt":"","rel":["bed"],"df":""},{"k":"blanket","en":"Blanket","pr":"بلانكت","ar":"بطانية","sm":"غطاء للتدفئة","ex":"Bring a blanket.","exa":"أحضر بطانية.","c":"nursing","l":1,"p":"noun","rt":"","rel":["bed"],"df":""},{"k":"bedsheet","en":"Bedsheet","pr":"بدشيت","ar":"ملاءة سرير","sm":"قماش يغطي المرتبة","ex":"Change the bedsheet daily.","exa":"غيّر الملاءة يومياً.","c":"nursing","l":1,"p":"noun","rt":"","rel":["bed"],"df":""},{"k":"feeding tube","en":"Feeding tube","pr":"فيدنج تيوب","ar":"أنبوب تغذية","sm":"أنبوب يوصل الطعام للمعدة","ex":"He is fed by a feeding tube.","exa":"يتغذى بأنبوب تغذية.","c":"nursing","l":3,"p":"noun","rt":"","rel":["stomach"],"df":""},{"k":"oxygen saturation","en":"Oxygen saturation","pr":"أوكسجن ساتشوريشن","ar":"تشبع الأكسجين","sm":"نسبة الأكسجين في الدم","ex":"Oxygen saturation is low.","exa":"تشبع الأكسجين منخفض.","c":"vitals","l":3,"p":"noun","rt":"","rel":["oxygen"],"df":""},{"k":"community","en":"Community","pr":"كوميونتي","ar":"مجتمع","sm":"مجموعة أشخاص في منطقة واحدة","ex":"Community nurses visit homes.","exa":"ممرضات المجتمع يزرن البيوت.","c":"basics","l":2,"p":"noun","rt":"","rel":["public health"],"df":""},{"k":"public health","en":"Public health","pr":"بابليك هيلث","ar":"صحة عامة","sm":"حماية صحة المجتمع كله","ex":"Public health prevents disease.","exa":"الصحة العامة تمنع المرض.","c":"basics","l":2,"p":"noun","rt":"","rel":["community"],"df":""},{"k":"health education","en":"Health education","pr":"هيلث إديوكيشن","ar":"تثقيف صحي","sm":"تعليم الناس كيف يحافظون على صحتهم","ex":"Health education reduces illness.","exa":"التثقيف الصحي يقلل المرض.","c":"basics","l":2,"p":"noun","rt":"","rel":["prevention"],"df":""},{"k":"prevention","en":"Prevention","pr":"بريفنشن","ar":"وقاية","sm":"منع حدوث المرض","ex":"Prevention is better than cure.","exa":"الوقاية خير من العلاج.","c":"basics","l":2,"p":"noun","rt":"","rel":["vaccine"],"df":""},{"k":"hygiene","en":"Hygiene","pr":"هايجين","ar":"نظافة","sm":"عادات تحمي الصحة","ex":"Good hygiene prevents infection.","exa":"النظافة الجيدة تمنع العدوى.","c":"infection","l":1,"p":"noun","rt":"","rel":["hand hygiene"],"df":""},{"k":"nutrition","en":"Nutrition","pr":"نيوتريشن","ar":"تغذية","sm":"ما يحتاجه الجسم من غذاء","ex":"Nutrition supports healing.","exa":"التغذية تدعم الشفاء.","c":"basics","l":2,"p":"noun","rt":"","rel":["diet"],"df":""},{"k":"diet","en":"Diet","pr":"دايت","ar":"نظام غذائي","sm":"ما يأكله الشخص بانتظام","ex":"He follows a low-salt diet.","exa":"يتبع نظاماً قليل الملح.","c":"basics","l":1,"p":"noun","rt":"","rel":["nutrition"],"df":""},{"k":"exercise","en":"Exercise","pr":"إكسرسايز","ar":"تمرين رياضي","sm":"نشاط بدني للصحة","ex":"Exercise helps the heart.","exa":"الرياضة تفيد القلب.","c":"basics","l":1,"p":"noun","rt":"","rel":["obesity"],"df":""},{"k":"smoking","en":"Smoking","pr":"سموكنج","ar":"تدخين","sm":"استنشاق دخان التبغ","ex":"Smoking harms the lungs.","exa":"التدخين يضر الرئتين.","c":"basics","l":1,"p":"noun","rt":"","rel":["lung cancer"],"df":""},{"k":"family planning","en":"Family planning","pr":"فاميلي بلانينج","ar":"تنظيم الأسرة","sm":"التحكم في توقيت الإنجاب","ex":"Family planning helps mothers.","exa":"تنظيم الأسرة يفيد الأمهات.","c":"ob","l":2,"p":"noun","rt":"","rel":["pregnancy"],"df":""},{"k":"home visit","en":"Home visit","pr":"هوم فيزت","ar":"زيارة منزلية","sm":"زيارة الممرضة للمريض في بيته","ex":"A home visit is scheduled.","exa":"زيارة منزلية مجدولة.","c":"basics","l":2,"p":"noun","rt":"","rel":["community"],"df":""},{"k":"outbreak","en":"Outbreak","pr":"أوتبريك","ar":"تفشٍّ","sm":"ظهور مفاجئ لمرض لدى عدد من الناس","ex":"An outbreak started in the city.","exa":"بدأ تفشٍّ في المدينة.","c":"infection","l":3,"p":"noun","rt":"","rel":["epidemic"],"df":""},{"k":"epidemic","en":"Epidemic","pr":"إبيديميك","ar":"وباء","sm":"انتشار مرض في منطقة واسعة","ex":"The epidemic is spreading.","exa":"الوباء ينتشر.","c":"infection","l":3,"p":"noun","rt":"","rel":["pandemic"],"df":""},{"k":"pandemic","en":"Pandemic","pr":"بانديميك","ar":"جائحة","sm":"وباء ينتشر في العالم","ex":"A pandemic affects many countries.","exa":"الجائحة تصيب دولاً كثيرة.","c":"infection","l":3,"p":"noun","rt":"","rel":["epidemic"],"df":""},{"k":"sanitation","en":"Sanitation","pr":"سانيتيشن","ar":"صرف صحي وإصحاح","sm":"نظافة البيئة والمياه","ex":"Sanitation reduces disease.","exa":"الإصحاح يقلل الأمراض.","c":"infection","l":3,"p":"noun","rt":"","rel":["hygiene"],"df":""},{"k":"safe water","en":"Safe water","pr":"سيف ووتر","ar":"مياه آمنة","sm":"مياه نظيفة صالحة للشرب","ex":"Safe water prevents diarrhea.","exa":"المياه الآمنة تمنع الإسهال.","c":"infection","l":2,"p":"noun","rt":"","rel":["sanitation"],"df":""},{"k":"how do you feel?","en":"How do you feel?","pr":"هاو دو يو فيل","ar":"كيف تشعر؟","sm":"سؤال عن حالة المريض","ex":"How do you feel today?","exa":"كيف تشعر اليوم؟","c":"basics","l":1,"p":"phrase","rt":"","rel":["pain"],"df":""},{"k":"where is the pain?","en":"Where is the pain?","pr":"وير إز ذا بين","ar":"أين الألم؟","sm":"سؤال عن مكان الألم","ex":"Where is the pain exactly?","exa":"أين الألم بالضبط؟","c":"basics","l":1,"p":"phrase","rt":"","rel":["pain"],"df":""},{"k":"take a deep breath","en":"Take a deep breath","pr":"تيك أ ديب بريث","ar":"خذ نفساً عميقاً","sm":"أمر للمريض أثناء الفحص","ex":"Take a deep breath, please.","exa":"خذ نفساً عميقاً من فضلك.","c":"basics","l":1,"p":"phrase","rt":"","rel":["inhale"],"df":""},{"k":"open your mouth","en":"Open your mouth","pr":"أوبن يور ماوث","ar":"افتح فمك","sm":"أمر للمريض أثناء فحص الحلق","ex":"Open your mouth wide.","exa":"افتح فمك جيداً.","c":"basics","l":1,"p":"phrase","rt":"","rel":["mouth"],"df":""},{"k":"do not worry","en":"Do not worry","pr":"دو نوت وري","ar":"لا تقلق","sm":"عبارة لطمأنة المريض","ex":"Do not worry, you are safe.","exa":"لا تقلق، أنت بأمان.","c":"basics","l":1,"p":"phrase","rt":"","rel":["comfort"],"df":""},{"k":"do you have allergies?","en":"Do you have allergies?","pr":"دو يو هاف ألرجيز","ar":"هل عندك حساسية؟","sm":"سؤال مهم قبل إعطاء أي دواء","ex":"Do you have allergies to drugs?","exa":"هل عندك حساسية من أدوية؟","c":"basics","l":2,"p":"phrase","rt":"","rel":["allergy"],"df":""},{"k":"lie down","en":"Lie down","pr":"لاي داون","ar":"استلقِ","sm":"أمر للمريض بالاستلقاء","ex":"Lie down on the bed, please.","exa":"استلقِ على السرير من فضلك.","c":"basics","l":1,"p":"phrase","rt":"","rel":["bed"],"df":""},{"k":"sit up","en":"Sit up","pr":"سيت أب","ar":"اجلس","sm":"أمر للمريض بالجلوس","ex":"Sit up slowly.","exa":"اجلس ببطء.","c":"basics","l":1,"p":"phrase","rt":"","rel":["bed"],"df":""},{"k":"roll up your sleeve","en":"Roll up your sleeve","pr":"رول أب يور سليف","ar":"شمّر كمّك","sm":"يُقال قبل قياس الضغط أو الحقن","ex":"Roll up your sleeve, please.","exa":"شمّر كمّك من فضلك.","c":"basics","l":2,"p":"phrase","rt":"","rel":["blood pressure"],"df":""},{"k":"any questions?","en":"Any questions?","pr":"إني كويستشنز","ar":"هل عندك أسئلة؟","sm":"عبارة للتأكد من فهم المريض","ex":"Do you have any questions?","exa":"هل عندك أسئلة؟","c":"basics","l":1,"p":"phrase","rt":"","rel":["education"],"df":""},{"k":"allergy test","en":"Allergy test","pr":"ألرجي تست","ar":"فحص حساسية","sm":"اختبار لمعرفة المواد المسببة للحساسية","ex":"An allergy test was done.","exa":"أُجري فحص حساسية.","c":"lab","l":3,"p":"noun","rt":"","rel":["allergy"],"df":""},{"k":"pain scale","en":"Pain scale","pr":"بين سكيل","ar":"مقياس الألم","sm":"رقم من صفر إلى عشرة لشدة الألم","ex":"Rate your pain on the pain scale.","exa":"قيّم ألمك على مقياس الألم.","c":"nursing","l":3,"p":"noun","rt":"","rel":["pain"],"df":""},{"k":"informed consent","en":"Informed consent","pr":"إنفورمد كونسنت","ar":"موافقة مستنيرة","sm":"موافقة بعد فهم الإجراء ومخاطره","ex":"Informed consent is signed before surgery.","exa":"تُوقَّع الموافقة قبل الجراحة.","c":"nursing","l":4,"p":"noun","rt":"","rel":["consent"],"df":""},{"k":"bedside","en":"Bedside","pr":"بدسايد","ar":"بجانب السرير","sm":"مكان رعاية المريض","ex":"Keep the call button at the bedside.","exa":"ضع زر النداء بجانب السرير.","c":"nursing","l":2,"p":"noun","rt":"","rel":["bed"],"df":""},{"k":"call button","en":"Call button","pr":"كول بوتن","ar":"زر النداء","sm":"زر يضغطه المريض لطلب الممرضة","ex":"Press the call button for help.","exa":"اضغط زر النداء للمساعدة.","c":"nursing","l":1,"p":"noun","rt":"","rel":["nurse"],"df":""}];
+
+</script>
+<script>
+/* js/util.js */
+/* ثوابت وأدوات مساعدة — بدون أي اعتماد خارجي */
+window.CATS = {
+  basics: { ar: 'أساسيات اللغة الطبية', i: '📘' }, body: { ar: 'أجزاء الجسم', i: '🧍' },
+  cardio: { ar: 'القلب والأوعية', i: '❤️' }, resp: { ar: 'الجهاز التنفسي', i: '🫁' },
+  gi: { ar: 'الجهاز الهضمي', i: '🍽️' }, neuro: { ar: 'الجهاز العصبي', i: '🧠' },
+  endo: { ar: 'الغدد الصماء', i: '🧪' }, blood: { ar: 'الدم والمناعة', i: '🩸' },
+  msk: { ar: 'العظام والعضلات', i: '🦴' }, renal: { ar: 'الكلى والمسالك البولية', i: '💧' },
+  skin: { ar: 'الجلد', i: '🧴' }, ob: { ar: 'النساء والتوليد', i: '🤰' },
+  peds: { ar: 'طب الأطفال', i: '🧸' }, drugs: { ar: 'الأدوية', i: '💊' },
+  lab: { ar: 'التحاليل والفحوصات', i: '🔬' }, vitals: { ar: 'العلامات الحيوية', i: '🌡️' },
+  nursing: { ar: 'التمريض ورعاية المرضى', i: '🩺' }, infection: { ar: 'مكافحة العدوى', i: '🧼' },
+  emergency: { ar: 'الطوارئ والإسعاف', i: '🚑' }, surgery: { ar: 'الجراحة', i: '🔪' },
+  mental: { ar: 'الصحة النفسية', i: '🧘' }, hospital: { ar: 'المستشفى والأقسام', i: '🏥' },
+  abbrev: { ar: 'الاختصارات الطبية', i: '🔤' }, affix: { ar: 'السوابق واللواحق والجذور', i: '🧩' }
+};
+window.LEVELS = { 1: 'المستوى 1 — التأسيس', 2: 'المستوى 2 — الأساسيات', 3: 'المستوى 3 — التمريض', 4: 'المستوى 4 — المتقدم' };
+window.POS_AR = { noun: 'اسم', verb: 'فعل', adjective: 'صفة', abbreviation: 'اختصار', prefix: 'سابقة', suffix: 'لاحقة', root: 'جذر', phrase: 'عبارة' };
+
+window.Util = (function () {
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  /* نفس قاعدة التوحيد المستخدمة في بايثون وSQL: قص + دمج المسافات + حروف صغيرة */
+  const normKey = s => String(s == null ? '' : s).trim().replace(/\s+/g, ' ').toLowerCase();
+  /* توحيد العربية للبحث: حذف التشكيل وتوحيد الألف والياء والتاء المربوطة */
+  const normAr = s => String(s == null ? '' : s).toLowerCase()
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه');
+  const pad = n => String(n).padStart(2, '0');
+  const dayStr = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const today = () => dayStr(new Date());
+  const addDays = (ds, n) => { const [y, m, d] = ds.split('-').map(Number); const t = new Date(y, m - 1, d + n); return dayStr(t); };
+  const diffDays = (a, b) => { const pa = a.split('-').map(Number), pb = b.split('-').map(Number); return Math.round((new Date(pb[0], pb[1] - 1, pb[2]) - new Date(pa[0], pa[1] - 1, pa[2])) / 864e5); };
+  const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const num = n => Number(n).toLocaleString('ar-EG');
+  const pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+  /* هاش بسيط (cyrb53) لاكتشاف تلف ملف النسخة الاحتياطية — لا يصلح كحماية ضد التلاعب */
+  const hash = (str) => {
+    let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+    for (let i = 0; i < str.length; i++) { const ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
+  };
+  const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+  return { esc, normKey, normAr, today, addDays, diffDays, shuffle, num, pct, hash, debounce, dayStr };
+})();
+
+</script>
+<script>
+/* js/db.js */
+/* قاعدة بيانات محلية دائمة (IndexedDB). كل شيء داخل جهازك فقط.
+   منع التكرار: مفتاح مخزن المصطلحات هو term_key نفسه، فأي add() مكرر يُرفض من المتصفح (ConstraintError). */
+window.DB = (function () {
+  const NAME = 'nursing-terms', VER = 1;
+  let dbp = null;
+
+  function open() {
+    if (dbp) return dbp;
+    dbp = new Promise((res, rej) => {
+      if (!window.indexedDB) return rej(new Error('IndexedDB غير مدعومة في هذا المتصفح'));
+      const r = indexedDB.open(NAME, VER);
+      r.onupgradeneeded = () => {
+        const db = r.result;
+        const t = db.createObjectStore('terms', { keyPath: 'k' });
+        t.createIndex('c', 'c'); t.createIndex('l', 'l');
+        db.createObjectStore('progress', { keyPath: 'k' });
+        db.createObjectStore('quizzes', { keyPath: 'id', autoIncrement: true });
+        db.createObjectStore('days', { keyPath: 'day' });
+        db.createObjectStore('meta', { keyPath: 'key' });
+        db.createObjectStore('imports', { keyPath: 'id', autoIncrement: true });
+      };
+      r.onsuccess = () => res(r.result);
+      r.onerror = () => rej(r.error);
+      r.onblocked = () => rej(new Error('أغلق نوافذ التطبيق الأخرى ثم أعد المحاولة'));
+    });
+    return dbp;
+  }
+
+  const run = (stores, mode, fn) => open().then(db => new Promise((res, rej) => {
+    const t = db.transaction(stores, mode);
+    let out;
+    t.oncomplete = () => res(typeof out === 'function' ? out() : out);
+    t.onerror = () => rej(t.error);
+    t.onabort = () => rej(t.error || new Error('تم إلغاء العملية'));
+    out = fn(t);
+  }));
+
+  const getAll = store => run(store, 'readonly', t => { const r = t.objectStore(store).getAll(); return () => r.result; });
+  const get = (store, key) => run(store, 'readonly', t => { const r = t.objectStore(store).get(key); return () => r.result; });
+  const put = (store, val) => run(store, 'readwrite', t => { t.objectStore(store).put(val); });
+  const putMany = (store, arr) => run(store, 'readwrite', t => { const s = t.objectStore(store); arr.forEach(v => s.put(v)); });
+  const clear = store => run(store, 'readwrite', t => { t.objectStore(store).clear(); });
+  const del = (store, key) => run(store, 'readwrite', t => { t.objectStore(store).delete(key); });
+  const count = store => run(store, 'readonly', t => { const r = t.objectStore(store).count(); return () => r.result; });
+
+  /* إضافة مصطلحات على دفعات: المكرر يُحسب ولا يُضاف، ولا يتوقف الباقي */
+  async function addTerms(list, batch = 250) {
+    let added = 0, dup = 0; const addedKeys = [];
+    for (let i = 0; i < list.length; i += batch) {
+      const chunk = list.slice(i, i + batch);
+      await run('terms', 'readwrite', t => {
+        const s = t.objectStore('terms');
+        chunk.forEach(rec => {
+          const rq = s.add(rec);
+          rq.onsuccess = () => { added++; addedKeys.push(rec.k); };
+          rq.onerror = e => {
+            if (rq.error && rq.error.name === 'ConstraintError') { dup++; e.preventDefault(); e.stopPropagation(); }
+          };
+        });
+      });
+    }
+    return { added, dup, addedKeys };
+  }
+
+  const getMeta = async (key, def) => { const r = await get('meta', key); return r ? r.value : def; };
+  const setMeta = (key, value) => put('meta', { key, value });
+
+  async function requestPersist() {
+    try { if (navigator.storage && navigator.storage.persist) return await navigator.storage.persist(); } catch (e) { }
+    return false;
+  }
+  async function isPersisted() {
+    try { if (navigator.storage && navigator.storage.persisted) return await navigator.storage.persisted(); } catch (e) { }
+    return false;
+  }
+
+  return { open, getAll, get, put, putMany, clear, del, count, addTerms, getMeta, setMeta, requestPersist, isPersisted };
+})();
+
+</script>
+<script>
+/* js/core.js */
+/* محرك المراجعة المتباعدة + النطق الصوتي */
+window.SRS = (function () {
+  const blank = k => ({ k, ease: 2.5, interval: 0, due: null, reps: 0, lapses: 0, correct: 0, wrong: 0, fav: false, hardFlag: false, first: null, last: null });
+
+  /* g: 0 نسيته | 1 صعب | 2 جيد | 3 سهل */
+  function grade(p0, g, today) {
+    const p = Object.assign(blank(p0.k), p0), now = Date.now();
+    if (!p.first) p.first = now;
+    p.last = now;
+    if (g === 0) {
+      p.lapses++; p.wrong++; p.ease = Math.max(1.3, p.ease - 0.2); p.interval = 0; p.reps = 0; p.due = today;
+    } else {
+      p.correct++; p.reps++;
+      if (p.reps === 1) p.interval = [0, 1, 1, 3][g];
+      else if (p.reps === 2) p.interval = [0, 2, 4, 7][g];
+      else p.interval = Math.max(p.interval + 1, Math.round(p.interval * [0, 1.2, p.ease, p.ease * 1.3][g]));
+      if (g === 1) p.ease = Math.max(1.3, p.ease - 0.15);
+      if (g === 3) p.ease = Math.min(3, p.ease + 0.15);
+      p.due = Util.addDays(today, p.interval);
+    }
+    return p;
+  }
+  /* معاينة الفاصل الزمني لكل زر دون حفظ */
+  const preview = (p, g, today) => { const r = grade(p || blank('x'), g, today); return r.interval; };
+  const status = p => (!p || !p.first) ? 'new' : p.interval >= 21 ? 'mastered' : p.interval >= 3 ? 'reviewing' : 'learning';
+  const isDue = (p, today) => !!(p && p.first && p.due && p.due <= today);
+  const isHard = p => !!(p && p.first && (p.hardFlag || p.lapses >= 2 || (p.wrong >= 2 && p.wrong > p.correct)));
+  const STATUS_AR = { new: 'جديد', learning: 'قيد التعلّم', reviewing: 'قيد المراجعة', mastered: 'متقن' };
+  const intervalLabel = d => d <= 0 ? 'الآن' : d === 1 ? 'غداً' : d < 30 ? d + ' أيام' : Math.round(d / 30) + ' شهر';
+  return { blank, grade, preview, status, isDue, isHard, STATUS_AR, intervalLabel };
+})();
+
+/* النطق: Web Speech API. يعمل دون إنترنت فقط إذا كان على الجهاز صوت إنجليزي محلي (localService). */
+window.Speech = (function () {
+  const synth = window.speechSynthesis || null;
+  let voices = [], settings = { rate: 1, volume: 1, repeat: 1, voiceURI: '' }, token = 0;
+
+  function load() {
+    if (!synth) return;
+    voices = synth.getVoices().filter(v => /^en([-_]|$)/i.test(v.lang));
+  }
+  if (synth) { load(); synth.onvoiceschanged = load; }
+
+  const supported = () => !!synth && typeof SpeechSynthesisUtterance !== 'undefined';
+  const listVoices = () => { load(); return voices; };
+  const hasLocalEnglish = () => listVoices().some(v => v.localService);
+  function pick() {
+    load();
+    if (!voices.length) return null;
+    const byUri = voices.find(v => v.voiceURI === settings.voiceURI);
+    if (byUri) return byUri;
+    const score = v => (v.localService ? 100 : 0) + (/en[-_]US/i.test(v.lang) ? 20 : /en[-_]GB/i.test(v.lang) ? 10 : 0) +
+      (/Aria|Jenny|Zira|David|Samantha|Alex|Google US/i.test(v.name) ? 5 : 0);
+    return voices.slice().sort((a, b) => score(b) - score(a))[0];
+  }
+  function configure(o) { Object.assign(settings, o); }
+
+  /* opts.slow: بطيء للمبتدئين (نصف السرعة المختارة تقريباً بحد أدنى 0.5) */
+  function say(text, opts) {
+    opts = opts || {};
+    if (!supported()) return Promise.resolve({ ok: false, reason: 'unsupported' });
+    stop();
+    const my = ++token, times = opts.once ? 1 : Math.max(1, settings.repeat | 0);
+    const rate = opts.slow ? Math.max(0.5, Math.min(settings.rate, 1) * 0.6) : settings.rate;
+    return new Promise(resolve => {
+      let n = 0, started = false;
+      const next = () => {
+        if (my !== token) return resolve({ ok: true, cancelled: true });
+        if (n >= times) return resolve({ ok: true, rate, voice: (pick() || {}).name || 'افتراضي' });
+        n++;
+        const u = new SpeechSynthesisUtterance(text), v = pick();
+        if (v) { u.voice = v; u.lang = v.lang; } else u.lang = 'en-US';
+        u.rate = Math.max(0.5, Math.min(1.5, rate)); u.volume = settings.volume;
+        u.onstart = () => { started = true; };
+        u.onend = () => setTimeout(next, 450);
+        u.onerror = e => { if (e.error === 'interrupted' || e.error === 'canceled') return resolve({ ok: true, cancelled: true }); resolve({ ok: false, reason: e.error || 'error' }); };
+        synth.speak(u);
+      };
+      next();
+    });
+  }
+  function stop() { token++; if (synth) synth.cancel(); }
+  return { supported, listVoices, hasLocalEnglish, configure, say, stop, pick };
+})();
+
+</script>
+<script>
+/* js/data.js */
+/* استيراد/تصدير/نسخ احتياطي — كله محلي */
+window.Data = (function () {
+  const ARABIC_ONLY = /^[\u0600-\u06FF\s\-]+$/;
+  const EN_OK = /^[A-Za-z0-9 \-'/().,&?]+$/;
+
+  const arr = v => Array.isArray(v) ? v.map(x => String(x).trim()).filter(Boolean) : String(v || '').split(';').map(x => x.trim()).filter(Boolean);
+  function norm(o) {
+    const en = String(o.en || o.term_en || o.term || '').trim().replace(/\s+/g, ' ');
+    return {
+      k: Util.normKey(en), en,
+      pr: String(o.pr || o.pron || o.pron_ar || '').trim(), ar: String(o.ar || o.meaning || o.meaning_ar || '').trim(),
+      sm: String(o.sm || o.simple || o.simple_ar || '').trim(), ex: String(o.ex || o.example_en || '').trim(),
+      exa: String(o.exa || o.example_ar || '').trim(), c: String(o.c || o.cat || o.category || '').trim(),
+      l: Number(o.l || o.level), p: String(o.p || o.pos || '').trim(), rt: String(o.rt || o.parts || o.root_part || '').trim(),
+      rel: arr(o.rel || o.related || o.related_terms), df: String(o.df || o.difference || o.difference_note || '').trim()
+    };
+  }
+  function validate(r) {
+    const e = [];
+    if (!r.en) e.push('المصطلح الإنجليزي فارغ'); else if (!EN_OK.test(r.en)) e.push('المصطلح يحتوي رموزاً غير مسموحة');
+    if (!r.pr) e.push('النطق العربي فارغ'); else if (!ARABIC_ONLY.test(r.pr)) e.push('النطق يجب أن يكون بحروف عربية فقط');
+    if (!r.ar) e.push('المعنى العربي فارغ');
+    if (!r.sm) e.push('الشرح المبسط فارغ');
+    if (!r.ex) e.push('المثال الإنجليزي فارغ');
+    if (!r.exa) e.push('ترجمة المثال فارغة');
+    if (!window.CATS[r.c]) e.push('التصنيف غير معروف: ' + (r.c || 'فارغ'));
+    if (![1, 2, 3, 4].includes(r.l)) e.push('المستوى يجب أن يكون 1 إلى 4');
+    return e;
+  }
+
+  function parseCSV(text) {
+    text = text.replace(/^\uFEFF/, '');
+    const rows = []; let row = [], cur = '', q = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (q) {
+        if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += ch;
+      } else if (ch === '"') q = true;
+      else if (ch === ',') { row.push(cur); cur = ''; }
+      else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }
+      else cur += ch;
+    }
+    if (cur !== '' || row.length) { row.push(cur); rows.push(row); }
+    const clean = rows.filter(r => r.some(c => c.trim() !== ''));
+    if (clean.length < 2) return [];
+    const head = clean[0].map(h => h.trim());
+    return clean.slice(1).map(r => { const o = {}; head.forEach((h, i) => o[h] = r[i] === undefined ? '' : r[i]); return o; });
+  }
+
+  async function readFile(file) {
+    const text = await file.text();
+    if (/\.json$/i.test(file.name) || /^\s*[\[{]/.test(text)) {
+      const j = JSON.parse(text);
+      return Array.isArray(j) ? j : (j.terms || j.data || []);
+    }
+    return parseCSV(text);
+  }
+
+  /* معاينة قبل الاستيراد: لا يُكتب شيء في القاعدة هنا */
+  function plan(rows) {
+    const out = { valid: [], dupDb: [], dupFile: [], invalid: [], total: rows.length };
+    const seen = new Set();
+    rows.forEach((raw, i) => {
+      const r = norm(raw), errs = validate(r);
+      if (errs.length) { out.invalid.push({ line: i + 2, en: r.en || '(بدون اسم)', errs }); return; }
+      if (App.S.map.has(r.k)) { out.dupDb.push({ line: i + 2, en: r.en }); return; }
+      if (seen.has(r.k)) { out.dupFile.push({ line: i + 2, en: r.en }); return; }
+      seen.add(r.k); out.valid.push(r);
+    });
+    return out;
+  }
+  async function commit(p, fileName) {
+    let o = App.nextOrder(); p.valid.forEach(r => { r.o = o++; r.src = 'import'; });
+    const res = await DB.addTerms(p.valid);
+    await DB.put('imports', { at: Date.now(), file: fileName || '(يدوي)', total: p.total, added: res.added, dupDb: p.dupDb.length + res.dup, dupFile: p.dupFile.length, invalid: p.invalid.length });
+    await App.reload();
+    return res;
+  }
+  async function addOne(obj) {
+    const r = norm(obj), errs = validate(r);
+    if (errs.length) return { ok: false, errs };
+    if (App.S.map.has(r.k)) return { ok: false, errs: ['هذا المصطلح موجود بالفعل: ' + r.en] };
+    r.o = App.nextOrder(); r.src = 'manual';
+    const res = await DB.addTerms([r]);
+    if (!res.added) return { ok: false, errs: ['رفضت قاعدة البيانات الإضافة (مكرر)'] };
+    await DB.put('imports', { at: Date.now(), file: '(إضافة يدوية)', total: 1, added: 1, dupDb: 0, dupFile: 0, invalid: 0 });
+    await App.reload();
+    return { ok: true, rec: r };
+  }
+
+  function download(name, text, mime) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: mime || 'application/json' }));
+    a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+
+  /* ---- النسخة الاحتياطية ---- */
+  async function backup() {
+    const [terms, progress, quizzes, days] = await Promise.all(['terms', 'progress', 'quizzes', 'days'].map(DB.getAll));
+    const payload = JSON.stringify({ terms, progress, quizzes, days, settings: App.S.set });
+    const file = {
+      app: 'nursing-terms', format: 1, exportedAt: new Date().toISOString(),
+      counts: { terms: terms.length, progress: progress.length, quizzes: quizzes.length, days: days.length },
+      checksum: Util.hash(payload), payload
+    };
+    download('nursing-backup-' + Util.today() + '.json', JSON.stringify(file));
+    await DB.setMeta('lastBackup', Date.now());
+    return file.counts;
+  }
+
+  async function readBackup(file) {
+    let outer;
+    try { outer = JSON.parse(await file.text()); } catch (e) { throw new Error('الملف ليس JSON صالحاً'); }
+    if (!outer || outer.app !== 'nursing-terms') throw new Error('هذا ليس ملف نسخة احتياطية لهذا التطبيق');
+    if (outer.format !== 1) throw new Error('إصدار النسخة غير مدعوم: ' + outer.format);
+    if (typeof outer.payload !== 'string') throw new Error('محتوى النسخة مفقود');
+    if (Util.hash(outer.payload) !== outer.checksum) throw new Error('الملف تالف أو تم تعديله (فشل فحص السلامة). لن تتم الاستعادة.');
+    const d = JSON.parse(outer.payload);
+    ['terms', 'progress', 'quizzes', 'days'].forEach(k => { if (!Array.isArray(d[k])) throw new Error('بنية النسخة غير صحيحة: ' + k); });
+    const c = outer.counts || {};
+    if (c.terms !== d.terms.length || c.progress !== d.progress.length) throw new Error('أعداد السجلات لا تطابق الملف');
+    return { outer, d };
+  }
+
+  async function restore(file, opt) {
+    opt = opt || {};
+    const { d } = await readBackup(file);
+    const rep = { termsAdded: 0, termsDup: 0, termsBad: 0, progNew: 0, progUpdated: 0, progKept: 0, progSkipped: 0, quizzes: 0, days: 0 };
+    const good = [];
+    d.terms.forEach(t => { const r = norm(t); if (validate(r).length) rep.termsBad++; else good.push(r); });
+    const ar = await DB.addTerms(good); rep.termsAdded = ar.added; rep.termsDup = ar.dup;
+
+    const have = new Set((await DB.getAll('terms')).map(t => t.k));
+    const curProg = new Map((await DB.getAll('progress')).map(p => [p.k, p]));
+    const toPut = [];
+    d.progress.forEach(b => {
+      if (!b || typeof b.k !== 'string' || !have.has(b.k)) { rep.progSkipped++; return; }
+      const cur = curProg.get(b.k);
+      if (!cur) { toPut.push(Object.assign(SRS.blank(b.k), b)); rep.progNew++; return; }
+      if ((b.last || 0) > (cur.last || 0)) { const m = Object.assign(SRS.blank(b.k), b); m.fav = !!(cur.fav || b.fav); toPut.push(m); rep.progUpdated++; }
+      else { if (b.fav && !cur.fav) { toPut.push(Object.assign({}, cur, { fav: true })); } rep.progKept++; }
+    });
+    await DB.putMany('progress', toPut);
+
+    const qs = await DB.getAll('quizzes'), qk = new Set(qs.map(q => q.at + '|' + q.type + '|' + q.total + '|' + q.correct));
+    const newQ = d.quizzes.filter(q => q && q.at && !qk.has(q.at + '|' + q.type + '|' + q.total + '|' + q.correct)).map(q => { const c = Object.assign({}, q); delete c.id; return c; });
+    await DB.putMany('quizzes', newQ); rep.quizzes = newQ.length;
+
+    const curDays = new Map((await DB.getAll('days')).map(x => [x.day, x]));
+    const dayPut = [];
+    d.days.forEach(b => {
+      if (!b || !/^\d{4}-\d{2}-\d{2}$/.test(b.day)) return;
+      const c = curDays.get(b.day) || { day: b.day, newTerms: 0, reviews: 0, correct: 0, wrong: 0 };
+      dayPut.push({ day: b.day, newTerms: Math.max(c.newTerms || 0, b.newTerms || 0), reviews: Math.max(c.reviews || 0, b.reviews || 0), correct: Math.max(c.correct || 0, b.correct || 0), wrong: Math.max(c.wrong || 0, b.wrong || 0) });
+    });
+    await DB.putMany('days', dayPut); rep.days = dayPut.length;
+    if (opt.settings && d.settings) await DB.setMeta('settings', Object.assign({}, App.S.set, d.settings));
+    await App.reload();
+    return rep;
+  }
+
+  async function exportTermsCSV() {
+    const ts = await DB.getAll('terms');
+    const cols = ['en', 'pr', 'ar', 'sm', 'ex', 'exa', 'c', 'l', 'p', 'rt', 'rel', 'df'];
+    const q = v => '"' + String(Array.isArray(v) ? v.join(';') : (v == null ? '' : v)).replace(/"/g, '""') + '"';
+    const lines = [cols.join(',')].concat(ts.map(t => cols.map(c => q(t[c])).join(',')));
+    download('terms-' + Util.today() + '.csv', '\uFEFF' + lines.join('\r\n'), 'text/csv;charset=utf-8');
+    return ts.length;
+  }
+
+  return { norm, validate, parseCSV, readFile, plan, commit, addOne, backup, readBackup, restore, exportTermsCSV };
+})();
+
+</script>
+<script>
+/* js/ui1.js */
+/* واجهة التطبيق — الجزء 1: الحالة والتوجيه والرئيسية وجلسة التعلّم */
+window.V = {};
+window.App = (function () {
+  const DEF = { dailyNew: 10, rate: 1, volume: 1, repeat: 1, voiceURI: '', theme: 'auto', showPron: true, autoPlay: false, scopeCat: '', scopeLevel: 0, quizLen: 10 };
+  const S = { terms: [], map: new Map(), prog: new Map(), days: new Map(), idx: new Map(), set: Object.assign({}, DEF) };
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const en = t => '<span class="en" dir="ltr">' + Util.esc(t) + '</span>';
+  const audio = (text, extra) => '<button class="ib" data-say="' + Util.esc(text) + '" title="استمع" aria-label="استمع">🔊</button><button class="ib" data-say="' + Util.esc(text) + '" data-slow="1" title="استمع ببطء" aria-label="استمع ببطء">🐢</button>' + (extra || '');
+
+  function toast(msg, kind) {
+    const t = $('#toast'); t.textContent = msg; t.className = 'show ' + (kind || '');
+    clearTimeout(toast.h); toast.h = setTimeout(() => t.className = '', 3200);
+  }
+  const getProg = k => S.prog.get(k) || SRS.blank(k);
+  async function saveProg(p) { S.prog.set(p.k, p); await DB.put('progress', p); }
+  async function bumpDay(d) {
+    const day = Util.today(), r = S.days.get(day) || { day, newTerms: 0, reviews: 0, correct: 0, wrong: 0 };
+    Object.keys(d).forEach(k => r[k] = (r[k] || 0) + d[k]);
+    S.days.set(day, r); await DB.put('days', r);
+  }
+  const todayRec = () => S.days.get(Util.today()) || { newTerms: 0, reviews: 0, correct: 0, wrong: 0 };
+  const nextOrder = () => S.terms.reduce((m, t) => Math.max(m, t.o == null ? -1 : t.o), -1) + 1;
+
+  function applyTheme() {
+    const th = S.set.theme; if (th === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', th);
+  }
+  async function reload() {
+    const [terms, prog, days, set] = await Promise.all([DB.getAll('terms'), DB.getAll('progress'), DB.getAll('days'), DB.getMeta('settings', {})]);
+    terms.sort((a, b) => (a.l - b.l) || ((a.o == null ? 1e9 : a.o) - (b.o == null ? 1e9 : b.o)) || (a.k < b.k ? -1 : 1));
+    S.terms = terms; S.map = new Map(terms.map(t => [t.k, t]));
+    S.prog = new Map(prog.map(p => [p.k, p])); S.days = new Map(days.map(d => [d.day, d]));
+    S.idx = new Map(terms.map(t => [t.k, Util.normAr([t.en, t.pr, t.ar, t.sm, t.rt, (t.rel || []).join(' ')].join(' '))]));
+    S.set = Object.assign({}, DEF, set);
+    Speech.configure(S.set); applyTheme();
+  }
+  async function saveSettings(patch) { Object.assign(S.set, patch); Speech.configure(S.set); applyTheme(); await DB.setMeta('settings', S.set); }
+
+  async function ensureSeed() {
+    const v = await DB.getMeta('seedVersion', null);
+    if (v === window.SEED_VERSION) return 0;
+    const recs = window.SEED_TERMS.map((t, i) => ({ k: t.k, en: t.en, pr: t.pr, ar: t.ar, sm: t.sm, ex: t.ex, exa: t.exa, c: t.c, l: t.l, p: t.p, rt: t.rt, rel: t.rel, df: t.df, o: i, src: 'seed' }));
+    const r = await DB.addTerms(recs);
+    await DB.setMeta('seedVersion', window.SEED_VERSION);
+    return r.added;
+  }
+
+  /* ----- نطاق الدراسة والخطة اليومية ----- */
+  const scoped = () => S.terms.filter(t => (!S.set.scopeCat || t.c === S.set.scopeCat) && (!S.set.scopeLevel || t.l === S.set.scopeLevel));
+  function plan(extra) {
+    const td = Util.today(), sc = scoped();
+    const due = sc.filter(t => SRS.isDue(S.prog.get(t.k), td)).sort((a, b) => {
+      const pa = S.prog.get(a.k), pb = S.prog.get(b.k);
+      return (SRS.isHard(pb) - SRS.isHard(pa)) || (pa.due < pb.due ? -1 : pa.due > pb.due ? 1 : 0);
+    });
+    const left = Math.max(0, S.set.dailyNew - todayRec().newTerms) + (extra || 0);
+    const fresh = sc.filter(t => { const p = S.prog.get(t.k); return !p || !p.first; });
+    return { due, fresh: fresh.slice(0, left), freshAvail: fresh.length, left };
+  }
+
+  /* ----- التوجيه ----- */
+  const NAV = [['home', 'الرئيسية', '🏠', 1], ['learn', 'تعلّم', '🧠', 1], ['dict', 'القاموس', '📖', 1], ['quiz', 'اختبار', '✏️', 1], ['progress', 'تقدمي', '📊', 0], ['settings', 'الإعدادات', '⚙️', 0], ['data', 'البيانات', '💾', 0]];
+  function buildNav() {
+    $('#side').innerHTML = '<div class="brand">🩺 مصطلحات التمريض</div>' + NAV.map(n => '<a href="#/' + n[0] + '" data-nav="' + n[0] + '"><span>' + n[2] + '</span>' + n[1] + '</a>').join('');
+    $('#bottom').innerHTML = NAV.filter(n => n[3]).map(n => '<a href="#/' + n[0] + '" data-nav="' + n[0] + '"><span>' + n[2] + '</span>' + n[1] + '</a>').join('') + '<a href="#/more" data-nav="more"><span>☰</span>المزيد</a>';
+  }
+  function route() {
+    const h = (location.hash || '#/home').replace(/^#\/?/, ''), parts = h.split('/'), name = parts[0] || 'home';
+    const args = parts.slice(1).map(decodeURIComponent);
+    const main = $('#main'), fn = V[name] || V.home;
+    const navName = ['session', 'term'].includes(name) ? (name === 'term' ? 'dict' : 'learn') : name;
+    $$('[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === navName || (navName === 'more' && false)));
+    if (name !== 'session' && name !== 'quizrun') Speech.stop();
+    main.scrollTop = 0; window.scrollTo(0, 0);
+    try { fn(main, args); } catch (e) { main.innerHTML = '<div class="card err">حدث خطأ في عرض الصفحة: ' + Util.esc(e.message) + '</div>'; console.error(e); }
+  }
+  const go = h => { if (location.hash === h) route(); else location.hash = h; };
+
+  async function boot() {
+    buildNav();
+    try { await DB.open(); } catch (e) {
+      $('#main').innerHTML = '<div class="card err"><h2>تعذّر فتح قاعدة البيانات المحلية</h2><p>' + Util.esc(e.message) + '</p><p>جرّب فتح الملف بمتصفح Chrome أو Edge، وتأكد أنك لست في وضع التصفح الخفي.</p></div>'; return;
+    }
+    let added = 0;
+    try { added = await ensureSeed(); await reload(); } catch (e) { $('#main').innerHTML = '<div class="card err">فشل تحميل البيانات: ' + Util.esc(e.message) + '</div>'; return; }
+    window.addEventListener('hashchange', route);
+    document.addEventListener('click', onSay);
+    route();
+    if (added) toast('تمت إضافة ' + Util.num(added) + ' مصطلح إلى قاعدتك المحلية', 'ok');
+    DB.requestPersist();
+    window.__appReady = true;
+  }
+  async function onSay(e) {
+    const b = e.target.closest('[data-say]'); if (!b) return;
+    if (!Speech.supported()) return toast('هذا المتصفح لا يدعم النطق الصوتي', 'bad');
+    if (!Speech.listVoices().length) toast('لا توجد أصوات إنجليزية مثبتة على هذا الجهاز — راجع الإعدادات ← الصوت', 'bad');
+    b.classList.add('playing');
+    const r = await Speech.say(b.dataset.say, { slow: !!b.dataset.slow });
+    b.classList.remove('playing');
+    if (r && r.ok === false) toast('تعذّر تشغيل الصوت (' + (r.reason || 'خطأ') + ')', 'bad');
+  }
+  return { S, $, $$, en, audio, toast, getProg, saveProg, bumpDay, todayRec, nextOrder, reload, saveSettings, plan, scoped, go, boot, route };
+})();
+
+/* ================= الرئيسية ================= */
+V.home = function (root) {
+  const { S, plan, todayRec } = App, p = plan(0), td = todayRec();
+  const prog = Array.from(S.prog.values()).filter(x => x.first);
+  const mastered = prog.filter(x => SRS.status(x) === 'mastered').length, hard = prog.filter(SRS.isHard).length;
+  const total = S.terms.length, learned = prog.length;
+  const goal = S.set.dailyNew + p.due.length + td.newTerms; // تقدير الهدف اليوم
+  const done = td.newTerms + Math.min(td.reviews, p.due.length + td.reviews);
+  root.innerHTML = `
+  <h1>أهلاً بك 👋</h1><p class="muted">تعلّم المصطلحات الطبية الإنجليزية بالنطق العربي — كل بياناتك على جهازك فقط.</p>
+  <div class="card hero">
+    <h2>خطة اليوم</h2>
+    <div class="plan"><div><b>${Util.num(p.due.length)}</b><small>مراجعة مستحقة</small></div><div><b>${Util.num(p.fresh.length)}</b><small>مصطلح جديد</small></div><div><b>${Util.num(td.reviews)}</b><small>تمت اليوم</small></div></div>
+    <button class="btn big" data-go="#/learn">${(p.due.length + p.fresh.length) ? 'ابدأ التعلّم الآن' : 'أحسنت! لا شيء مستحق — افتح صفحة التعلّم'}</button>
+  </div>
+  <div class="tiles">
+    <div class="tile"><b>${Util.num(total)}</b><small>إجمالي المصطلحات</small></div>
+    <div class="tile"><b>${Util.num(learned)}</b><small>بدأت تعلّمها</small></div>
+    <div class="tile ok"><b>${Util.num(mastered)}</b><small>متقنة</small></div>
+    <div class="tile bad"><b>${Util.num(hard)}</b><small>صعبة</small></div>
+  </div>
+  <div class="bar"><i style="width:${Util.pct(learned, total)}%"></i></div><p class="muted small">أنجزت ${Util.pct(learned, total)}% من المصطلحات الموجودة (${Util.num(learned)} من ${Util.num(total)})</p>
+  <div class="grid2">
+    <a class="card link" href="#/dict">📖 القاموس والبحث</a><a class="card link" href="#/quiz">✏️ اختبر نفسك</a>
+    <a class="card link" href="#/dict/fav">⭐ المفضلة</a><a class="card link" href="#/dict/hard">🔥 الكلمات الصعبة</a>
+  </div>
+  ${(!Speech.supported() ? '<div class="card warn">⚠️ هذا المتصفح لا يدعم النطق الصوتي. استخدم Chrome أو Edge.</div>' : (!Speech.hasLocalEnglish() ? '<div class="card warn">🔇 لا يوجد صوت إنجليزي محلي على جهازك بعد، فقد لا يعمل النطق بدون إنترنت. التفاصيل في الإعدادات ← الصوت.</div>' : ''))}`;
+  root.querySelectorAll('[data-go]').forEach(b => b.onclick = () => App.go(b.dataset.go));
+};
+V.more = function (root) {
+  root.innerHTML = `<h1>المزيد</h1><div class="grid2">
+  <a class="card link" href="#/progress">📊 تقدمي وإحصائياتي</a><a class="card link" href="#/dict/fav">⭐ المفضلة</a>
+  <a class="card link" href="#/dict/hard">🔥 الكلمات الصعبة</a><a class="card link" href="#/settings">⚙️ الإعدادات والصوت</a>
+  <a class="card link" href="#/data">💾 البيانات والنسخ الاحتياطي</a></div>`;
+};
+
+/* ================= التعلّم (جلسات البطاقات) ================= */
+let Sess = null;
+V.learn = function (root) {
+  const { S, plan } = App, p = plan(0), sc = App.scoped();
+  const hardList = sc.filter(t => SRS.isHard(S.prog.get(t.k))), favList = S.terms.filter(t => (S.prog.get(t.k) || {}).fav);
+  const catOpts = '<option value="">كل التصنيفات</option>' + Object.keys(CATS).map(k => `<option value="${k}" ${S.set.scopeCat === k ? 'selected' : ''}>${CATS[k].i} ${CATS[k].ar}</option>`).join('');
+  const lvOpts = '<option value="0">كل المستويات</option>' + [1, 2, 3, 4].map(l => `<option value="${l}" ${S.set.scopeLevel === l ? 'selected' : ''}>${LEVELS[l]}</option>`).join('');
+  root.innerHTML = `<h1>تعلّم</h1>
+  <div class="card"><h3>نطاق الدراسة</h3><div class="row"><select id="sc-cat">${catOpts}</select><select id="sc-lv">${lvOpts}</select></div>
+  <p class="muted small">المصطلحات في النطاق: ${Util.num(sc.length)} — جديدة غير مدروسة: ${Util.num(p.freshAvail)}</p></div>
+  <div class="card"><h3>جلسة اليوم</h3><p>${Util.num(p.due.length)} مراجعة مستحقة + ${Util.num(p.fresh.length)} مصطلح جديد (الهدف اليومي ${Util.num(S.set.dailyNew)}، غيّره من الإعدادات)</p>
+  <div class="row"><button class="btn big" id="b-today" ${p.due.length + p.fresh.length ? '' : 'disabled'}>ابدأ جلسة اليوم</button><button class="btn alt" id="b-extra" ${p.freshAvail > p.fresh.length ? '' : 'disabled'}>+5 مصطلحات جديدة</button></div></div>
+  <div class="card"><h3>تدريب خاص</h3><div class="row"><button class="btn alt" id="b-hard" ${hardList.length ? '' : 'disabled'}>🔥 الصعبة (${Util.num(hardList.length)})</button><button class="btn alt" id="b-fav" ${favList.length ? '' : 'disabled'}>⭐ المفضلة (${Util.num(favList.length)})</button></div></div>`;
+  const save = async () => { await App.saveSettings({ scopeCat: App.$('#sc-cat').value, scopeLevel: Number(App.$('#sc-lv').value) }); V.learn(root); };
+  App.$('#sc-cat').onchange = save; App.$('#sc-lv').onchange = save;
+  const start = (list, title) => { Sess = { queue: list.slice(), total: list.length, done: 0, retry: {}, st: { n: 0, c: 0, w: 0 }, flipped: false, title }; App.go('#/session'); };
+  App.$('#b-today').onclick = () => start(p.due.concat(p.fresh), 'جلسة اليوم');
+  App.$('#b-extra').onclick = () => { const q = plan(5); start(q.due.concat(q.fresh), 'جلسة اليوم + جديد إضافي'); };
+  App.$('#b-hard').onclick = () => start(Util.shuffle(hardList), 'الكلمات الصعبة');
+  App.$('#b-fav').onclick = () => start(Util.shuffle(favList), 'المفضلة');
+};
+
+V.session = function (root) {
+  if (!Sess) return App.go('#/learn');
+  if (!Sess.queue.length) return summary(root);
+  const t = Sess.queue[0], p = App.getProg(t.k), td = Util.today(), S = App.S;
+  const pct = Util.pct(Sess.done, Sess.done + Sess.queue.length);
+  const isNew = !p.first;
+  const front = `<div class="fc-top"><span class="chip ${isNew ? 'new' : ''}">${isNew ? 'جديد' : SRS.STATUS_AR[SRS.status(p)]}</span><span class="muted small">${CATS[t.c].i} ${CATS[t.c].ar}</span></div>
+    <div class="fc-term">${App.en(t.en)}</div>${S.set.showPron ? '<div class="pron">' + Util.esc(t.pr) + '</div>' : ''}
+    <div class="row c">${App.audio(t.en)}</div>`;
+  const back = `<hr><div class="fc-mean">${Util.esc(t.ar)}</div><p>${Util.esc(t.sm)}</p>
+    <div class="ex"><div>${App.en(t.ex)} ${App.audio(t.ex)}</div><div class="muted">${Util.esc(t.exa)}</div></div>
+    ${t.rt ? '<p class="small">🧩 الجذر/الأجزاء: ' + App.en(t.rt) + '</p>' : ''}${t.df ? '<p class="small warnt">⚠️ ' + Util.esc(t.df) + '</p>' : ''}`;
+  const labels = [['نسيته', 'bad', 0], ['صعب', 'alt', 1], ['جيد', 'ok', 2], ['سهل', 'ok2', 3]];
+  root.innerHTML = `<div class="sess-h"><button class="btn sm alt" id="s-exit">إنهاء</button><b>${Util.esc(Sess.title)}</b><span class="muted small">${Util.num(Sess.queue.length)} متبقية</span></div>
+  <div class="bar"><i style="width:${pct}%"></i></div>
+  <div class="card fc" id="fc">${front}${Sess.flipped ? back : '<div class="row c"><button class="btn big" id="s-flip">إظهار المعنى</button></div><p class="muted small c">اختصارات: مسافة = إظهار، P = صوت، 1-4 = التقييم</p>'}</div>
+  ${Sess.flipped ? '<div class="grades">' + labels.map(l => `<button class="btn ${l[1]}" data-g="${l[2]}">${l[0]}<small>${SRS.intervalLabel(SRS.preview(p, l[2], td))}</small></button>`).join('') + '</div>' : ''}`;
+  App.$('#s-exit').onclick = () => { Speech.stop(); Sess.queue = []; V.session(root); };
+  const flip = () => { Sess.flipped = true; V.session(root); };
+  const fb = App.$('#s-flip'); if (fb) fb.onclick = flip;
+  App.$$('[data-g]').forEach(b => b.onclick = () => grade(root, Number(b.dataset.g)));
+  if (!Sess.flipped && S.set.autoPlay) Speech.say(t.en, { once: false });
+  Sess.key = e => {
+    if (location.hash !== '#/session' || /INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName)) return;
+    if (e.key === ' ' && !Sess.flipped) { e.preventDefault(); flip(); }
+    else if (/^[1-4]$/.test(e.key) && Sess.flipped) grade(root, Number(e.key) - 1);
+    else if (e.key.toLowerCase() === 'p') Speech.say(t.en);
+  };
+  document.onkeydown = Sess.key;
+};
+async function grade(root, g) {
+  if (Sess.busy) return; Sess.busy = true;
+  const t = Sess.queue.shift(), p0 = App.getProg(t.k), isNew = !p0.first;
+  await App.saveProg(SRS.grade(p0, g, Util.today()));
+  await App.bumpDay({ newTerms: isNew ? 1 : 0, reviews: 1, correct: g > 0 ? 1 : 0, wrong: g === 0 ? 1 : 0 });
+  Sess.st.n++; g > 0 ? Sess.st.c++ : Sess.st.w++;
+  if (g === 0 && (Sess.retry[t.k] || 0) < 2) { Sess.retry[t.k] = (Sess.retry[t.k] || 0) + 1; Sess.queue.push(t); } else Sess.done++;
+  Sess.flipped = false; Sess.busy = false; V.session(root);
+}
+function summary(root) {
+  document.onkeydown = null;
+  const st = Sess.st; const s = Sess; Sess = null;
+  root.innerHTML = `<div class="card c"><div style="font-size:3rem">🎉</div><h2>انتهت الجلسة</h2>
+  <div class="tiles"><div class="tile"><b>${Util.num(st.n)}</b><small>إجابات</small></div><div class="tile ok"><b>${Util.num(st.c)}</b><small>تذكّرتها</small></div><div class="tile bad"><b>${Util.num(st.w)}</b><small>نسيتها</small></div></div>
+  <p class="muted">المصطلحات التي نسيتها ستعود إليك أكثر تكراراً حتى تتقنها.</p>
+  <div class="row c"><button class="btn big" id="s-again">جلسة جديدة</button><a class="btn alt" href="#/home">الرئيسية</a></div></div>`;
+  App.$('#s-again').onclick = () => App.go('#/learn');
+}
+
+</script>
+<script>
+/* js/ui2.js */
+/* واجهة التطبيق — الجزء 2: القاموس وتفاصيل المصطلح والاختبارات */
+const DF = { q: '', cat: '', lv: 0, st: 'all', page: 1 };
+const PAGE = 40;
+const ST_OPTS = [['all', 'الكل'], ['new', 'جديدة'], ['learning', 'قيد التعلّم'], ['reviewing', 'قيد المراجعة'], ['mastered', 'متقنة'], ['fav', '⭐ المفضلة'], ['hard', '🔥 الصعبة']];
+
+function dictFilter() {
+  const { S } = App, q = Util.normAr(DF.q.trim());
+  return S.terms.filter(t => {
+    if (DF.cat && t.c !== DF.cat) return false;
+    if (DF.lv && t.l !== DF.lv) return false;
+    const p = S.prog.get(t.k);
+    if (DF.st === 'fav' && !(p && p.fav)) return false;
+    if (DF.st === 'hard' && !SRS.isHard(p)) return false;
+    if (['new', 'learning', 'reviewing', 'mastered'].includes(DF.st) && SRS.status(p) !== DF.st) return false;
+    return !q || S.idx.get(t.k).includes(q);
+  });
+}
+function dictRow(t) {
+  const p = App.S.prog.get(t.k), st = SRS.status(p);
+  return `<a class="li" href="#/term/${encodeURIComponent(t.k)}"><div class="li-main"><div>${App.en(t.en)} <span class="pron sm">${Util.esc(t.pr)}</span></div><div class="muted">${Util.esc(t.ar)}</div></div>
+  <div class="li-side">${p && p.fav ? '<span title="مفضلة">⭐</span>' : ''}${SRS.isHard(p) ? '<span title="صعبة">🔥</span>' : ''}<span class="chip ${st}">${SRS.STATUS_AR[st]}</span></div></a>`;
+}
+V.dict = function (root, args) {
+  if (args[0] === 'fav' || args[0] === 'hard') { DF.st = args[0]; DF.page = 1; DF.q = ''; DF.cat = ''; DF.lv = 0; }
+  const { S } = App;
+  const catOpts = '<option value="">كل التصنيفات</option>' + Object.keys(CATS).map(k => `<option value="${k}" ${DF.cat === k ? 'selected' : ''}>${CATS[k].i} ${CATS[k].ar}</option>`).join('');
+  const lvOpts = '<option value="0">كل المستويات</option>' + [1, 2, 3, 4].map(l => `<option value="${l}" ${DF.lv === l ? 'selected' : ''}>${LEVELS[l]}</option>`).join('');
+  const stOpts = ST_OPTS.map(o => `<option value="${o[0]}" ${DF.st === o[0] ? 'selected' : ''}>${o[1]}</option>`).join('');
+  root.innerHTML = `<h1>القاموس</h1>
+  <input id="d-q" type="search" placeholder="ابحث بالإنجليزي أو العربي أو النطق أو جزء من الكلمة…" value="${Util.esc(DF.q)}" autocomplete="off">
+  <div class="row"><select id="d-cat">${catOpts}</select><select id="d-lv">${lvOpts}</select><select id="d-st">${stOpts}</select></div>
+  <p class="muted small" id="d-count"></p><div id="d-list" class="list"></div><div class="row c"><button class="btn alt" id="d-more" style="display:none">عرض المزيد</button></div>`;
+  const draw = () => {
+    const list = dictFilter(), shown = list.slice(0, DF.page * PAGE);
+    App.$('#d-count').textContent = 'النتائج: ' + Util.num(list.length) + ' من ' + Util.num(S.terms.length);
+    App.$('#d-list').innerHTML = shown.length ? shown.map(dictRow).join('') : '<div class="card muted c">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو غيّر الفلاتر.</div>';
+    App.$('#d-more').style.display = list.length > shown.length ? '' : 'none';
+  };
+  const q = App.$('#d-q');
+  q.oninput = Util.debounce(() => { DF.q = q.value; DF.page = 1; draw(); }, 120);
+  App.$('#d-cat').onchange = e => { DF.cat = e.target.value; DF.page = 1; draw(); };
+  App.$('#d-lv').onchange = e => { DF.lv = Number(e.target.value); DF.page = 1; draw(); };
+  App.$('#d-st').onchange = e => { DF.st = e.target.value; DF.page = 1; draw(); };
+  App.$('#d-more').onclick = () => { DF.page++; draw(); };
+  draw();
+};
+
+V.term = function (root, args) {
+  const { S } = App, t = S.map.get(args[0]);
+  if (!t) { root.innerHTML = '<div class="card err">المصطلح غير موجود.</div><a class="btn" href="#/dict">رجوع للقاموس</a>'; return; }
+  const p = App.getProg(t.k), st = SRS.status(p);
+  const rel = (t.rel || []).map(r => { const k = Util.normKey(r); return S.map.has(k) ? `<a class="chip link" href="#/term/${encodeURIComponent(k)}">${Util.esc(S.map.get(k).en)}</a>` : `<span class="chip">${Util.esc(r)}</span>`; }).join(' ');
+  root.innerHTML = `<a class="back" href="javascript:history.back()">→ رجوع</a>
+  <div class="card"><div class="fc-top"><span class="chip">${CATS[t.c].i} ${CATS[t.c].ar}</span><span class="chip">${LEVELS[t.l]}</span><span class="chip">${POS_AR[t.p] || Util.esc(t.p)}</span></div>
+  <div class="c"><div class="fc-term">${App.en(t.en)}</div><div class="pron">${Util.esc(t.pr)}</div><div class="row c">${App.audio(t.en)}</div>
+  <hr><div class="fc-mean">${Util.esc(t.ar)}</div></div><p>${Util.esc(t.sm)}</p>
+  <div class="ex"><div>${App.en(t.ex)} ${App.audio(t.ex)}</div><div class="muted">${Util.esc(t.exa)}</div></div>
+  ${t.rt ? '<p>🧩 الجذر/الأجزاء: ' + App.en(t.rt) + '</p>' : ''}${t.df ? '<p class="warnt">⚠️ ' + Util.esc(t.df) + '</p>' : ''}
+  ${rel ? '<p><b>مصطلحات مرتبطة:</b> ' + rel + '</p>' : ''}
+  <p class="small muted">النطق بالحروف العربية وسيلة مساعدة تقريبية، والأصل هو الصوت.</p></div>
+  <div class="card"><h3>تقدّمك</h3><p>الحالة: <span class="chip ${st}">${SRS.STATUS_AR[st]}</span> — صحيح ${Util.num(p.correct)} / خطأ ${Util.num(p.wrong)}${p.first ? ' — المراجعة القادمة: ' + (p.due <= Util.today() ? 'الآن' : p.due) : ''}</p>
+  <div class="row"><button class="btn alt" id="t-fav">${p.fav ? '⭐ إزالة من المفضلة' : '☆ أضف للمفضلة'}</button><button class="btn alt" id="t-hard">${p.hardFlag ? '🔥 إلغاء علامة الصعوبة' : '🔥 علّمها كصعبة'}</button></div></div>`;
+  App.$('#t-fav').onclick = async () => { await App.saveProg(Object.assign({}, p, { fav: !p.fav })); V.term(root, args); };
+  App.$('#t-hard').onclick = async () => { await App.saveProg(Object.assign({}, p, { hardFlag: !p.hardFlag })); V.term(root, args); };
+};
+
+/* ================= الاختبارات ================= */
+let QR = null;
+const QTYPES = [['meaning', '🔤 المعنى', 'يظهر المصطلح الإنجليزي واختر معناه بالعربي'], ['reverse', '🔁 العكس', 'يظهر المعنى العربي واختر المصطلح الإنجليزي'],
+['listen', '👂 الاستماع', 'اسمع النطق واختر المصطلح الصحيح'], ['spell', '⌨️ الإملاء', 'يظهر المعنى واكتب المصطلح بالإنجليزية']];
+
+V.quiz = async function (root) {
+  const { S } = App;
+  const catOpts = '<option value="">كل التصنيفات</option>' + Object.keys(CATS).map(k => `<option value="${k}">${CATS[k].i} ${CATS[k].ar}</option>`).join('');
+  root.innerHTML = `<h1>اختبر نفسك</h1><div class="card"><h3>نوع الاختبار</h3><div class="grid2" id="q-types">${QTYPES.map((q, i) => `<label class="opt-card"><input type="radio" name="qt" value="${q[0]}" ${i === 0 ? 'checked' : ''}><b>${q[1]}</b><small>${q[2]}</small></label>`).join('')}</div>
+  <div class="row"><select id="q-cat">${catOpts}</select><select id="q-len">${[10, 20, 30].map(n => `<option value="${n}" ${S.set.quizLen === n ? 'selected' : ''}>${n} أسئلة</option>`).join('')}</select></div>
+  <button class="btn big" id="q-start">ابدأ الاختبار</button><p class="muted small">تُعطى الكلمات الصعبة والمستحقة للمراجعة أولوية أكبر في الأسئلة.</p></div><div id="q-hist"></div>`;
+  App.$('#q-start').onclick = () => {
+    const type = document.querySelector('input[name=qt]:checked').value, cat = App.$('#q-cat').value, len = Number(App.$('#q-len').value);
+    App.saveSettings({ quizLen: len });
+    const td = Util.today();
+    const pool = S.terms.filter(t => !cat || t.c === cat).map(t => { const p = S.prog.get(t.k); const w = SRS.isHard(p) ? 3 : SRS.isDue(p, td) ? 2 : (p && p.first) ? 1.5 : 1; return { t, s: Math.random() * w }; }).sort((a, b) => b.s - a.s).slice(0, len).map(x => x.t);
+    if (pool.length < 4) return App.toast('عدد المصطلحات في هذا التصنيف قليل لإنشاء اختبار', 'bad');
+    startQuiz(type, pool);
+  };
+  const h = (await DB.getAll('quizzes')).sort((a, b) => b.at - a.at).slice(0, 8);
+  App.$('#q-hist').innerHTML = h.length ? '<div class="card"><h3>آخر الاختبارات</h3>' + h.map(q => `<div class="li static"><span>${new Date(q.at).toLocaleDateString('ar-EG')} — ${(QTYPES.find(x => x[0] === q.type) || [0, q.type])[1]}</span><b>${Util.num(q.correct)}/${Util.num(q.total)} (${Util.pct(q.correct, q.total)}%)</b></div>`).join('') + '</div>' : '';
+};
+
+function startQuiz(type, pool) {
+  QR = { type, list: pool, i: 0, ok: 0, items: [], answered: false };
+  App.go('#/quizrun');
+}
+function distractors(t, n, key) {
+  const same = App.S.terms.filter(x => x.k !== t.k && x.c === t.c), other = App.S.terms.filter(x => x.k !== t.k && x.c !== t.c);
+  const seen = new Set([t[key]]), out = [];
+  for (const x of Util.shuffle(same).concat(Util.shuffle(other))) { if (out.length >= n) break; if (seen.has(x[key])) continue; seen.add(x[key]); out.push(x); }
+  return out;
+}
+V.quizrun = function (root) {
+  if (!QR) return App.go('#/quiz');
+  if (QR.i >= QR.list.length) return quizResult(root);
+  const t = QR.list[QR.i], type = QR.type; QR.answered = false;
+  let prompt = '', body = '';
+  const opts = (key, fmt) => { QR.opts = Util.shuffle([t].concat(distractors(t, 3, key))); return '<div class="opts">' + QR.opts.map((o, i) => `<button class="opt" data-i="${i}">${fmt(o)}</button>`).join('') + '</div>'; };
+  if (type === 'meaning') { prompt = `<div class="fc-term">${App.en(t.en)}</div><div class="pron">${Util.esc(t.pr)}</div><div class="row c">${App.audio(t.en)}</div><p class="c muted">ما معناه؟</p>`; body = opts('ar', o => Util.esc(o.ar)); }
+  else if (type === 'reverse') { prompt = `<div class="fc-mean">${Util.esc(t.ar)}</div><p class="c muted">ما المصطلح الإنجليزي؟</p>`; body = opts('en', o => App.en(o.en) + '<small>' + Util.esc(o.pr) + '</small>'); }
+  else if (type === 'listen') { prompt = `<div class="row c"><button class="btn big" data-say="${Util.esc(t.en)}">🔊 اسمع</button><button class="btn alt" data-say="${Util.esc(t.en)}" data-slow="1">🐢 ببطء</button></div><p class="c muted">اسمع ثم اختر المصطلح الصحيح</p>`; body = opts('en', o => App.en(o.en)); }
+  else { prompt = `<div class="fc-mean">${Util.esc(t.ar)}</div><div class="pron">${Util.esc(t.pr)}</div><div class="row c">${App.audio(t.en)}</div><p class="c muted">اكتب المصطلح بالإنجليزية</p>`; body = '<input id="q-in" class="spell" dir="ltr" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type here…"><div class="row c"><button class="btn big" id="q-check">تحقق</button></div>'; }
+  root.innerHTML = `<div class="sess-h"><button class="btn sm alt" id="q-exit">إنهاء</button><b>السؤال ${Util.num(QR.i + 1)} من ${Util.num(QR.list.length)}</b><span class="chip ok">${Util.num(QR.ok)} صحيح</span></div>
+  <div class="bar"><i style="width:${Util.pct(QR.i, QR.list.length)}%"></i></div><div class="card">${prompt}${body}<div id="q-fb"></div></div>`;
+  App.$('#q-exit').onclick = () => { Speech.stop(); QR.list = QR.list.slice(0, QR.i); quizResult(root); };
+  if (type === 'listen' && App.S.set.autoPlay !== false && Speech.supported()) setTimeout(() => Speech.say(t.en), 250);
+  if (type === 'spell') { const inp = App.$('#q-in'); inp.focus(); inp.onkeydown = e => { if (e.key === 'Enter') answer(root, inp.value); }; App.$('#q-check').onclick = () => answer(root, inp.value); }
+  else App.$$('.opt').forEach(b => b.onclick = () => answer(root, QR.opts[Number(b.dataset.i)].k, b));
+};
+async function answer(root, given, btn) {
+  if (QR.answered) return; if (QR.type === 'spell' && !String(given).trim()) return; QR.answered = true;
+  const t = QR.list[QR.i], ok = QR.type === 'spell' ? Util.normKey(given) === t.k : given === t.k;
+  QR.items.push([t.k, ok ? 1 : 0]); if (ok) QR.ok++;
+  App.$$('.opt').forEach((b, i) => { b.disabled = true; if (QR.opts[i].k === t.k) b.classList.add('right'); });
+  if (btn && !ok) btn.classList.add('wrong');
+  if (QR.type === 'spell') { const inp = App.$('#q-in'); inp.disabled = true; inp.classList.add(ok ? 'right' : 'wrong'); App.$('#q-check').style.display = 'none'; }
+  App.$('#q-fb').innerHTML = `<div class="fb ${ok ? 'ok' : 'bad'}"><b>${ok ? '✅ إجابة صحيحة' : '❌ إجابة خاطئة'}</b><div>الصحيح: ${App.en(t.en)} — ${Util.esc(t.ar)} <span class="pron sm">${Util.esc(t.pr)}</span> ${App.audio(t.en)}</div><div class="muted">${Util.esc(t.sm)}</div></div><div class="row c"><button class="btn big" id="q-next">${QR.i + 1 >= QR.list.length ? 'عرض النتيجة' : 'التالي ←'}</button></div>`;
+  App.$('#q-next').onclick = () => { QR.i++; V.quizrun(root); }; App.$('#q-next').focus();
+  /* تحديث التقدّم: الخطأ في كلمة مدروسة يعيدها للمراجعة اليوم */
+  const p = App.getProg(t.k); let np;
+  if (ok) np = (p.first && SRS.isDue(p, Util.today())) ? SRS.grade(p, 2, Util.today()) : Object.assign({}, p, { correct: p.correct + 1 });
+  else np = p.first ? Object.assign({}, p, { wrong: p.wrong + 1, lapses: p.lapses + 1, ease: Math.max(1.3, p.ease - 0.1), due: Util.today(), last: Date.now() }) : Object.assign({}, p, { wrong: p.wrong + 1 });
+  await App.saveProg(np);
+  await App.bumpDay({ reviews: 1, correct: ok ? 1 : 0, wrong: ok ? 0 : 1 });
+}
+async function quizResult(root) {
+  const total = QR.items.length, ok = QR.ok, pct = Util.pct(ok, total), q = QR; QR = null;
+  if (total) await DB.put('quizzes', { at: Date.now(), type: q.type, total, correct: ok, items: q.items });
+  const wrong = q.items.filter(x => !x[1]).map(x => App.S.map.get(x[0])).filter(Boolean);
+  root.innerHTML = `<div class="card c"><div style="font-size:3rem">${pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '💪'}</div><h2>النتيجة: ${Util.num(ok)} من ${Util.num(total)} (${Util.num(pct)}%)</h2>
+  <p class="muted">${pct >= 80 ? 'ممتاز! استمر.' : pct >= 50 ? 'جيد، راجع الأخطاء.' : 'لا بأس، التكرار هو سر الحفظ.'}</p>
+  ${wrong.length ? '<h3>مصطلحات أخطأت فيها</h3><div class="list">' + wrong.map(dictRow).join('') + '</div><div class="row c"><button class="btn big" id="q-retry">أعد اختبار الأخطاء</button></div>' : ''}
+  <div class="row c"><a class="btn alt" href="#/quiz">اختبار جديد</a></div></div>`;
+  const r = App.$('#q-retry'); if (r) r.onclick = () => startQuiz(q.type, wrong.length >= 4 ? wrong : wrong.concat(distractors(wrong[0], 4 - wrong.length, 'k')));
+}
+
+</script>
+<script>
+/* js/ui3.js */
+/* واجهة التطبيق — الجزء 3: التقدّم والإعدادات والبيانات */
+V.progress = async function (root) {
+  const { S } = App, td = Util.today();
+  const prog = Array.from(S.prog.values()).filter(p => p.first);
+  const cnt = { learning: 0, reviewing: 0, mastered: 0 }; prog.forEach(p => cnt[SRS.status(p)]++);
+  const due = prog.filter(p => SRS.isDue(p, td)).length, hard = prog.filter(SRS.isHard).length;
+  const days = Array.from(S.days.values()), sum = (arr, f) => arr.reduce((a, d) => a + (d[f] || 0), 0);
+  const active = d => (d.reviews || 0) + (d.newTerms || 0) > 0;
+  const acc = (arr) => { const c = sum(arr, 'correct'), w = sum(arr, 'wrong'); return (c + w) ? Util.pct(c, c + w) + '%' : '—'; };
+  let streak = 0, d = td; if (!(S.days.get(d) && active(S.days.get(d)))) d = Util.addDays(d, -1);
+  while (S.days.get(d) && active(S.days.get(d))) { streak++; d = Util.addDays(d, -1); }
+  const last = n => Array.from({ length: n }, (_, i) => Util.addDays(td, -(n - 1 - i))).map(x => S.days.get(x) || { day: x, newTerms: 0, reviews: 0, correct: 0, wrong: 0 });
+  const l14 = last(14), mx = Math.max(1, ...l14.map(x => x.reviews || 0));
+  const l7 = last(7).filter(active), l30 = last(30).filter(active);
+  const rep = (title, a) => `<div class="tile"><small>${title}</small><b>${Util.num(a.length)}</b><small>يوم دراسة</small><small>${Util.num(sum(a, 'newTerms'))} جديد · ${Util.num(sum(a, 'reviews'))} مراجعة · دقة ${acc(a)}</small></div>`;
+  const cats = Object.keys(CATS).map(k => { const all = S.terms.filter(t => t.c === k), st = all.filter(t => (S.prog.get(t.k) || {}).first).length; return `<div class="cp"><span>${CATS[k].i} ${CATS[k].ar}</span><div class="bar sm"><i style="width:${Util.pct(st, all.length)}%"></i></div><small>${Util.num(st)}/${Util.num(all.length)}</small></div>`; }).join('');
+  const qz = (await DB.getAll('quizzes')).sort((a, b) => b.at - a.at).slice(0, 10);
+  root.innerHTML = `<h1>تقدّمي</h1>
+  <div class="tiles"><div class="tile"><b>${Util.num(prog.length)}</b><small>بدأت تعلّمها</small></div><div class="tile ok"><b>${Util.num(cnt.mastered)}</b><small>متقنة</small></div><div class="tile"><b>${Util.num(due)}</b><small>مستحقة للمراجعة</small></div><div class="tile bad"><b>${Util.num(hard)}</b><small>صعبة</small></div>
+  <div class="tile"><b>${Util.num(streak)}</b><small>أيام متتالية 🔥</small></div><div class="tile"><b>${acc(days)}</b><small>دقة الإجابات</small></div><div class="tile"><b>${qz.length ? Util.pct(qz.reduce((a, q) => a + q.correct, 0), qz.reduce((a, q) => a + q.total, 0)) + '%' : '—'}</b><small>متوسط آخر الاختبارات</small></div><div class="tile"><b>${Util.num(S.terms.length - prog.length)}</b><small>لم تبدأها بعد</small></div></div>
+  <div class="card"><h3>آخر 14 يوماً (عدد المراجعات)</h3><div class="chart">${l14.map(x => `<div class="col" title="${x.day}: ${x.reviews || 0}"><i style="height:${Math.max(2, Util.pct(x.reviews || 0, mx))}%"></i><small>${x.day.slice(8)}</small></div>`).join('')}</div></div>
+  <div class="card"><h3>التقارير</h3><div class="tiles">${rep('هذا الأسبوع', l7)}${rep('آخر 30 يوماً', l30)}</div></div>
+  <div class="card"><h3>التقدّم حسب التصنيف</h3>${cats}</div>
+  <div class="card"><h3>سجل أيام الدراسة</h3>${days.filter(active).sort((a, b) => a.day < b.day ? 1 : -1).slice(0, 30).map(x => `<div class="li static"><span>${x.day}</span><span>${Util.num(x.newTerms)} جديد · ${Util.num(x.reviews)} مراجعة · ✅${Util.num(x.correct)} ❌${Util.num(x.wrong)}</span></div>`).join('') || '<p class="muted">لا توجد أيام دراسة مسجلة بعد. ابدأ جلسة تعلّم!</p>'}</div>`;
+};
+
+V.settings = function (root) {
+  const { S } = App, st = S.set, voices = Speech.listVoices();
+  const vopts = '<option value="">تلقائي (الأفضل المتاح)</option>' + voices.map(v => `<option value="${Util.esc(v.voiceURI)}" ${st.voiceURI === v.voiceURI ? 'selected' : ''}>${Util.esc(v.name)} (${Util.esc(v.lang)}) — ${v.localService ? 'محلي ✔' : 'يحتاج إنترنت'}</option>`).join('');
+  const picked = Speech.pick();
+  const vstat = !Speech.supported() ? '<span class="bad">❌ المتصفح لا يدعم النطق.</span>' : !voices.length ? '<span class="bad">❌ لا توجد أصوات إنجليزية. ثبّت صوتاً إنجليزياً من إعدادات النظام (Windows: الإعدادات ← الوقت واللغة ← الكلام؛ أندرويد: إعدادات ← تحويل النص إلى كلام ← تنزيل بيانات الصوت).</span>'
+    : Speech.hasLocalEnglish() ? '<span class="okt">✔ يوجد صوت محلي، فالنطق سيعمل بدون إنترنت.</span>' : '<span class="bad">⚠️ الأصوات المتاحة تحتاج إنترنت. ثبّت صوتاً إنجليزياً محلياً ليعمل النطق دون اتصال.</span>';
+  root.innerHTML = `<h1>الإعدادات</h1>
+  <div class="card"><h3>المصطلحات الجديدة يومياً</h3><div class="row">${[5, 10, 20, 30].map(n => `<button class="btn ${st.dailyNew === n ? '' : 'alt'}" data-dn="${n}">${n}</button>`).join('')}<input id="s-dn" type="number" min="1" max="200" value="${st.dailyNew}" class="num"><button class="btn alt" id="s-dn-ok">تطبيق</button></div></div>
+  <div class="card"><h3>الصوت</h3><p>${vstat}</p>
+  <label>سرعة النطق: <b id="v-rate">${st.rate}x</b></label><div class="row">${[0.5, 0.75, 1, 1.25, 1.5].map(n => `<button class="btn sm ${st.rate === n ? '' : 'alt'}" data-rate="${n}">${n}x</button>`).join('')}</div><input id="s-rate" type="range" min="0.5" max="1.5" step="0.05" value="${st.rate}">
+  <label>مستوى الصوت: <b id="v-vol">${Math.round(st.volume * 100)}%</b></label><input id="s-vol" type="range" min="0" max="1" step="0.05" value="${st.volume}">
+  <label>تكرار تلقائي للمصطلح</label><select id="s-rep">${[1, 2, 3].map(n => `<option value="${n}" ${st.repeat === n ? 'selected' : ''}>${n} ${n === 1 ? 'مرة' : 'مرات'}</option>`).join('')}</select>
+  <label>الصوت</label><select id="s-voice">${vopts}</select>
+  <div class="row"><button class="btn" data-say="Hypertension" id="s-test">🔊 جرّب الصوت</button><button class="btn alt" id="s-stop">⏹ إيقاف</button></div>
+  <p class="muted small">الصوت المستخدم الآن: ${picked ? Util.esc(picked.name) : 'لا يوجد'}. زر 🐢 يبطئ النطق تلقائياً للمبتدئين. بعض الأصوات الأونلاين قد تتجاهل تغيير السرعة؛ الأصوات المحلية تلتزم بها.</p></div>
+  <div class="card"><h3>العرض</h3><label class="chk"><input type="checkbox" id="s-pron" ${st.showPron ? 'checked' : ''}> إظهار النطق العربي على البطاقات</label>
+  <label class="chk"><input type="checkbox" id="s-auto" ${st.autoPlay ? 'checked' : ''}> تشغيل النطق تلقائياً عند ظهور البطاقة</label>
+  <label>المظهر</label><select id="s-theme">${[['auto', 'تلقائي (حسب الجهاز)'], ['light', 'فاتح'], ['dark', 'داكن']].map(o => `<option value="${o[0]}" ${st.theme === o[0] ? 'selected' : ''}>${o[1]}</option>`).join('')}</select></div>
+  <div class="card"><h3>التخزين والخصوصية</h3><p class="small" id="s-persist">…</p><button class="btn alt" id="s-persist-btn">طلب تخزين دائم</button>
+  <p class="muted small">🔒 كل بياناتك داخل هذا المتصفح على جهازك. لا يوجد تسجيل دخول ولا مزامنة ولا تحليلات ولا أي إرسال للإنترنت. خذ نسخة احتياطية من صفحة «البيانات» بانتظام، فمسح بيانات المتصفح يمسح التقدّم.</p></div>
+  <div class="card"><h3>منطقة الخطر</h3><button class="btn bad" id="s-reset">تصفير التقدّم والاختبارات (تبقى المصطلحات)</button></div>`;
+  const $ = App.$;
+  root.querySelectorAll('[data-dn]').forEach(b => b.onclick = async () => { await App.saveSettings({ dailyNew: Number(b.dataset.dn) }); V.settings(root); });
+  $('#s-dn-ok').onclick = async () => { const n = Math.max(1, Math.min(200, Math.round(Number($('#s-dn').value) || 10))); await App.saveSettings({ dailyNew: n }); V.settings(root); App.toast('تم ضبط ' + n + ' مصطلح يومياً', 'ok'); };
+  const setRate = async n => { await App.saveSettings({ rate: Math.round(n * 100) / 100 }); $('#v-rate').textContent = App.S.set.rate + 'x'; $('#s-rate').value = App.S.set.rate; root.querySelectorAll('[data-rate]').forEach(b => b.classList.toggle('alt', Number(b.dataset.rate) !== App.S.set.rate)); };
+  root.querySelectorAll('[data-rate]').forEach(b => b.onclick = () => setRate(Number(b.dataset.rate)));
+  $('#s-rate').oninput = e => setRate(Number(e.target.value));
+  $('#s-vol').oninput = async e => { await App.saveSettings({ volume: Number(e.target.value) }); $('#v-vol').textContent = Math.round(App.S.set.volume * 100) + '%'; };
+  $('#s-rep').onchange = e => App.saveSettings({ repeat: Number(e.target.value) });
+  $('#s-voice').onchange = e => { App.saveSettings({ voiceURI: e.target.value }); };
+  $('#s-stop').onclick = () => Speech.stop();
+  $('#s-pron').onchange = e => App.saveSettings({ showPron: e.target.checked });
+  $('#s-auto').onchange = e => App.saveSettings({ autoPlay: e.target.checked });
+  $('#s-theme').onchange = e => App.saveSettings({ theme: e.target.value });
+  const pers = async () => { $('#s-persist').textContent = (await DB.isPersisted()) ? '✔ التخزين الدائم مفعّل (المتصفح لن يحذف بياناتك تلقائياً).' : 'التخزين الدائم غير مؤكد بعد؛ قد يحذف المتصفح البيانات عند امتلاء مساحة الجهاز. اطلبه بالزر أدناه وخذ نسخاً احتياطية.'; };
+  pers(); $('#s-persist-btn').onclick = async () => { const ok = await DB.requestPersist(); App.toast(ok ? 'تم تفعيل التخزين الدائم' : 'لم يمنح المتصفح التخزين الدائم', ok ? 'ok' : 'bad'); pers(); };
+  $('#s-reset').onclick = async () => {
+    if (!confirm('سيتم حذف تقدّمك ونتائج اختباراتك وسجل أيام الدراسة نهائياً. هل تريد المتابعة؟')) return;
+    if (!confirm('تأكيد أخير: لا يمكن التراجع إلا من نسخة احتياطية. متابعة؟')) return;
+    await Promise.all(['progress', 'quizzes', 'days'].map(DB.clear)); await App.reload(); App.toast('تم تصفير التقدّم', 'ok'); V.settings(root);
+  };
+};
+
+V.data = async function (root) {
+  const { S } = App;
+  const imps = (await DB.getAll('imports')).sort((a, b) => b.at - a.at).slice(0, 5), lastB = await DB.getMeta('lastBackup', 0);
+  const catOpts = Object.keys(CATS).map(k => `<option value="${k}">${CATS[k].i} ${CATS[k].ar}</option>`).join('');
+  const f = (id, label, ph) => `<label>${label}<input id="${id}" placeholder="${ph || ''}"></label>`;
+  root.innerHTML = `<h1>البيانات</h1>
+  <div class="tiles"><div class="tile"><b>${Util.num(S.terms.length)}</b><small>مصطلح في قاعدتك</small></div><div class="tile"><b>${Util.num(S.terms.filter(t => t.src && t.src !== 'seed').length)}</b><small>أضفتها أنت</small></div><div class="tile"><small>آخر نسخة احتياطية</small><b style="font-size:1rem">${lastB ? new Date(lastB).toLocaleDateString('ar-EG') : 'لم تُؤخذ بعد'}</b></div></div>
+  <div class="card"><h3>💾 نسخة احتياطية واستعادة</h3><p class="muted small">النسخة تحتوي المصطلحات والتقدّم والاختبارات والإعدادات في ملف واحد على جهازك. عند الاستعادة يُفحص الملف للتأكد من سلامته، ولا تتكرر المصطلحات، ويُدمج تقدّمك مع الموجود بدل حذفه.</p>
+  <div class="row"><button class="btn big" id="d-backup">⬇️ تصدير نسخة احتياطية</button><button class="btn alt" id="d-csv">تصدير المصطلحات CSV</button></div>
+  <label>استعادة من ملف نسخة احتياطية<input type="file" id="d-restore" accept=".json,application/json"></label><label class="chk"><input type="checkbox" id="d-rset" checked> استعادة الإعدادات أيضاً</label><div id="d-rres"></div></div>
+  <div class="card"><h3>📥 استيراد دفعة مصطلحات (CSV / JSON)</h3><p class="muted small">المصطلحات الموجودة لا تُضاف مرة ثانية ولا يتأثر تقدّمك. الأعمدة المطلوبة: en, pr, ar, sm, ex, exa, c, l (والباقي اختياري: p, rt, rel, df).</p>
+  <div class="row"><button class="btn alt" id="d-tpl">تحميل قالب CSV</button></div><input type="file" id="d-file" accept=".csv,.json,text/csv,application/json"><div id="d-prev"></div></div>
+  <div class="card"><h3>➕ إضافة مصطلح واحد</h3><div class="form">${f('n-en', 'المصطلح الإنجليزي', 'Blood pressure')}${f('n-pr', 'النطق بحروف عربية', 'بلد برشر')}${f('n-ar', 'المعنى بالعربي')}${f('n-sm', 'شرح مبسط بالعربي')}${f('n-ex', 'جملة مثال بالإنجليزية')}${f('n-exa', 'ترجمة الجملة')}
+  <label>التصنيف<select id="n-c">${catOpts}</select></label><label>المستوى<select id="n-l">${[1, 2, 3, 4].map(l => `<option value="${l}">${LEVELS[l]}</option>`).join('')}</select></label>
+  <label>النوع<select id="n-p">${Object.keys(POS_AR).map(k => `<option value="${k}">${POS_AR[k]}</option>`).join('')}</select></label>${f('n-rt', 'الجذر/الأجزاء (اختياري)')}${f('n-rel', 'مصطلحات مرتبطة مفصولة بـ ;')}${f('n-df', 'الفرق عن مصطلح مشابه (اختياري)')}</div>
+  <button class="btn big" id="n-add">إضافة</button><div id="n-res"></div></div>
+  ${imps.length ? '<div class="card"><h3>سجل الاستيراد</h3>' + imps.map(i => `<div class="li static"><span>${new Date(i.at).toLocaleString('ar-EG')} — ${Util.esc(i.file)}</span><span>+${Util.num(i.added)} · مكرر ${Util.num(i.dupDb + i.dupFile)} · أخطاء ${Util.num(i.invalid)}</span></div>`).join('') + '</div>' : ''}`;
+  const $ = App.$;
+  $('#d-backup').onclick = async () => { try { const c = await Data.backup(); App.toast('تم التصدير: ' + Util.num(c.terms) + ' مصطلح و' + Util.num(c.progress) + ' سجل تقدّم', 'ok'); } catch (e) { App.toast('فشل التصدير: ' + e.message, 'bad'); } };
+  $('#d-csv').onclick = async () => App.toast('تم تصدير ' + Util.num(await Data.exportTermsCSV()) + ' مصطلح', 'ok');
+  $('#d-tpl').onclick = () => { const h = 'en,pr,ar,sm,ex,exa,c,l,p,rt,rel,df\r\n', r = '"Example term","إجزامبل ترم","مثال","شرح مبسط","This is an example.","هذا مثال.","basics","1","noun","","patient;nurse",""\r\n'; const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['\uFEFF' + h + r], { type: 'text/csv' })); a.download = 'terms-template.csv'; a.click(); };
+  $('#d-restore').onchange = async e => {
+    const file = e.target.files[0]; if (!file) return; const out = $('#d-rres');
+    try {
+      const { outer } = await Data.readBackup(file);
+      if (!confirm('ملف سليم ✔ (' + outer.counts.terms + ' مصطلح، ' + outer.counts.progress + ' سجل تقدّم). سيتم دمجه مع بياناتك الحالية. متابعة؟')) { out.innerHTML = ''; return; }
+      const r = await Data.restore(file, { settings: $('#d-rset').checked });
+      out.innerHTML = `<div class="fb ok"><b>✅ تمت الاستعادة</b><div>مصطلحات جديدة: ${Util.num(r.termsAdded)} · مكررة تم تجاهلها: ${Util.num(r.termsDup)} · غير صالحة: ${Util.num(r.termsBad)}</div><div>تقدّم: جديد ${Util.num(r.progNew)} · محدّث ${Util.num(r.progUpdated)} · أبقيت الأحدث ${Util.num(r.progKept)} · متجاهل ${Util.num(r.progSkipped)}</div><div>اختبارات مضافة: ${Util.num(r.quizzes)} · أيام: ${Util.num(r.days)}</div></div>`;
+    } catch (err) { out.innerHTML = '<div class="fb bad">❌ ' + Util.esc(err.message) + '</div>'; }
+    e.target.value = '';
+  };
+  $('#d-file').onchange = async e => {
+    const file = e.target.files[0]; if (!file) return; const box = $('#d-prev');
+    try {
+      const rows = await Data.readFile(file), p = Data.plan(rows);
+      const list = (arr, fn) => arr.slice(0, 12).map(fn).join('') + (arr.length > 12 ? '<div class="muted small">… و' + Util.num(arr.length - 12) + ' أخرى</div>' : '');
+      box.innerHTML = `<div class="fb"><b>معاينة (لم يُكتب شيء بعد)</b><div>الصفوف: ${Util.num(p.total)} · ✅ جاهز للإضافة: <b>${Util.num(p.valid.length)}</b> · ♻️ موجود بالفعل: ${Util.num(p.dupDb.length)} · 🔁 مكرر داخل الملف: ${Util.num(p.dupFile.length)} · ❌ أخطاء: ${Util.num(p.invalid.length)}</div></div>
+      ${p.dupDb.length ? '<details><summary>الموجودة بالفعل</summary>' + list(p.dupDb, x => `<div class="li static"><span>${App.en(x.en)}</span><span>سطر ${x.line}</span></div>`) + '</details>' : ''}
+      ${p.dupFile.length ? '<details><summary>المكررة داخل الملف</summary>' + list(p.dupFile, x => `<div class="li static"><span>${App.en(x.en)}</span><span>سطر ${x.line}</span></div>`) + '</details>' : ''}
+      ${p.invalid.length ? '<details open><summary>أخطاء التحقق</summary>' + list(p.invalid, x => `<div class="li static err"><span>سطر ${x.line}: ${App.en(x.en)}</span><span>${Util.esc(x.errs.join('، '))}</span></div>`) + '</details>' : ''}
+      <button class="btn big" id="d-go" ${p.valid.length ? '' : 'disabled'}>إضافة ${Util.num(p.valid.length)} مصطلح جديد</button>`;
+      const go = $('#d-go'); if (go) go.onclick = async () => { go.disabled = true; const r = await Data.commit(p, file.name); box.innerHTML = `<div class="fb ok">✅ أُضيف ${Util.num(r.added)} مصطلح. ${r.dup ? 'رفضت القاعدة ' + Util.num(r.dup) + ' مكرراً.' : ''} تقدّمك لم يتغير.</div>`; };
+    } catch (err) { box.innerHTML = '<div class="fb bad">❌ تعذّرت قراءة الملف: ' + Util.esc(err.message) + '</div>'; }
+    e.target.value = '';
+  };
+  $('#n-add').onclick = async () => {
+    const g = id => $('#' + id).value, res = $('#n-res');
+    const r = await Data.addOne({ en: g('n-en'), pr: g('n-pr'), ar: g('n-ar'), sm: g('n-sm'), ex: g('n-ex'), exa: g('n-exa'), c: g('n-c'), l: g('n-l'), p: g('n-p'), rt: g('n-rt'), rel: g('n-rel'), df: g('n-df') });
+    if (!r.ok) { res.innerHTML = '<div class="fb bad">❌ ' + r.errs.map(Util.esc).join('<br>❌ ') + '</div>'; return; }
+    res.innerHTML = '<div class="fb ok">✅ تمت إضافة: ' + App.en(r.rec.en) + '</div>';
+    ['n-en', 'n-pr', 'n-ar', 'n-sm', 'n-ex', 'n-exa', 'n-rt', 'n-rel', 'n-df'].forEach(id => $('#' + id).value = '');
+  };
+};
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => App.boot()); else App.boot();
+
+</script>
+</body>
+</html>
